@@ -729,19 +729,45 @@
             return lessonsData.find(l => l.day === day);
         }
 
-        function getLessonAudioSource(lesson, accent = currentAccent) {
-            if (!lesson) return '';
+        function getLessonAudioSources(lesson, accent = currentAccent) {
+    if (!lesson) return [];
 
-            if (lesson.audio && typeof lesson.audio === 'object') {
-                if (accent === 'british') {
-                    return lesson.audio.british || lesson.audio.uk || lesson.audio.american || lesson.audio.us || lesson.audio.default || '';
-                }
-                return lesson.audio.american || lesson.audio.us || lesson.audio.british || lesson.audio.uk || lesson.audio.default || '';
-            }
+    if (lesson.audio && typeof lesson.audio === 'object') {
+        const orderedSources = accent === 'british'
+            ? [lesson.audio.british, lesson.audio.uk, lesson.audio.american, lesson.audio.us, lesson.audio.default]
+            : [lesson.audio.american, lesson.audio.us, lesson.audio.british, lesson.audio.uk, lesson.audio.default];
 
-            const dayCode = String(lesson.day).padStart(2, '0');
-            return `assets/audio/day-${dayCode}-${accent}.mp3`;
+        return [...new Set(orderedSources.filter(Boolean))];
+    }
+
+    const dayCode = String(lesson.day).padStart(2, '0');
+    return [
+        `assets/audio/day-${dayCode}-${accent}.mp3`,
+        `day-${dayCode}-${accent}.mp3`
+    ];
+}
+
+function getLessonAudioSource(lesson, accent = currentAccent) {
+    const sources = getLessonAudioSources(lesson, accent);
+    return sources[0] || '';
+}
+
+async function resolveLessonAudioSource(lesson, accent = currentAccent) {
+    const sources = getLessonAudioSources(lesson, accent);
+    if (!sources.length) return '';
+
+    for (const source of sources) {
+        try {
+            const response = await fetch(source, { method: 'HEAD', cache: 'no-store' });
+            if (response.ok) return source;
+        } catch (error) {
+            console.warn('音频探测失败:', source, error);
         }
+    }
+
+    return sources[0] || '';
+}
+
 
         function preloadLessonAudio(lesson, accent = currentAccent) {
             const source = getLessonAudioSource(lesson, accent);
