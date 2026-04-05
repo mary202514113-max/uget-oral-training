@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塑料物流包装外贸口语训练营</title>
+    <style>
+        :root {
+            --primary-blue: #0d47a1;
+            --secondary-blue: #1976d2;
+            --accent-blue: #42a5f5;
+            --green: #07c160;
+            --gray-bg: #f5f5f5;
+            --white: #ffffff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 150, 0.15);
+            overflow: hidden;
+        }
+        /* 头部 */
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--accent-blue) 100%);
+            color: white;
+            padding: 28px 30px;
+            text-align: center;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .subtitle {
+            font-size: 15px;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        /* 进度条 */
+        .progress-container {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            margin: 25px 30px 0;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .progress-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4fc3f7 0%, #29b6f6 100%);
+            width: 10%; /* 第1天 */
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+        /* 主内容区 */
+        .main-content {
+            padding: 30px;
+        }
+        .section-title {
+            font-size: 20px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f4ff;
+            display: flex;
+            align-items: center;
+        }
+        .section-title i {
+            margin-right: 12px;
+            color: var(--green);
+        }
+        /* 当前课程 */
+        .current-lesson {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 2px solid #bbdefb;
+        }
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .day-badge {
+            background: var(--green);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        .day-badge i {
+            margin-right: 8px;
+        }
+        .time-badge {
+            background: #ff9800;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .lesson-title {
+            font-size: 22px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .lesson-desc {
+            color: #424242;
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+        /* 对话区域 */
+        .chat-container {
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            height: 280px;
+            overflow-y: auto;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .message {
+            margin-bottom: 20px;
+            max-width: 80%;
+        }
+        .message-user {
+            margin-left: auto;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 12px 18px;
+            border-radius: 16px 16px 4px 16px;
+            border: 1px solid #bbdefb;
+        }
+        .message-ai {
+            background: #f5f5f5;
+            color: #424242;
+            padding: 12px 18px;
+            border-radius: 16px 16px 16px 4px;
+            border: 1px solid #e0e0e0;
+        }
+        .message-role {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            opacity: 0.7;
+        }
+        .message-content {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        /* 语音控制 */
+        .voice-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .btn {
+            flex: 1;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13, 71, 161, 0.25);
+        }
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #424242;
+            border: 1px solid #ddd;
+        }
+        .btn-secondary:hover {
+            background: #eeeeee;
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        .btn i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        /* 输入区域 */
+        .input-container {
+            display: none; /* 默认隐藏文字输入，优先语音 */
+            margin-bottom: 15px;
+        }
+        .input-container.active {
+            display: block;
+        }
+        /* 模式选择器样式 */
+        .mode-selector .mode-btn {
+            background: #f5f5f5;
+            color: #666;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .mode-selector .mode-btn.active {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(13, 71, 161, 0.3);
+        }
+        .mode-selector .mode-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        /* 口音选择器样式 */
+        .accent-selector .accent-btn {
+            background: #f5f5f5;
+            color: #666;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .accent-selector .accent-btn.active {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+            border-color: #e65100;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+        }
+        .accent-selector .accent-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .text-input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 15px;
+            resize: vertical;
+            min-height: 80px;
+        }
+        /* 提示词区域 */
+        .prompt-area {
+            background: #fff8e1;
+            border: 1px solid #ffd54f;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .prompt-title {
+            color: #ff9800;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .prompt-title i {
+            margin-right: 8px;
+        }
+        .prompt-content {
+            color: #824c00;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        /* 课程列表 */
+        .lesson-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .lesson-card {
+            background: var(--white);
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .lesson-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            border-color: #bbdefb;
+        }
+        .lesson-card.active {
+            border-color: var(--green);
+            border-width: 2px;
+            background: #f9fdf7;
+        }
+        .lesson-card.completed {
+            border-color: #c8e6c9;
+            background: #f1f8e9;
+        }
+        .lesson-card.locked {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .card-day {
+            background: #e3f2fd;
+            color: var(--primary-blue);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .card-status {
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-complete {
+            color: var(--green);
+        }
+        .status-locked {
+            color: #9e9e9e;
+        }
+        .card-title {
+            font-size: 16px;
+            color: #212121;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .card-desc {
+            font-size: 13px;
+            color: #757575;
+            line-height: 1.5;
+        }
+        /* 底部 */
+        .footer {
+            background: #f5f5f5;
+            padding: 20px 30px;
+            text-align: center;
+            color: #757575;
+            border-top: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+        /* 语音状态指示 */
+        .voice-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            gap: 15px;
+        }
+        .mic-animation {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 1.5s infinite;
+            color: white;
+            font-size: 24px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(66, 165, 245, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(66, 165, 245, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(66, 165, 245, 0); }
+        }
+        .status-text {
+            font-size: 14px;
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+        /* 飞书特有样式 */
+        .feishu-badge {
+            background: #0066ff;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 12px;
+            }
+            .header {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .main-content {
+                padding: 20px;
+            }
+            .voice-controls {
+                flex-direction: column;
+            }
+            .lesson-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    🦞
+                </div>
+                <div>
+                    <h1>塑料物流包装外贸口语训练营</h1>
+                    <div class="subtitle">
+                        持续更新 · 每天15分钟 · 从零到外贸专家 · <span class="feishu-badge">飞书微应用</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span>第 <span id="current-day">1</span> 天 / <span id="total-days">38</span></span>
+                    <span><span id="progress-percent">3</span>% 完成</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 当前课程 -->
+            <section class="current-lesson">
+                <div class="lesson-header">
+                    <div class="day-badge">
+                        <i class="fas fa-calendar-day"></i> 第 <span id="display-day">1</span> 天
+                    </div>
+                    <div class="time-badge">
+                        <i class="fas fa-stopwatch"></i> 15分钟训练
+                    </div>
+                </div>
+                
+                <h2 class="lesson-title" id="lesson-title">产品基础知识：自我介绍与基本产品线</h2>
+                <p class="lesson-desc" id="lesson-description">
+                    学习如何用英语自我介绍并向客户简要介绍公司的核心产品线。掌握基本的产品名称、材质和主要应用场景。
+                </p>
+                
+                <!-- 提示词区域 -->
+                <div class="prompt-area" id="prompt-area">
+                    <div class="prompt-title">
+                        <i class="fas fa-lightbulb"></i> 对话练习提示
+                    </div>
+                    <div class="prompt-content" id="prompt-content">
+                        请尝试用英语介绍公司基本情况：我们是优盖特塑胶科技(Uget Packaging)，专业生产塑料托盘、周转箱和围板箱。
+                        然后询问客户："What kind of plastic packaging products are you looking for?"（您在找什么样的塑料包装产品？）
+                    </div>
+                </div>
+                
+                <!-- 语音状态指示 -->
+                <div class="voice-status" id="voice-status" style="display: none;">
+                    <div class="mic-animation">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="status-text" id="status-text">正在聆听...请开始说话</div>
+                </div>
+                
+                <!-- 对话区域 -->
+                <div class="chat-container" id="chat-container">
+                    <div class="message message-ai">
+                        <div class="message-role">AI 客户代表 · Emily</div>
+                        <div class="message-content">Hello! I'm Emily from an automotive parts company in Germany. We're looking for plastic packaging solutions for our warehouse. Can you tell me about your company and products?</div>
+                    </div>
+                    <div class="message message-user">
+                        <div class="message-role">您的回答</div>
+                        <div class="message-content" id="user-message-placeholder">请点击下方按钮开始语音对话</div>
+                    </div>
+                </div>
+                
+                <!-- 口音选择 -->
+                <div class="accent-selector" style="margin-bottom: 20px; padding: 15px; background: #fff3e0; border-radius: 10px; border: 1px solid #ffb74d;">
+                    <div style="font-weight: 600; color: #e65100; margin-bottom: 10px;">
+                        <i class="fas fa-globe-americas"></i> 选择口音
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-secondary accent-btn active" id="accent-american" style="flex: 1; padding: 10px; font-size: 14px;">
+                            🇺🇸 美式英语
+                        </button>
+                        <button class="btn btn-secondary accent-btn" id="accent-british" style="flex: 1; padding: 10px; font-size: 14px;">
+                            🇬🇧 英式英语
+                        </button>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #666;">
+                        <i class="fas fa-info-circle"></i> 选择您想要学习的英语口音风格
+                    </div>
+                </div>
+
+                <!-- 学习模式选择 -->
+                <div class="mode-selector" style="margin-bottom: 20px; padding: 15px; background: #f0f7ff; border-radius: 10px; border: 1px solid #bbdefb;">
+                    <div style="font-weight: 600; color: var(--primary-blue); margin-bottom: 10px;">
+                        <i class="fas fa-cog"></i> 学习模式
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-secondary mode-btn active" id="mode-listen-first" style="flex: 1; padding: 10px; font-size: 14px;">
+                            <i class="fas fa-headphones"></i> 先听后说
+                        </button>
+                        <button class="btn btn-secondary mode-btn" id="mode-direct" style="flex: 1; padding: 10px; font-size: 14px;">
+                            <i class="fas fa-comments"></i> 直接对话
+                        </button>
+                    </div>
+                    <div id="mode-desc" style="margin-top: 10px; font-size: 13px; color: #666;">
+                        <i class="fas fa-info-circle"></i> 先听后说模式：系统会先播放示范音频，您可以跟读练习
+                    </div>
+                </div>
+
+                <!-- 示范音频播放区域 -->
+                <div class="demo-audio-area" id="demo-audio-area" style="margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 12px; border: 2px solid #4caf50; display: none;">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <div style="width: 50px; height: 50px; background: #4caf50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                            <i class="fas fa-volume-up" style="color: white; font-size: 20px;"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600; color: #2e7d32; font-size: 16px;">示范音频</div>
+                            <div style="font-size: 13px; color: #558b2f;">请仔细听，然后跟读练习</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 英文示范文本 -->
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #4caf50;">
+                        <div style="font-size: 12px; color: #4caf50; font-weight: 600; margin-bottom: 8px;">
+                            <i class="fas fa-language"></i> 英文原文
+                        </div>
+                        <div class="demo-text" id="demo-text" style="font-size: 15px; line-height: 1.6; color: #333;">
+                            <!-- 动态显示示范文本 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 中文翻译 -->
+                    <div style="background: #fff8e1; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #ff9800;">
+                        <div style="font-size: 12px; color: #ff9800; font-weight: 600; margin-bottom: 8px;">
+                            <i class="fas fa-globe-asia"></i> 中文翻译
+                        </div>
+                        <div class="demo-translation" id="demo-translation" style="font-size: 14px; line-height: 1.6; color: #5d4037;">
+                            <!-- 动态显示中文翻译 -->
+                        </div>
+                    </div>
+                    
+                    <div class="audio-controls" style="display: flex; gap: 10px;">
+                        <button class="btn btn-primary" id="play-demo-btn" style="flex: 1;">
+                            <i class="fas fa-play"></i> 播放示范
+                        </button>
+                        <button class="btn btn-secondary" id="replay-demo-btn" style="flex: 1;">
+                            <i class="fas fa-redo"></i> 重播
+                        </button>
+                        <button class="btn btn-secondary" id="slow-demo-btn" style="flex: 1;">
+                            <i class="fas fa-turtle"></i> 慢速
+                        </button>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; gap: 12px; flex-wrap: wrap;">
+                        <div id="audio-support-tip" style="display: none; flex: 1; min-width: 220px; font-size: 12px; color: #8d6e63; background: #fff3e0; border: 1px solid #ffcc80; border-radius: 8px; padding: 8px 10px;">
+                            如果示范音频暂时不可播放，可先复制英文原文继续练习。
+
+                        </div>
+                        <button class="btn btn-secondary" id="copy-demo-btn" style="min-width: 148px;">
+                            <i class="fas fa-copy"></i> 复制英文原文
+                        </button>
+                    </div>
+                    
+                    <div id="playing-status" style="margin-top: 10px; text-align: center; color: #4caf50; font-size: 14px; display: none;">
+                        <i class="fas fa-volume-up fa-spin"></i> 正在播放...
+                    </div>
+                </div>
+
+                <!-- 中文翻译常驻显示区 -->
+                <div id="translation-panel" style="background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%); border: 1px solid #ffd54f; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: space-between;">
+                        <div style="font-weight: 600; color: #e65100; font-size: 14px;">
+                            <i class="fas fa-globe-asia"></i> 中文翻译参考
+                        </div>
+                        <div style="font-size: 12px; color: #999; cursor: pointer;" id="toggle-translation">
+                            <i class="fas fa-eye-slash"></i> 收起
+                        </div>
+                    </div>
+                    <div id="translation-text" style="color: #5d4037; font-size: 14px; line-height: 1.8; border-left: 3px solid #ff9800; padding-left: 12px;">
+                        <!-- 动态填充 -->
+                    </div>
+                    <div id="translation-english" style="color: #37474f; font-size: 13px; line-height: 1.7; margin-top: 10px; padding: 10px; background: white; border-radius: 6px; border: 1px solid #e0e0e0;">
+                        <!-- 英文原文 -->
+                    </div>
+                </div>
+
+                <!-- 语音控制 -->
+                <div class="voice-controls">
+                    <button class="btn btn-primary" id="start-btn">
+                        <i class="fas fa-microphone"></i> 开始语音对话
+                    </button>
+                    <button class="btn btn-secondary" id="hint-btn">
+                        <i class="fas fa-question-circle"></i> 查看参考答案
+                    </button>
+                </div>
+                
+                <!-- 备用文字输入 -->
+                <div class="input-container" id="input-container">
+                    <textarea class="text-input" id="text-input" placeholder="如果麦克风不可用，您可以在这里输入英文回答..."></textarea>
+                    <button class="btn btn-primary" id="send-text-btn" style="margin-top: 10px;">
+                        <i class="fas fa-paper-plane"></i> 发送文字回答
+                    </button>
+                </div>
+            </section>
+            
+            <!-- 课程列表 -->
+            <section>
+                <h2 class="section-title">
+                    <i class="fas fa-list-ol"></i> 外贸口语训练计划（持续更新）
+
+                </h2>
+                <div class="lesson-list" id="lesson-list">
+                    <!-- 动态生成 -->
+                </div>
+            </section>
+        </main>
+
+        <!-- 底部 -->
+        <footer class="footer">
+            <p>© 2026 优盖特塑胶科技 · 外贸口语训练系统 · 专为飞书平台优化</p>
+            <p style="margin-top: 8px; font-size: 13px;">
+                <i class="fas fa-shield-alt"></i> 数据保存在浏览器本地，100%隐私安全
+            </p>
+        </footer>
+    </div>
+
+    <!-- 参考答案模态框 -->
+    <div id="hint-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="background: white; border-radius: 16px; padding: 30px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 style="color: var(--primary-blue); font-size: 20px;">
+                    <i class="fas fa-graduation-cap"></i> 参考答案 & 学习要点
+                </h3>
+                <button id="close-hint" style="background: none; border: none; font-size: 24px; color: #757575; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="hint-content" style="line-height: 1.6;">
+                <!-- 动态内容 -->
+            </div>
+            <div style="margin-top: 25px; text-align: center;">
+                <button class="btn btn-primary" id="practice-again-btn" style="padding: 12px 30px;">
+                    <i class="fas fa-redo"></i> 再练习一次
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== 全局变量 ==========
+        let currentDay = 1;
+        let lessonsData = [];
+        let isRecording = false;
+        let recognition = null;
+        let chatHistory = [];
+        let currentMode = 'listen-first'; // 'listen-first' 或 'direct'
+        let currentAccent = 'american'; // 'american' 或 'british'
+        let currentDemoAudio = null;
+        let isPlaying = false;
+        let pendingAudioTimer = null;
+        let currentAudioRequestId = 0;
+
+        function getLessonByDay(day) {
+            return lessonsData.find(l => l.day === day);
+        }
+
+        function getLessonAudioSource(lesson, accent = currentAccent) {
+            if (!lesson) return '';
+
+            if (lesson.audio && typeof lesson.audio === 'object') {
+                if (accent === 'british') {
+                    return lesson.audio.british || lesson.audio.uk || lesson.audio.american || lesson.audio.us || lesson.audio.default || '';
+                }
+                return lesson.audio.american || lesson.audio.us || lesson.audio.british || lesson.audio.uk || lesson.audio.default || '';
+            }
+
+            const dayCode = String(lesson.day).padStart(2, '0');
+            return `assets/audio/day-${dayCode}-${accent}.mp3`;
+        }
+
+        function preloadLessonAudio(lesson, accent = currentAccent) {
+            const source = getLessonAudioSource(lesson, accent);
+            if (!source) return;
+            const preloadAudio = new Audio();
+            preloadAudio.preload = 'auto';
+            preloadAudio.src = source;
+        }
+
+
+        // ========== 30天课程数据 ==========
+        lessonsData = [
+            // ============ 第一周：产品基础知识 ============
+            {
+                day: 1,
+                title: "产品基础知识：自我介绍与基本产品线",
+                description: "学习如何用英语自我介绍并向客户简要介绍公司的核心产品线",
+                difficulty: "初级",
+                duration: "15分钟",
+                tags: ["基础", "自我介绍", "产品线"],
+                prompt: "请尝试用英语介绍公司基本情况：我们是优盖特塑胶科技(Uget Packaging)，专业生产塑料托盘、周转箱和围板箱。然后询问客户需求。",
+                hint: {
+                    answer: "Hello, I'm from Uget Packaging. We specialize in plastic packaging products including plastic pallets, turnover boxes, and folding plastic containers. Our products are widely used in automotive, electronics, and logistics industries. What kind of plastic packaging solutions are you looking for?",
+                    translation: "您好，我是优盖特包装公司的。我们专注于塑料包装产品，包括塑料托盘、周转箱和折叠式塑料围板箱。我们的产品广泛应用于汽车、电子和物流行业。您需要什么样的塑料包装解决方案呢？",
+                    keyPoints: ["公司名称要清晰：Uget Packaging", "核心产品列1-3个即可：pallets, turnover boxes, containers", "简要说明应用行业：automotive, electronics, logistics", "最后一定要询问客户需求"],
+                    vocabulary: ["specialize in", "plastic packaging", "pallets", "turnover boxes", "folding containers", "widely used", "logistics industry"]
+                },
+                initialAI: "Hello! I'm Emily from an automotive parts company in Germany. We're looking for plastic packaging solutions for our warehouse. Can you tell me about your company and products?"
+            },
+            {
+                day: 2,
+                title: "材料特性介绍：HDPE与PP的区别",
+                description: "掌握如何介绍产品材质特性及不同材料的适用场景",
+                difficulty: "初级",
+                duration: "15分钟",
+                tags: ["材质", "技术", "对比"],
+                prompt: "请解释HDPE和PP材料的区别，并推荐适合客户需求的产品材质",
+                hint: {
+                    answer: "We mainly use two materials: HDPE (High-Density Polyethylene) and PP (Polypropylene). HDPE has better chemical resistance and impact strength, ideal for harsh environments like chemical factories. PP is lighter and more flexible, better for indoor applications or food-grade use. Based on your needs, I'd recommend HDPE for durability or PP for cost-effectiveness.",
+                    translation: "我们主要使用两种材料：HDPE（高密度聚乙烯）和PP（聚丙烯）。HDPE具有更好的耐化学性和抗冲击强度，非常适合化工厂等恶劣环境。PP更轻、更柔韧，更适合室内应用或食品级用途。根据您的需求，我建议选择HDPE以获得更好的耐用性，或选择PP以获得更高的成本效益。",
+                    keyPoints: ["准确使用专业术语：HDPE, PP", "对比性能：chemical resistance vs flexibility", "推荐要基于客户需求", "解释缩写含义"],
+                    vocabulary: ["HDPE", "PP (Polypropylene)", "chemical resistance", "impact strength", "harsh environments", "flexible", "food-grade", "durability", "cost-effectiveness"]
+                },
+                initialAI: "I see. My products will be used in a chemical factory warehouse where there's occasional chemical exposure. What material would you recommend?"
+            },
+            {
+                day: 3,
+                title: "托盘产品详细介绍",
+                description: "学习介绍三种主要托盘：货架托盘、防静电托盘、九脚托盘",
+                difficulty: "初级",
+                duration: "15分钟",
+                tags: ["托盘", "详细规格", "应用场景"],
+                prompt: "请详细介绍公司的托盘产品线，包括rackable pallet, ESD pallet和nestable pallet",
+                hint: {
+                    answer: "We have three main types of plastic pallets: 1) Rackable plastic pallets - designed specifically for rack storage systems, with reinforced structures to withstand heavy loads on shelves. 2) ESD pallets - anti-static for electronic and semiconductor industries, meeting ANSI/ESD standards. 3) Nestable pallets - designed to save space when empty, stacking to 1/3 height, perfect for warehouse logistics.",
+                    translation: "我们有三种主要类型的塑料托盘：1）货架式塑料托盘——专为货架存储系统设计，具有加强结构，可承受货架上的重载。2）防静电托盘——适用于电子和半导体行业的防静电产品，符合ANSI/ESD标准。3）套叠式托盘——空载时可节省空间，可堆叠至原高度的1/3，非常适合仓库物流使用。",
+                    keyPoints: ["分类介绍：1) 2) 3) 结构清晰", "每类说明用途和特点", "强调技术标准：ANSI/ESD", "突出空间节省优势"],
+                    vocabulary: ["rackable pallets", "ESD (Electrostatic Discharge)", "nestable pallets", "reinforced structure", "withstand heavy loads", "anti-static", "space-saving", "stacking", "logistics"]
+                },
+                initialAI: "We need pallets for our automated warehouse with rack system. The pallets need to work with our forklifts and be stable on 2-meter high shelves. What do you recommend?"
+            },
+            {
+                day: 4,
+                title: "围板箱应用场景介绍",
+                description: "掌握围板箱在不同行业的具体应用方案",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["围板箱", "解决方案", "行业应用"],
+                prompt: "请询问客户的应用场景，并推荐合适的围板箱解决方案",
+                hint: {
+                    answer: "Could you tell me more about your application scenario? For automotive parts storage and transport, we recommend our heavy-duty sleeve boxes with reinforced corners. For electronics manufacturing, our ESD-safe collapsible boxes protect sensitive components. For food logistics, we have FDA-approved stackable plastic containers. Which industry are you operating in, and what specific challenges are you facing?",
+                    translation: "您能告诉我更多关于您的应用场景吗？对于汽车零部件的存储和运输，我们推荐带有加强角的重型围板箱。对于电子制造业，我们的防静电可折叠箱可以保护敏感元件。对于食品物流，我们有FDA认证的堆叠式塑料容器。您从事哪个行业，面临什么具体挑战？",
+                    keyPoints: ["主动询问应用场景", "按行业推荐：automotive, electronics, food", "强调产品针对性优势", "询问具体挑战"],
+                    vocabulary: ["application scenario", "automotive parts", "ESD-safe", "collapsible boxes", "FDA-approved", "food logistics", "heavy-duty", "reinforced corners", "sensitive components"]
+                },
+                initialAI: "We manufacture electronic components that need anti-static protection during storage, assembly line transport, and shipping to customers. The boxes also need to work with our conveyors."
+            },
+            {
+                day: 5,
+                title: "周转箱规格与标准",
+                description: "学习介绍VDA标准周转箱和国际标准规格",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["标准规格", "VDA", "兼容性"],
+                prompt: "请解释600x400mm周转箱系列和VDA KLT标准产品的优势",
+                hint: {
+                    answer: "Our standard 600x400mm series follows the international EUR-pallet compatibility standards. These containers are designed to maximize truck and container space efficiency. Our VDA KLT containers meet exact German automotive industry standards - they're dimensionally precise for assembly line conveyors, stack securely, and fold flat when empty to save 80% storage space.",
+                    translation: "我们的标准600x400mm系列遵循国际欧标托盘兼容性标准。这些容器设计用于最大化卡车和集装箱的空间效率。我们的VDA KLT容器完全符合德国汽车工业标准——尺寸精确，适合装配线输送带，堆叠稳固，空箱时可折叠平整，节省80%的存储空间。",
+                    keyPoints: ["国际标准：EUR-pallet compatibility", "空间效率：truck space efficiency", "德国汽车标准：VDA KLT", "精确尺寸：dimensionally precise"],
+                    vocabulary: ["EUR-pallet compatibility", "space efficiency", "VDA KLT (Kleinladungstrager)", "assembly line conveyors", "stack securely", "fold flat", "storage space", "dimensionally precise"]
+                },
+                initialAI: "We need containers for automotive parts assembly line. The containers must fit our standard conveyor widths and be compatible with our automated sorting system. What specifications should I consider?"
+            },
+            {
+                day: 6,
+                title: "客户需求挖掘技巧",
+                description: "学习通过提问了解客户具体需求",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["提问技巧", "需求挖掘", "沟通"],
+                prompt: "请通过提问了解客户的预算、使用环境、数量等关键信息",
+                hint: {
+                    answer: "To better recommend the right products for you, could you share: 1) What's your approximate budget range for this project? 2) How many units do you need initially, and what's your monthly usage? 3) Will these be used indoors, outdoors, or both? 4) Do you have any special requirements like temperature resistance, UV protection, or specific certifications needed?",
+                    translation: "为了更好地为您推荐合适的产品，您能分享一下：1）这个项目的预算范围大概是多少？2）您最初需要多少数量，每月使用量是多少？3）这些产品将在室内、室外还是两者都使用？4）您有什么特殊要求吗，比如耐温性、防紫外线或特定认证？",
+                    keyPoints: ["结构清晰：1) 2) 3) 4)", "关键信息：预算、数量、环境、特殊需求", "使用礼貌询问方式", "为后续报价做准备"],
+                    vocabulary: ["budget range", "initial units", "monthly usage", "indoor/outdoor use", "temperature resistance", "UV protection", "certifications needed", "special requirements"]
+                },
+                initialAI: "We're planning a major warehouse upgrade next quarter. I know we need plastic containers but I'm not sure about exact specifications. We just want something durable and cost-effective."
+            },
+            {
+                day: 7,
+                title: "价格谈判开场技巧",
+                description: "学习如何优雅地询问客户预算范围",
+                difficulty: "初级",
+                duration: "15分钟",
+                tags: ["价格谈判", "商务技巧", "预算"],
+                prompt: "请询问客户的预算范围，为后续报价做准备",
+                hint: {
+                    answer: "To provide you with suitable options and accurate pricing, could you give me an approximate budget range you're working with? We have solutions ranging from economical standard models to premium customized options. Understanding your budget helps me recommend the most cost-effective solution for your needs.",
+                    translation: "为了给您提供合适的选择和准确的报价，您能告诉我您的预算范围吗？我们有从经济型标准款到高端定制款的各种解决方案。了解您的预算有助于我为您推荐最具成本效益的方案。",
+                    keyPoints: ["解释询问预算的目的", "强调选择范围：economical to premium", "使用'cost-effective'正面表述", "保持商务礼貌"],
+                    vocabulary: ["budget range", "suitable options", "accurate pricing", "economical", "premium options", "customized", "cost-effective", "recommend"]
+                },
+                initialAI: "We like your products. How much are your plastic pallets and boxes? I need to create a budget proposal for my manager."
+            },
+            // ============ 第二周：报价与商务谈判 ============
+            {
+                day: 8,
+                title: "报价单讲解：FOB/CIF/DDP术语",
+                description: "学习国际贸易术语并为客户清晰解释报价细节",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["报价", "贸易术语", "FOB", "CIF"],
+                prompt: "请为客户解释FOB和CIF报价的区别，并推荐合适的贸易条款",
+                hint: {
+                    answer: "We can offer you pricing under different trade terms. Under FOB Shanghai, the price covers goods and local charges up to the port. You'd arrange your own shipping. Under CIF, we include sea freight and insurance to your destination port. For a hassle-free experience, I'd recommend CIF if this is your first import from China - we handle the logistics, and you only need to arrange local delivery and customs clearance.",
+                    translation: "我们可以提供不同贸易条款下的报价。FOB上海价包含货物和港口前的所有本地费用，您需要自己安排运输。CIF价格包含海运费和保险到目的港。如果您是第一次从中国进口，我建议选择CIF——我们负责物流，您只需要安排本地配送和清关。",
+                    keyPoints: ["区分FOB和CIF：运输责任划分", "CIF更适合首次进口客户", "强调'hassle-free'客户利益", "提及清关义务归属"],
+                    vocabulary: ["trade terms", "FOB (Free On Board)", "CIF (Cost, Insurance, Freight)", "destination port", "sea freight", "customs clearance", "local charges", "hassle-free"]
+                },
+                initialAI: "This is our first time importing from China. We're not familiar with the shipping process. Can you explain the price terms and what's included?"
+            },
+            {
+                day: 9,
+                title: "MOQ与批量折扣谈判",
+                description: "学习讨论最小起订量和数量阶梯折扣",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["MOQ", "折扣", "批量采购"],
+                prompt: "请向客户解释最小起订量和批量折扣政策",
+                hint: {
+                    answer: "Our standard MOQ is 500 pieces per item. However, we offer tiered volume discounts: 500-999 pieces at standard price, 1,000-4,999 pieces at 5% off, and 5,000+ pieces at 10% off. If you're not ready for the full MOQ, I can arrange a sample order of 5-10 pieces at a small premium. Many of our clients start with a trial order to test the quality before committing to larger quantities.",
+                    translation: "我们的标准最小起订量是每款500件。不过，我们提供阶梯式批量折扣：500-999件为标准价格，1,000-4,999件打95折，5,000件以上打9折。如果您暂时达不到最小起订量，我可以安排5-10件的样品订单，略加一点费用。我们很多客户都是先下试用订单测试质量，然后再大批量采购。",
+                    keyPoints: ["清楚说明MOQ：500件", "阶梯折扣：500/1000/5000三档", "提供样品订单选项作为替代方案", "强调'trial order'降低客户心理门槛"],
+                    vocabulary: ["MOQ (Minimum Order Quantity)", "tiered volume discounts", "sample order", "trial order", "standard price", "premium", "committing to", "larger quantities"]
+                },
+                initialAI: "We're interested in your nestable pallets, but 500 pieces is a lot for our first order. We'd like to start smaller to test the quality first."
+            },
+            {
+                day: 10,
+                title: "付款方式协商：T/T与L/C",
+                description: "学习讨论常见的国际付款方式及安全收款策略",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["付款方式", "T/T", "L/C", "安全收款"],
+                prompt: "请与客户协商付款方式，推荐安全可靠的付款条款",
+                hint: {
+                    answer: "For new customers, our standard payment terms are 30% deposit by T/T, and 70% balance before shipment or against copy of B/L. This protects both sides. For larger orders above 50,000 USD, we also accept Letter of Credit from a first-class international bank. If you have concerns about payment security, I can provide references from our existing customers in your region.",
+                    translation: "对于新客户，我们的标准付款条件是30%的T/T定金，70%尾款在发货前或凭提单副本支付。这样对双方都有保障。对于5万美元以上的大额订单，我们也接受一流国际银行的信用证。如果您对付款安全有顾虑，我可以为您提供我们现有同区域客户的推荐人。",
+                    keyPoints: ["标准条款：30%定金+70%尾款", "大单可接受L/C", "强调'protects both sides'双赢", "主动提供客户推荐增加信任"],
+                    vocabulary: ["T/T (Telegraphic Transfer)", "deposit", "balance", "B/L (Bill of Lading)", "L/C (Letter of Credit)", "first-class bank", "references", "shipment"]
+                },
+                initialAI: "We've never paid a Chinese supplier before. What payment methods do you accept? We want to make sure the transaction is safe for both parties."
+            },
+            {
+                day: 11,
+                title: "交期承诺与生产排期",
+                description: "学习讨论交货时间和生产周期安排",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["交期", "生产排期", "Lead Time"],
+                prompt: "请告知客户生产周期和预计交货时间",
+                hint: {
+                    answer: "For standard products in stock, we can ship within 3-5 business days. For customized orders, our typical lead time is 25-30 days from deposit confirmation to delivery. This includes 7 days for mold preparation, 15 days for mass production, and 5-7 days for sea freight. I can provide a detailed production schedule and weekly progress updates so you can track your order every step of the way.",
+                    translation: "对于有现货的标准产品，我们可以在3-5个工作日内发货。对于定制订单，从定金确认到交货通常需要25-30天。这包括7天的模具准备、15天的批量生产和5-7天的海运时间。我可以提供详细的生产进度表和每周进度更新，让您可以随时跟踪订单的每个环节。",
+                    keyPoints: ["区分现货和定制交期", "具体时间分解：模具+生产+运输", "承诺进度更新增加透明度", "使用'business days'准确表述"],
+                    vocabulary: ["in stock", "lead time", "deposit confirmation", "mass production", "sea freight", "production schedule", "progress updates", "business days"]
+                },
+                initialAI: "Our new warehouse opens in 2 months. We need the pallets and containers to arrive before that. What's your earliest delivery time?"
+            },
+            {
+                day: 12,
+                title: "样品发送流程说明",
+                description: "学习如何解释样品流程、费用和快递方式",
+                difficulty: "初级",
+                duration: "15分钟",
+                tags: ["样品", "快递", "DHL", "FEDEX"],
+                prompt: "请向客户说明样品申请流程和快递方式",
+                hint: {
+                    answer: "We'd be happy to send you samples. Here's the process: first, you select the products you're interested in and we prepare the samples within 2 business days. Sample cost is refundable against your bulk order. We ship via DHL or FedEx, which takes about 3-5 days to arrive. Express freight is around 50-80 USD per package depending on weight and destination. I'll send you the tracking number as soon as the package is dispatched.",
+                    translation: "我们很乐意给您寄样品。流程是这样的：首先您选择感兴趣的产品，我们在2个工作日内准备样品。样品费可以在您后续批量下单时退还。我们通过DHL或FedEx快递发送，大约3-5天到达。快递费根据重量和目的地约50-80美元一包。包裹一发出我就给您发追踪号码。",
+                    keyPoints: ["流程清晰：选品->准备->发货", "样品费可退还增加吸引力", "具体快递时间和费用", "承诺提供追踪号"],
+                    vocabulary: ["samples", "refundable", "bulk order", "DHL", "FedEx", "express freight", "tracking number", "dispatched"]
+                },
+                initialAI: "Before placing a big order, we'd like to see and test some samples first. How does your sample process work and how long does delivery take?"
+            },
+            {
+                day: 13,
+                title: "应对客户比价：突出差异化优势",
+                description: "学习当客户说别人的更便宜时如何回应",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["比价", "差异化", "价值主张"],
+                prompt: "客户反馈其他供应商报价更低，请说明我们产品的独特价值",
+                hint: {
+                    answer: "I understand price is important. Could you share what's included in their quote? Sometimes lower prices mean fewer features. Our products use 100% virgin HDPE material - many competitors use recycled material to cut costs. We also provide 5-year warranty, ISO 9001 certification, and free design consultation. When you factor in longer lifespan, lower replacement costs, and better after-sales support, our total cost of ownership is actually lower in the long run.",
+                    translation: "我理解价格很重要。您能分享一下对方报价包含什么吗？有时候较低的价格意味着较少的功能。我们的产品使用100%全新料HDPE——很多竞争对手用回收料降低成本。我们还提供5年质保、ISO 9001认证和免费设计咨询。综合考虑更长的使用寿命、更低的更换成本和更好的售后服务，我们的总拥有成本实际上更低。",
+                    keyPoints: ["不直接降价，先了解对方报价内容", "强调材质差异：virgin vs recycled", "提出TCO(总拥有成本)概念", "用数据和认证支撑价值主张"],
+                    vocabulary: ["total cost of ownership", "virgin material", "recycled material", "warranty", "lifespan", "replacement costs", "after-sales support", "ISO 9001"]
+                },
+                initialAI: "To be honest, another Chinese supplier quoted us 20% less than your price for similar pallets. Why should we pay more for your products?"
+            },
+            {
+                day: 14,
+                title: "促成首次下单技巧",
+                description: "学习如何引导犹豫的客户完成首次下单",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["成交", "促单", "紧迫感"],
+                prompt: "客户表示需要考虑一下，请用恰当方式促进成交",
+                hint: {
+                    answer: "Of course, I completely understand you need time to evaluate. Just to let you know, our current production schedule has limited capacity due to peak season demand. If you can confirm within this week, I can reserve the production slot for you and guarantee delivery before your deadline. Also, I can include a 2% early-bird discount if you place the order by Friday. There's no pressure at all - I just want to make sure we can meet your timeline.",
+                    translation: "当然，我完全理解您需要时间评估。只是想提醒您，由于旺季需求，我们目前的生产排期比较紧张。如果您这周内能确认，我可以为您预留生产档位并保证在截止日期前交货。另外，如果周五前下单，我还可以给您加2%的早鸟折扣。完全没有压力——我只是想确保我们能赶上您的时间线。",
+                    keyPoints: ["尊重客户决策，不强推", "制造合理的紧迫感：旺季产能紧张", "提供激励：early-bird discount", "强调保障：预留档位+保证交期"],
+                    vocabulary: ["production schedule", "limited capacity", "peak season", "reserve", "guarantee delivery", "early-bird discount", "production slot", "timeline"]
+                },
+                initialAI: "Thanks for the detailed quotation. I need to discuss with my team and get approval from management. Give me a week or so to get back to you."
+            },
+            // ============ 第三周：技术沟通与质检 ============
+            {
+                day: 15,
+                title: "产品尺寸与承重参数讲解",
+                description: "学习用英语准确介绍产品的物理参数和承重能力",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["规格参数", "承重", "动载/静载"],
+                prompt: "请详细介绍托盘的尺寸规格和承载能力参数",
+                hint: {
+                    answer: "Our standard rackable pallet is 1200x1000x150mm and weighs 14.5 kg. It has a dynamic load capacity of 1,500 kg, static load capacity of 6,000 kg, and rack load capacity of 1,200 kg. Dynamic load means the weight when moving with a forklift, static load is the weight when stacked and stationary, and rack load is the maximum weight supported on a rack system. These are tested according to ISO 8611 standards.",
+                    translation: "我们的标准货架托盘尺寸为1200x1000x150mm，重量14.5公斤。动载1500公斤，静载6000公斤，货架载1200公斤。动载是指用叉车搬运时的承重，静载是堆叠静止时的承重，货架载是在货架系统上支撑的最大重量。这些都是按照ISO 8611标准测试的。",
+                    keyPoints: ["三组承载参数必须区分：dynamic/static/rack", "给出具体数字：1,500/6,000/1,200 kg", "解释每个参数含义", "引用测试标准ISO 8611增加可信度"],
+                    vocabulary: ["dynamic load", "static load", "rack load", "load capacity", "forklift", "stacked and stationary", "ISO 8611", "rack system"]
+                },
+                initialAI: "I need pallets that can hold at least 1,200 kg on our rack system. Can you tell me the exact dimensions and load capacities of your rackable pallets?"
+            },
+            {
+                day: 16,
+                title: "定制产品需求沟通",
+                description: "学习如何确认客户的定制要求并报价",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["定制", "模具", "图纸"],
+                prompt: "客户需要定制规格的产品，请确认具体定制需求",
+                hint: {
+                    answer: "For customized products, I'll need a few details from you. First, could you send us your technical drawings or specifications? This includes exact dimensions, load requirements, and any special features like drainage holes, anti-slip surfaces, or company logo printing. Once we have your drawings, our engineering team will review them and provide a feasibility report within 3 days. If everything works, mold development takes about 15-20 days. We typically charge 2,000-5,000 USD for mold costs depending on complexity.",
+                    translation: "对于定制产品，我需要您提供几个细节。首先，您能发送技术图纸或规格说明吗？包括精确尺寸、承重要求以及任何特殊功能，如排水孔、防滑表面或公司标志印刷。收到图纸后，我们的工程团队会在3天内进行可行性评估。如果一切可行，模具开发约15-20天。根据复杂程度，模具费通常在2,000-5,000美元之间。",
+                    keyPoints: ["索要技术图纸：technical drawings", "列出常见定制需求举例", "给出明确时间线：3天评估+15-20天开模", "透明说明模具费用"],
+                    vocabulary: ["technical drawings", "specifications", "drainage holes", "anti-slip surfaces", "logo printing", "feasibility report", "mold development", "mold costs"]
+                },
+                initialAI: "We need custom-sized containers. Standard sizes don't fit our automated system. We have detailed drawings ready. Can you manufacture according to our specifications?"
+            },
+            {
+                day: 17,
+                title: "质量检验与认证说明",
+                description: "学习介绍工厂的质量管理体系和产品认证",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["质检", "ISO认证", "出厂检验"],
+                prompt: "客户询问产品质量保证，请介绍质检流程和认证资质",
+                hint: {
+                    answer: "Quality is our top priority. We are ISO 9001:2015 certified, and every production batch goes through our 4-step QC process: 1) Raw material inspection - we test material density and impact resistance. 2) In-process inspection during production. 3) Final inspection including dimension measurement and load testing. 4) Pre-shipment inspection with photo and video documentation. We can also arrange third-party inspection by SGS or TUV at your cost if required.",
+                    translation: "质量是我们的首要考虑。我们已通过ISO 9001:2015认证，每个生产批次都经过4步质检流程：1）原材料检验——测试材料密度和抗冲击性。2）生产过程中的在线检验。3）最终检验包括尺寸测量和承重测试。4）发货前检验，附有照片和视频记录。如果需要，我们还可以安排SGS或TUV的第三方检验，费用由您承担。",
+                    keyPoints: ["列出具体认证：ISO 9001:2015", "4步质检流程有逻辑", "每步都有具体检验内容", "主动提供第三方检验选项"],
+                    vocabulary: ["ISO 9001:2015", "QC process", "raw material inspection", "in-process inspection", "dimension measurement", "load testing", "pre-shipment inspection", "third-party inspection"]
+                },
+                initialAI: "Quality is critical for us. Our last supplier had issues with inconsistent product quality. How do you ensure consistent quality? Do you have any certifications?"
+            },
+            {
+                day: 18,
+                title: "包装方式与物流协调",
+                description: "学习介绍产品包装方式和运输安排",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["包装", "物流", "集装箱"],
+                prompt: "请介绍产品的包装方式和集装箱装载方案",
+                hint: {
+                    answer: "For pallets, we use metal straps and stretch film wrapping for secure transport. They're stacked on wooden pallets for easy forklift handling. For containers, a 20-foot container holds approximately 200 nestable pallets or 120 rackable pallets. A 40-foot HQ container can hold up to 480 nestable pallets. I'll optimize the loading plan to maximize container space and minimize your shipping cost per unit. We can also arrange LCL shipping for smaller orders.",
+                    translation: "托盘我们用金属带和拉伸膜缠绕进行安全运输。它们堆叠在木质托盘上，方便叉车操作。一个20尺柜大约可装200个套叠托盘或120个货架托盘。一个40尺高柜最多可装480个套叠托盘。我会优化装载方案以最大化集装箱空间利用率并降低单件运输成本。小订单我们也可以安排拼箱运输。",
+                    keyPoints: ["包装方式要具体：金属带+拉伸膜", "给出具体装箱量数据", "强调优化装载降低单件成本", "小单提及拼箱LCL选项"],
+                    vocabulary: ["metal straps", "stretch film", "20-foot container", "40-foot HQ container", "loading plan", "maximize", "shipping cost per unit", "LCL (Less than Container Load)"]
+                },
+                initialAI: "We plan to order 300 nestable pallets. How do you pack them? How many can fit in one container? We want to minimize shipping costs."
+            },
+            {
+                day: 19,
+                title: "客户询盘邮件回复模板",
+                description: "学习如何撰写专业的外贸询盘回复邮件",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["邮件", "询盘回复", "专业模板"],
+                prompt: "请用英语写一封专业的询盘回复，包含产品推荐和报价",
+                hint: {
+                    answer: "Dear Mr. Smith, thank you for your inquiry about our plastic packaging products. Based on your requirements for warehouse storage, I recommend our model NP-1200 nestable pallet - 1200x1000x150mm, HDPE material, 1,500 kg dynamic load capacity. Attached is our product catalog and quotation sheet for your reference. The unit price is 12.50 USD FOB Shanghai, MOQ 500 pieces. We also have ESD and heavy-duty versions available. Please feel free to ask if you have any questions. Best regards.",
+                    translation: "尊敬的Smith先生，感谢您对我们塑料包装产品的询价。根据您对仓库存储的需求，我推荐我们的NP-1200套叠托盘——尺寸1200x1000x150mm，HDPE材质，动载1500公斤。随附产品目录和报价单供您参考。单价12.50美元FOB上海，最小起订量500件。我们还有防静电和重型版本可供选择。如有任何问题请随时联系。顺祝商祺。",
+                    keyPoints: ["邮件结构：感谢->推荐->报价->附件->结束", "产品推荐要具体到型号", "价格条款和MOQ要清晰", "专业用语：inquiry, attached, reference"],
+                    vocabulary: ["inquiry", "attached", "quotation sheet", "unit price", "FOB Shanghai", "catalog", "ESD version", "heavy-duty version", "Best regards"]
+                },
+                initialAI: "I sent an inquiry email about your pallets last week but haven't received a response yet. Can you help me draft a professional reply that I can learn from?"
+            },
+            {
+                day: 20,
+                title: "工厂验厂参观介绍",
+                description: "学习如何邀请客户来工厂参观并介绍产线",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["验厂", "工厂参观", "生产线"],
+                prompt: "请用英语向客户发出工厂参观邀请并介绍参观内容",
+                hint: {
+                    answer: "We warmly welcome you to visit our factory in Suzhou, China. During the visit, I can arrange: 1) A tour of our injection molding workshop to see our 15 production lines. 2) A visit to our QC lab where we conduct material testing and load testing. 3) A meeting with our engineering team to discuss any customization needs. 4) A look at our warehousing and logistics center. We can pick you up from Shanghai Pudong Airport and arrange hotel accommodation. When would be a convenient time for you?",
+                    translation: "我们热烈欢迎您来参观我们位于中国苏州的工厂。参观期间我可以安排：1）参观注塑车间，看看我们的15条生产线。2）参观质检实验室，了解我们进行的材料测试和承重测试。3）与工程团队会面讨论定制需求。4）参观仓储物流中心。我们可以到上海浦东机场接您并安排酒店住宿。您什么时候方便来？",
+                    keyPoints: ["热情邀请：warmly welcome", "安排具体：4个参观环节", "体现实力：15条生产线", "解决后顾之忧：接机+住宿"],
+                    vocabulary: ["factory visit", "injection molding", "production lines", "QC lab", "material testing", "customization needs", "accommodation", "convenient time"]
+                },
+                initialAI: "Our procurement director wants to visit the factory before placing the first order. Can you tell me about your factory and what we can expect during a visit?"
+            },
+            {
+                day: 21,
+                title: "售后问题快速响应",
+                description: "学习如何专业地处理客户的质量投诉",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["售后", "投诉", "问题解决"],
+                prompt: "客户反馈收到货物后有质量问题，请妥善处理",
+                hint: {
+                    answer: "I'm very sorry to hear about this issue. Could you please send me photos and a detailed description of the problem? Specifically, how many pieces are affected and what exactly is wrong? We take quality issues very seriously. Once I receive your documentation, I'll escalate this to our QC manager immediately and get back to you with a solution within 24 hours. We can offer replacement, repair, or credit note depending on the situation. Your satisfaction is our priority.",
+                    translation: "非常抱歉听到这个问题。您能给我发一下照片和详细的问题描述吗？具体有多少件受到影响，问题到底是什么？我们对质量问题非常重视。收到您的资料后，我会立即上报质检经理，24小时内给您回复解决方案。根据情况我们可以提供换货、维修或退款。客户满意是我们的首要目标。",
+                    keyPoints: ["先道歉，不推卸责任", "要求证据：照片+详细描述", "承诺24小时内回复", "给出解决方案选项"],
+                    vocabulary: ["quality issue", "detailed description", "affected", "escalate", "QC manager", "replacement", "credit note", "satisfaction"]
+                },
+                initialAI: "We just received the pallets, but about 30 pieces have visible cracks on the surface. This is unacceptable. What are you going to do about it?"
+            },
+            // ============ 第四周：高级谈判与综合实战 ============
+            {
+                day: 22,
+                title: "长期合同谈判策略",
+                description: "学习如何谈判年度采购框架协议",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["长期合同", "框架协议", "年度采购"],
+                prompt: "客户希望签订年度采购协议，请讨论合作条款",
+                hint: {
+                    answer: "We're very excited about establishing a long-term partnership. For annual framework agreements, we can offer: 1) A fixed price for 12 months with a maximum 3% annual adjustment. 2) Priority production scheduling to ensure on-time delivery. 3) Quarterly review meetings to optimize the product mix. 4) A dedicated account manager for your company. In return, we'd suggest a minimum annual volume commitment of 10,000 pieces. This arrangement gives you price stability and supply security throughout the year.",
+                    translation: "我们非常期待建立长期合作关系。对于年度框架协议，我们可以提供：1）12个月固定价格，年度调整不超过3%。2）优先生产排期以确保按时交货。3）每季度回顾会议优化产品组合。4）为您公司配备专属客户经理。作为交换，我们建议年度最低采购量承诺10,000件。这种安排让您的价格稳定，全年供应有保障。",
+                    keyPoints: ["表达合作意愿：excited about partnership", "列出4项长期合作优惠", "提出对等条件：年度最低量", "强调客户利益：price stability + supply security"],
+                    vocabulary: ["framework agreement", "fixed price", "priority scheduling", "quarterly review", "dedicated account manager", "volume commitment", "price stability", "supply security"]
+                },
+                initialAI: "We're satisfied with the first batch quality. Our management wants to discuss a long-term supply agreement. Can we set up an annual purchasing contract?"
+            },
+            {
+                day: 23,
+                title: "新能源行业专用话术",
+                description: "学习针对新能源/电池行业的专业对话技巧",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["新能源", "电池包装", "防静电"],
+                prompt: "一位新能源电池企业的采购经理来访，请进行专业产品推荐",
+                hint: {
+                    answer: "For the new energy battery industry, we have specialized solutions. Our anti-static turnover boxes are ANSI/ESD S20.20 compliant, with surface resistivity below 10 to the power of 9 ohms. These are critical for protecting lithium battery cells from electrostatic discharge during production and transport. We also offer UN38.3 compliant battery packaging containers for safe international shipping. Would you like me to arrange a technical consultation with our battery packaging specialist?",
+                    translation: "针对新能源电池行业，我们有专业解决方案。我们的防静电周转箱符合ANSI/ESD S20.20标准，表面电阻率低于10的9次方欧姆。这对于在生产运输过程中保护锂电池免受静电放电至关重要。我们还提供符合UN38.3标准的电池包装容器，确保国际运输安全。您需要我安排与我们的电池包装专家的技术咨询吗？",
+                    keyPoints: ["行业术语精确：ESD S20.20, UN38.3", "技术参数要专业：表面电阻率", "强调专业解决方案", "主动提出专家对接"],
+                    vocabulary: ["new energy battery", "electrostatic discharge", "surface resistivity", "lithium battery cells", "UN38.3", "battery packaging", "technical consultation", "specialist"]
+                },
+                initialAI: "We're a lithium battery manufacturer. We need containers for battery cell storage and transport that meet strict anti-static and safety requirements. What can you offer?"
+            },
+            {
+                day: 24,
+                title: "应对客户压价与还价技巧",
+                description: "学习如何在不降价过多的情况下达成协议",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["还价", "让步策略", "双赢"],
+                prompt: "客户要求降价15%，请用技巧回应并争取合理价格",
+                hint: {
+                    answer: "I appreciate your position, and I'd love to work with you on pricing. However, a 15% reduction is beyond what I can offer while maintaining our quality standards. What I can do is this: if you increase the order quantity to 2,000 pieces, I can offer an 8% discount. Additionally, I can waive the sample fees and include free logo printing on all products. This brings your effective savings close to 10%. I believe this is a very competitive offer that still ensures the quality you expect.",
+                    translation: "我理解您的立场，也很想在价格上与您合作。但是15%的降幅超出了我能提供的范围，同时还要保证我们的质量标准。我能做的是：如果您将订单量增加到2,000件，我可以提供8%的折扣。此外，我可以免收样品费并在所有产品上免费印刷您的标志。这实际上为您带来的综合节省接近10%。我相信这是一个非常有竞争力的报价，同时确保您期望的质量。",
+                    keyPoints: ["理解但不轻易让步", "用增加数量换折扣", "附加增值服务代替降价", "把节省量化让客户感到划算"],
+                    vocabulary: ["appreciate your position", "maintain quality standards", "effective savings", "competitive offer", "waive", "logo printing", "ensure quality"]
+                },
+                initialAI: "To be honest, your prices are higher than we expected. Can you offer at least a 15% discount? Otherwise we may need to look elsewhere."
+            },
+            {
+                day: 25,
+                title: "WhatsApp/社媒客户跟进",
+                description: "学习通过社媒和即时通讯工具维护客户关系",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["社媒", "WhatsApp", "客户维护"],
+                prompt: "展会后通过WhatsApp跟进一位潜在客户",
+                hint: {
+                    answer: "Hi Mr. Johnson, it was great meeting you at the Canton Fair last week. I really enjoyed our conversation about your warehouse renovation project. As discussed, I've attached our latest product catalog with updated pricing. I noticed you were particularly interested in our nestable pallets - we just launched a new model that's 15% lighter but with the same load capacity. Would you like me to send you some samples? Looking forward to hearing from you.",
+                    translation: "Johnson先生您好，上周在广交会上见到您非常高兴。我很享受我们关于您仓库翻新项目的讨论。按照约定，我附上了我们最新的产品目录和更新报价。我注意到您对我们的套叠托盘特别感兴趣——我们刚推出了一款新型号，轻了15%但承重能力相同。您需要我给您寄一些样品吗？期待您的回复。",
+                    keyPoints: ["开头提展会建立连接", "附上承诺的资料", "推荐新品引起兴趣", "结尾用提问引导回复"],
+                    vocabulary: ["Canton Fair", "warehouse renovation", "product catalog", "updated pricing", "particularly interested in", "launched", "load capacity", "samples"]
+                },
+                initialAI: "Hi, thanks for your message. Yes, I remember our conversation. The new lighter pallet model sounds interesting. Can you send me the specifications?"
+            },
+            {
+                day: 26,
+                title: "展会现场接待外国客户",
+                description: "学习在展会现场接待和介绍产品",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["展会", "现场接待", "产品展示"],
+                prompt: "一位外国客户走到展位前，请进行专业的接待和产品介绍",
+                hint: {
+                    answer: "Welcome to Uget Packaging! Please come in and take a look. We specialize in plastic packaging solutions for industrial use. Here on display we have our three main product lines: plastic pallets on your left, turnover boxes in the center, and our best-selling collapsible sleeve boxes on the right. These sleeve boxes are very popular in the European market. Feel free to touch and test them - they're quite sturdy. Would you like me to walk you through each product?",
+                    translation: "欢迎来到优盖特包装展位！请进来看看。我们专注于工业用塑料包装解决方案。这里展示的是我们的三大产品线：左边是塑料托盘，中间是周转箱，右边是我们最畅销的可折叠围板箱。这些围板箱在欧洲市场非常受欢迎。您可以随意触摸和测试——它们非常结实。需要我为您逐一介绍每个产品吗？",
+                    keyPoints: ["热情欢迎：Welcome + take a look", "用方位引导客户：left/center/right", "强调市场认可：popular in European market", "邀请互动：feel free to touch and test"],
+                    vocabulary: ["on display", "product lines", "best-selling", "collapsible sleeve boxes", "European market", "sturdy", "walk you through"]
+                },
+                initialAI: "Hello, I'm from a logistics company in Poland. We need heavy-duty plastic containers. Can you show me what you have?"
+            },
+            {
+                day: 27,
+                title: "处理交期延误的沟通技巧",
+                description: "学习如何在交期延误时与客户沟通并挽回信任",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["交期延误", "危机沟通", "补救"],
+                prompt: "由于原材料短缺导致交期延误一周，请通知客户并提供解决方案",
+                hint: {
+                    answer: "I need to inform you of an important update regarding your order. Due to an unexpected shortage of HDPE raw material supply, your production timeline has been affected. Originally scheduled for April 15th, we now estimate delivery by April 22nd - a one-week delay. I sincerely apologize for this inconvenience. To make up for it, we will upgrade your shipping to air freight at no extra cost, and apply a 3% discount on this order. I'll send you daily production updates so you can monitor the progress closely.",
+                    translation: "我需要通知您一个关于您订单的重要更新。由于HDPE原材料供应出现意外短缺，您的生产时间线受到了影响。原定4月15日交付，现在预计4月22日——延迟一周。我真诚地为这个不便道歉。作为补偿，我们将免费将运输升级为空运，并在本订单上给予3%的折扣。我会每天发送生产进度更新，让您可以密切跟踪。",
+                    keyPoints: ["第一时间通知，不隐瞒", "给出明确的新交期", "提供实质性补偿：空运+折扣", "增加透明度：每日更新"],
+                    vocabulary: ["unexpected shortage", "raw material supply", "production timeline", "sincerely apologize", "air freight at no extra cost", "daily production updates", "monitor the progress"]
+                },
+                initialAI: "Our warehouse opening is next week and we're counting on those pallets arriving on time. Is there any update on our order status?"
+            },
+            {
+                day: 28,
+                title: "竞品对比演示话术",
+                description: "学习如何客观地与竞品对比并突出自身优势",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["竞品对比", "客观分析", "优势展示"],
+                prompt: "客户问到你们和某知名品牌相比有什么优势，请进行专业对比",
+                hint: {
+                    answer: "That's a great question. I respect that brand - they make excellent products. Let me give you an objective comparison. In terms of material, both of us use virgin HDPE, so quality is comparable. However, our advantage lies in three areas: 1) Price - we're typically 25-35% more cost-effective because we manufacture directly in our own factory. 2) Customization - we can modify designs with lower MOQ and shorter lead time. 3) Service - we provide dedicated English-speaking support and faster response times. I'd be happy to arrange a side-by-side sample comparison for you.",
+                    translation: "这是个好问题。我很尊重那个品牌——他们的产品质量很好。让我给您做一个客观的对比。在材料方面，我们都使用全新料HDPE，所以质量相当。但我们的优势在于三个方面：1）价格——我们通常比他们便宜25-35%，因为我们在自己的工厂直接生产。2）定制——我们可以用更低的起订量和更短的交期来修改设计。3）服务——我们提供专属的英语支持和更快的响应时间。我很乐意为您安排一次样品对比。",
+                    keyPoints: ["先尊重竞品显得客观", "承认共同点再找差异", "三个优势：价格/定制/服务", "主动提出样品对比增加说服力"],
+                    vocabulary: ["objective comparison", "comparable", "cost-effective", "manufacture directly", "customization", "lower MOQ", "dedicated support", "side-by-side comparison"]
+                },
+                initialAI: "We've been using a well-known German brand for years. Their quality is great but the prices keep going up. Why should we switch to your products?"
+            },
+            {
+                day: 29,
+                title: "跨境电商与新客户开发",
+                description: "学习通过阿里巴巴等平台开发海外客户",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["跨境电商", "阿里巴巴", "客户开发"],
+                prompt: "通过在线平台收到一个新询盘，请进行专业回复",
+                hint: {
+                    answer: "Thank you for your inquiry on our Alibaba store. I noticed you're looking for heavy-duty plastic pallets for your distribution center in Mexico. Based on your requirement of 1,500 kg load capacity, I recommend our model RP-1500 rackable pallet. It's our best seller in Latin America. I've sent a quotation with product details, photos, and a short video showing load testing. Would you like to schedule a video call this week so I can answer your questions directly?",
+                    translation: "感谢您在我们阿里巴巴店铺的询价。我注意到您正在为墨西哥的配送中心寻找重型塑料托盘。根据您1,500公斤承重的需求，我推荐我们的RP-1500货架托盘。这是我们拉美市场最畅销的产品。我已发送了包含产品详情、照片和承重测试视频的报价。您想安排本周的视频通话吗？这样我可以直接回答您的问题。",
+                    keyPoints: ["回应具体需求：1500kg + 墨西哥", "推荐特定型号增加专业感", "多种资料：报价+照片+视频", "主动提议视频通话推进关系"],
+                    vocabulary: ["Alibaba store", "distribution center", "load capacity", "best seller", "Latin America", "quotation", "load testing", "video call"]
+                },
+                initialAI: "Hi, I found your products on Alibaba. We're a distribution company in Mexico and need heavy-duty pallets. Can you give me your best price for 1,000 pieces?"
+            },
+            {
+                day: 30,
+                title: "综合实战：完整外贸对话流程",
+                description: "模拟一次从初次接触到最终成交的完整外贸对话",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["综合", "实战", "成交"],
+                prompt: "一位来自西班牙的新客户发来询价，请完成从接待、需求了解、产品推荐、报价到促成的完整对话",
+                hint: {
+                    answer: "Good morning! Thank you for reaching out to Uget Packaging. I'd love to help you find the right packaging solution. Let me first understand your needs: what products are you looking to package, what's your estimated quantity, and do you have any specific requirements for certifications or materials? Based on what you've told me, I recommend our heavy-duty sleeve boxes - they're perfect for automotive parts as you described. The price is 18.50 USD per piece FOB Shanghai for orders of 500+. I can send samples within 2 days via DHL. If you confirm this week, I can guarantee delivery within 30 days.",
+                    translation: "早上好！感谢您联系优盖特包装。我很乐意帮您找到合适的包装方案。让我先了解一下您的需求：您要包装什么产品，预估数量是多少，对认证或材料有特殊要求吗？根据您描述的情况，我推荐我们的重型围板箱——非常适合汽车零部件如您所述。500件以上每件18.50美元FOB上海。我可以在2天内通过DHL寄出样品。如果您这周确认，我可以保证30天内交货。",
+                    keyPoints: ["开场热情且专业", "先问需求再推荐", "给出具体价格和条件", "用样品+交期+紧迫感促成"],
+                    vocabulary: ["reaching out", "packaging solution", "specific requirements", "certifications", "heavy-duty sleeve boxes", "automotive parts", "FOB Shanghai", "guarantee delivery"]
+                },
+                initialAI: "Hello, I'm Carlos from Barcelona, Spain. We run an auto parts distribution business and we're looking for reliable plastic containers. We've never imported from China before. Can you help us get started?"
+            },
+            {
+                day: 31,
+                title: "处理客户投诉：货物延期",
+                description: "学习如何专业处理客户关于货物延期交货的投诉，维护客户关系并提供解决方案",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["投诉处理", "交期问题", "客户服务"],
+                prompt: "客户来自德国，因货物延期交货表示不满，请完成道歉、解释原因、提供解决方案并争取客户理解的对话",
+                hint: {
+                    answer: "Mr. Schmidt, I sincerely apologize for the delay and fully understand your frustration. The delay was caused by unexpected raw material supply issues combined with a port congestion crisis in Shanghai — circumstances completely beyond our control. I want you to know we treated your order as a priority the moment we identified the problem. To make it right, we're offering three options: 1) Express air freight at our cost — you receive the goods within 5 days; 2) Split shipment — the first batch via air freight within 5 days, remaining by sea within 15 days; 3) Full compensation — 15% discount on this order plus free shipping on your next order. I take full responsibility for this situation and I'm committed to restoring your confidence in our partnership. Please let me know which option works best for you.",
+                    translation: "施密特先生，我为延期交货真诚道歉，完全理解您的沮丧。延期是由于原材料供应意外问题加上上海港口拥堵危机造成的——这些是完全超出我们控制的情况。我想让您知道，一旦发现问题，我们就把您的订单作为优先处理。为了弥补，我们提供三个选项：1）快递空运，费用由我们承担——您5天内收到货物；2）分批发货——第一批5天内空运，其余15天内海运；3）全额补偿——本订单15%折扣加下次订单免运费。我对这种情况承担全部责任，并致力于恢复您对我们合作的信心。请告诉我哪个选项最适合您。",
+                    keyPoints: ["真诚道歉而非推卸责任", "清晰解释客观原因", "提供多个解决方案让客户选择", "表达承担责任的态度", "争取维护长期合作关系"],
+                    vocabulary: ["sincere apology", "frustration", "raw material supply issues", "port congestion", "beyond our control", "priority", "express air freight", "split shipment", "full compensation", "restore confidence", "partnership"]
+                },
+                initialAI: "This is completely unacceptable! We were supposed to receive our order of 200 pallet boxes last Friday for our production line. It's now Wednesday and nothing has arrived. We've had to halt production because of your delay. I'm very disappointed and considering canceling the entire order and looking for a new supplier. What's your explanation?"
+            },
+            {
+                day: 32,
+                title: "关税政策与贸易合规咨询",
+                description: "学习应对客户关于进口关税、HS编码和贸易合规的专业问询",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["关税", "HS编码", "贸易合规", "进口政策"],
+                prompt: "一位美国客户询问你们产品的关税税率和HS编码，以及当前贸易政策下的应对方案，请进行专业解答",
+                hint: {
+                    answer: "Great question, and I'm glad you brought this up early in our discussions. Our plastic pallets and turnover boxes fall under HS code 3923.10 or 3923.90 depending on the specific product. For the US market, the standard import duty rate is around 3-5%, though additional Section 301 tariffs may apply for goods of Chinese origin — currently in the 25% range for most plastic industrial products. To help manage your landed cost, we have a few strategies: First, we can provide detailed cost breakdowns for your customs broker to ensure correct classification. Second, for large orders, some clients route shipments through a third country for re-export, though this must comply fully with US customs regulations — we strongly recommend consulting your trade compliance team. Third, we're transparent about our pricing so you can accurately calculate your total landed cost before committing. Would you like me to connect you with a licensed customs broker we've worked with in the US?",
+                    translation: "问得很好，我很高兴您在讨论早期就提出这个问题。我们的塑料托盘和周转箱根据具体产品归入HS编码3923.10或3923.90。对于美国市场，标准进口关税约为3-5%，不过中国原产地商品可能还需缴纳额外的301条款关税——目前大多数塑料工业产品在25%左右。为帮助控制落地成本，我们有几个策略：第一，我们可以为您的报关行提供详细的成本明细，确保正确归类。第二，对于大订单，部分客户通过第三国转口发货，但必须完全符合美国海关法规——我们强烈建议咨询您的贸易合规团队。第三，我们的报价是透明的，让您在确认订单前能准确计算总落地成本。您需要我为您介绍我们在美国合作过的持牌报关行吗？",
+                    keyPoints: [
+                        "提供具体HS编码：3923.10 / 3923.90",
+                        "诚实告知301关税，不回避",
+                        "提出三种合规应对策略",
+                        "建议客户咨询专业合规团队（转移风险）",
+                        "主动提供报关行资源增加附加价值"
+                    ],
+                    vocabulary: [
+                        "HS code (Harmonized System Code)",
+                        "import duty",
+                        "Section 301 tariffs",
+                        "Chinese origin",
+                        "landed cost",
+                        "customs broker",
+                        "re-export",
+                        "trade compliance",
+                        "cost breakdown",
+                        "correct classification",
+                        "licensed"
+                    ]
+                },
+                initialAI: "We're seriously considering your products, but our finance team is worried about the tariff situation. With the current US-China trade tensions, what's the actual import duty we'd be paying? And what's the HS code for your plastic pallets? We want to calculate the real landed cost before we commit to anything.",
+                aiResponses: [
+                    "That's helpful. So with 25% Section 301 tariffs on top of the 3-5% base duty, we're looking at close to 28-30% total. That's significant. Are there any legitimate ways to reduce this?",
+                    "I've heard about first-sale valuation and tariff engineering. Is that something you can help us with, or should we handle that on our end?",
+                    "OK, I think we need to speak with your customs broker contact. Can you send their details? Also, can you confirm in writing what the HS code is for each product we're considering?"
+                ]
+            },
+            {
+                day: 33,
+                title: "长期合作框架协议谈判",
+                description: "学习与客户谈判年度框架协议，争取独家供应和优先排单权益",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["框架协议", "年度合同", "独家供应", "长期合作"],
+                prompt: "一位欧洲大型物流企业的采购总监表达了对长期合作的兴趣，表示希望签订年度框架协议，请进行专业谈判",
+                hint: {
+                    answer: "We are genuinely excited about the possibility of a long-term partnership. A framework agreement makes perfect sense for both sides — it gives you pricing security and supply priority, while we gain stable production planning and reduced sales overhead. Let me outline what we typically propose for annual volume commitments of this scale. For volumes above 5,000 units per year, we offer tiered pricing with 8-12% discounts from standard rates, plus guaranteed lead time of 15 working days and priority allocation during peak seasons. For exclusivity, we can discuss regional exclusivity in exchange for minimum volume commitments — this protects your market position and ensures our full focus on your account. We would also include a price review clause at the 6-month mark, allowing adjustments based on raw material cost changes of more than 5%. Shall I prepare a draft framework agreement template for your legal team to review?",
+                    translation: "我们真诚地对长期合作的可能性感到兴奋。框架协议对双方都有利——它给您带来价格保障和优先供货，给我们带来稳定的生产计划和降低的销售成本。让我概述一下我们针对这种规模的年度采购量通常提出的方案。对于年采购量超过5000台的情况，我们提供阶梯定价，从标准价格优惠8-12%，并保证15个工作日的交货期和旺季优先配货。对于独家供应，我们可以讨论区域独家换最小采购量承诺——这保护您的市场地位，确保我们全力服务您的账户。我们还会加入6个月的价格审核条款，允许在原材料成本变化超过5%时进行调整。我可以为您准备一份框架协议草稿供您的法务团队审核吗？",
+                    keyPoints: [
+                        "强调框架协议的双赢价值",
+                        "提出具体的数量阶梯和折扣方案",
+                        "强调优先排单和旺季保障的附加价值",
+                        "探讨区域独家供应的可能性",
+                        "加入价格调整保护条款降低双方风险",
+                        "主动提出准备协议草稿，推进下一步"
+                    ],
+                    vocabulary: [
+                        "framework agreement",
+                        "long-term partnership",
+                        "annual volume commitment",
+                        "tiered pricing",
+                        "lead time guarantee",
+                        "priority allocation",
+                        "exclusivity",
+                        "regional exclusivity",
+                        "minimum volume commitment",
+                        "price review clause",
+                        "raw material cost",
+                        "draft agreement",
+                        "legal team"
+                    ]
+                },
+                initialAI: "We've been purchasing from multiple suppliers for years, but we're now consolidating our supply chain. Your product quality has been consistently good over the past 18 months, and we'd like to explore a strategic partnership. Specifically, we're looking at signing an annual framework agreement for our plastic container needs across Europe. What can you offer us in terms of pricing, exclusivity, and commitment levels?",
+                aiResponses: [
+                    "5,000 units per year is definitely achievable for us. But exclusivity is a significant commitment. What regions are you thinking, and what's the minimum volume we'd need to commit to for that?",
+                    "The price review clause at 6 months is reasonable. But we'd want language that caps any single adjustment at 3%. Can you accommodate that?",
+                    "We'd like to see a draft agreement before we commit to anything. How long would it take your team to prepare one?"
+                ]
+            },
+            {
+                day: 34,
+                title: "样品测试反馈与量产推进",
+                description: "学习在客户完成样品测试后确认修改点、推进试单并促成量产订单",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["样品反馈", "试单推进", "量产确认", "规格调整"],
+                prompt: "客户完成了样品测试，对细节提出了修改意见，请确认调整方案并推进量产订单",
+                hint: {
+                    answer: "Thank you for the detailed sample feedback. I'm glad the overall structure meets your expectation. Regarding the two points you mentioned - reinforcing the bottom corners and changing the inner divider height - we can absolutely make those adjustments before mass production. I'll ask our engineering team to update the drawing today and send you the revised version for confirmation within 24 hours. After you approve the final drawing, we can arrange a pre-production sample in 5 working days or move directly to the trial order if you're comfortable. For the first bulk order of 800 pieces, our lead time would be around 18 to 20 days. If you'd like, I can also prepare the PI and testing checklist today so we can keep everything moving efficiently.",
+                    translation: "感谢您提供这么详细的样品反馈。很高兴整体结构符合您的预期。关于您提到的两个点——加强底角和调整内部分隔板高度——我们完全可以在量产前完成这些修改。我今天就会让工程团队更新图纸，并在24小时内把修订版发给您确认。您确认最终图纸后，我们可以在5个工作日内安排产前样，或者如果您觉得没问题，也可以直接进入试单阶段。对于首批800件量产订单，我们的交期大约是18到20天。如果您愿意，我今天也可以把形式发票和测试清单一并准备好，确保项目高效推进。",
+                    keyPoints: [
+                        "先肯定客户反馈，建立合作氛围",
+                        "逐条回应修改点，体现专业和可执行性",
+                        "给出明确时间承诺：24小时图纸、5天产前样、18-20天量产",
+                        "顺势推进 PI 和试单，减少往返沟通"
+                    ],
+                    vocabulary: [
+                        "sample feedback",
+                        "overall structure",
+                        "reinforce the bottom corners",
+                        "inner divider height",
+                        "revised drawing",
+                        "pre-production sample",
+                        "trial order",
+                        "lead time",
+                        "PI (Proforma Invoice)",
+                        "testing checklist"
+                    ]
+                },
+                initialAI: "We've finished testing your sample pallet box. Overall it's promising, but our warehouse team wants two changes before we place the first bulk order: the bottom corners need to be stronger, and the inner divider should be 20 mm higher to better protect the parts. Can you revise the design quickly? If everything looks good, we're ready to move to an 800-piece trial order.",
+                aiResponses: [
+                    "A revised drawing within 24 hours would be good. Do you also need extra tooling cost for these changes, or can this be included in the first order?",
+                    "If you send a pre-production sample in 5 working days, we can approve it quickly. But if timing is tight, can we skip that step and go straight to bulk production based on the revised drawing?",
+                    "Please prepare the PI as well. Our purchasing team wants to review the commercial terms at the same time as the technical changes."
+                ]
+            },
+            {
+                day: 35,
+                title: "国际货运预订与运输协调",
+                description: "学习如何与货代沟通预订舱位、确认箱型、追踪货物运输状态",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["货运", "货代", "舱位预订", "运输追踪"],
+                prompt: "订单确认后，需要协调货代预订舱位并跟进货物运输状态，请与客户同步物流进展",
+                hint: {
+                    answer: "Great news - your order has been completed and passed final inspection. Now let's coordinate the shipping. I've contacted our freight forwarder and confirmed a 20-foot container booking under booking number MSCU12345678. The container will be loaded at our warehouse on May 3rd and shipped from Shanghai Port on May 5th. Estimated arrival at Valencia port is around June 10th. I've arranged marine insurance covering 110% of the goods value. I'll send you the complete shipping document package - including Bill of Lading, commercial invoice, packing list, certificate of origin, and insurance policy - by DHL within 2 days. Would you like me to add you to our container tracking system so you can monitor the shipment in real time?",
+                    translation: "好消息——您的订单已完成并通过了最终检验。现在我们来协调运输。我已联系了我们的货运代理，确认了MSCUB12345678订舱号的20尺柜订舱。集装箱将在5月3日从我们仓库装货，5月5日从上海港发船。预计6月10日左右到达瓦伦西亚港。我已安排了覆盖货物价值110%的海运保险。我会在2天内通过DHL把完整的装运单据包寄给您——包括提单、商业发票、装箱单、原产地证书和保险单。您需要我邀请您加入我们的集装箱追踪系统吗？这样您可以实时监控货物运输状态。",
+                    keyPoints: [
+                        "订单完成后主动协调运输，体现专业服务",
+                        "提供具体信息：订舱号、装货日期、船期、到港时间",
+                        "说明已安排海运保险，化解客户对货物安全的担忧",
+                        "主动提出追踪系统接入，增强客户掌控感"
+                    ],
+                    vocabulary: [
+                        "final inspection",
+                        "freight forwarder",
+                        "container booking",
+                        "booking number",
+                        "Bill of Lading (B/L)",
+                        "commercial invoice",
+                        "packing list",
+                        "certificate of origin",
+                        "marine insurance",
+                        "container tracking system",
+                        "real time"
+                    ]
+                },
+                initialAI: "When can we expect the shipment to be dispatched? We've been waiting for our warehouse restocking and need to plan our inventory. Can you give me the exact shipping schedule and tracking information?",
+                aiResponses: [
+                    "The estimated arrival is June 10th? That's a bit later than we hoped. Is there any way to speed up the delivery, maybe by using a faster shipping route or air freight?",
+                    "Thank you for the complete document package. Our customs broker will handle the clearance. Do you have all the certifications needed for Spain import - especially the EUR.1 certificate for preferential tariff treatment?",
+                    "Can you add me to the container tracking system? I want to monitor the shipment progress in real time and know exactly when the vessel arrives at port."
+                ]
+            },
+            // ============ 第六周：客户服务与关系维护 ============
+            {
+                day: 36,
+                title: "处理客户索赔与争议解决",
+                description: "学习如何专业处理货物损坏或数量差异的索赔，维护长期合作关系",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["索赔", "争议解决", "客户服务", "损失赔偿"],
+                prompt: "客户反馈收到的托盘有10%出现裂纹，且数量少了50个，请专业处理索赔并维护客户关系",
+                hint: {
+                    answer: "Thank you for bringing this to my attention - I take full responsibility for resolving this issue. Regarding the cracked pallets: I'll arrange immediate replacement of all affected pieces at no cost, and we'll investigate our production process to prevent recurrence. For the 50 missing pieces, I'll check our shipping documents and coordinate with the freight forwarder. I can arrange express shipment of the 50 missing pallets within 5 days at our expense. As compensation for the inconvenience, I'd like to offer you a 5% credit on this order and priority treatment on your next purchase. Your business relationship is very important to us, and we want to make this right.",
+                    translation: "感谢您提出这个问题——我完全负责解决这个问题。关于开裂的托盘：我会立即安排免费更换所有受损产品，并调查我们的生产流程以防止再次发生。关于少了50件的问题，我会核查我们的装运单据并与货运代理协调。我可以在5天内以我方费用安排快递补发缺失的50个托盘。作为对不便的补偿，我想在本订单上给您5%的信用额度，并在您下次采购时提供优先处理。您的业务关系对我们非常重要，我们希望把事情处理好。",
+                    keyPoints: [
+                        "先道歉并表示承担责任，不推卸责任",
+                        "对于质量问题：立即换货+调查原因+预防措施",
+                        "对于数量差异：核查单据+补发+快递费用我方承担",
+                        "提供额外补偿：折扣+优先服务，维护长期关系"
+                    ],
+                    vocabulary: [
+                        "claim",
+                        "cracked pallets",
+                        "missing pieces",
+                        "shipping documents",
+                        "freight forwarder",
+                        "express shipment",
+                        "compensation",
+                        "credit note",
+                        "priority treatment",
+                        "business relationship"
+                    ]
+                },
+                initialAI: "This is unacceptable! We received our order today, but 10% of the pallets have visible cracks on the surface. And when we counted, there are 50 pieces short. We need you to explain this and make it right immediately!",
+                aiResponses: [
+                    "The cracks are a serious safety concern. Our warehouse workers can't use cracked pallets - they could collapse and cause injuries. We need replacements shipped immediately by air freight if necessary.",
+                    "50 pieces short means our production line will be delayed. This is a significant loss for us. We expect full compensation for the delay costs, not just the missing pieces.",
+                    "We've been loyal customers for 2 years. This is the first time we've had such a major issue. How can you ensure this won't happen again with future orders?"
+                ]
+            },
+            {
+                day: 37,
+                title: "新能源电池包装出口认证说明",
+                description: "向客户介绍新能源电池包装的UN383、防静电等出口认证要求，建立专业可信度",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["新能源电池", "出口认证", "UN383", "防静电", "安全合规"],
+                prompt: "客户询问出口锂电池包装需要哪些认证，担心运输安全，请详细介绍相关认证并给些建议",
+                hint: {
+                    answer: "For lithium battery packaging export, we hold the most critical certifications to ensure safe international transport. First is UN383 certification - this is mandatory for all lithium battery shipments worldwide and proves our packaging meets UN transport regulations. Second, we have ANSI/ESD S20.20 anti-static certification for preventing electrostatic discharge risks. Additionally, our packaging complies with IATA air transport regulations and IMDG sea transport requirements. I can provide you with all certification documents and test reports for your customs clearance. We also recommend you check your local import regulations - some countries have additional requirements like battery MSDS and dangerous goods declaration. Our team can help you prepare all necessary documentation.",
+                    translation: "关于锂电池包装出口，我们持有最关键的认证以确保国际运输安全。首先是UN383认证——这是全球所有锂电池运输的强制要求，证明我们的包装符合联合国运输法规。其次，我们有ANSI/ESD S20.20防静电认证，用于预防静电放电风险。此外，我们的包装符合IATA空运法规和IMDG海运要求。我可以为您提供所有认证文件和检测报告用于清关。我们还建议您核查当地进口法规——有些国家有额外要求，比如电池MSDS和危险品申报。我们的团队可以帮您准备所有必要文件。",
+                    keyPoints: [
+                        "UN383认证是锂电池全球运输强制要求",
+                        "ANSI/ESD S20.20防静电认证保障安全",
+                        "同时符合IATA空运和IMDG海运法规",
+                        "可提供全套认证文件和检测报告",
+                        "提醒客户注意当地进口法规要求"
+                    ],
+                    vocabulary: [
+                        "UN383 certification",
+                        "lithium battery",
+                        "anti-static",
+                        "ANSI/ESD S20.20",
+                        "IATA regulations",
+                        "IMDG code",
+                        "customs clearance",
+                        "MSDS",
+                        "dangerous goods declaration",
+                        "mandatory certification"
+                    ]
+                },
+                initialAI: "We're planning to export batteries to Europe and need battery packaging solutions. What certifications do your products have? Our customers are very concerned about transport safety compliance.",
+                aiResponses: [
+                    "The EU has strict regulations for battery transport. Do you have REACH certification as well? Many European customers ask for it.",
+                    "We need to ship by air freight. Is your packaging certified for air transport? What about temperature during transport?",
+                    "Can you send us the test reports and certificates for our customs broker to review? They need to verify everything before we place an order."
+                ]
+            },
+            {
+                day: 38,
+                title: "展会后重点客户跟进与视频会议邀约",
+                description: "学习在展会结束后快速跟进客户需求，发起视频会议并推进样品或试单合作",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["展会跟进", "视频会议", "需求确认", "样品推进"],
+                prompt: "你在德国展会上接触到一位潜在客户，对方回国后希望进一步了解方案，请完成一次专业跟进并邀约视频会议",
+                hint: {
+                    answer: "Thank you again for visiting our booth at the trade fair. It was a pleasure discussing your packaging needs for automotive components. Based on our conversation, I understand you're looking for a foldable sleeve box solution that can reduce return logistics cost while protecting high-value parts during export. I've already asked our team to prepare a customized proposal, including product specifications, sample photos, and an estimated quotation range. I can send that to you within 24 hours. To move things forward efficiently, I'd also like to invite you to a 30-minute video meeting next Tuesday or Wednesday. During the call, we can review your packaging dimensions, expected annual volume, and sample plan in detail. If the discussion goes well, we can arrange sample production immediately after the meeting and target a trial order this month.",
+                    translation: "再次感谢您在展会上到访我们的展位。很高兴和您交流汽车零部件包装需求。根据我们的沟通，我理解您正在寻找一种可折叠围板箱方案，既能降低回运物流成本，也能在出口过程中保护高价值零件。我已经让团队准备一份定制方案，其中包括产品规格、样品图片以及预估报价区间，我可以在24小时内发给您。为了更高效地推进，我也想邀请您在下周二或周三参加一个30分钟的视频会议。会议中我们可以详细确认包装尺寸、年度需求量和样品计划。如果沟通顺利，我们可以在会后立即安排打样，并争取本月内推进试单。",
+                    keyPoints: [
+                        "先感谢客户在展会接触，延续良好第一印象",
+                        "复述客户需求，证明你认真记录并理解痛点",
+                        "明确承诺跟进资料交付时间：24小时内",
+                        "主动提出30分钟视频会议，推进到下一步",
+                        "把会议目标说清楚：尺寸、年用量、样品计划、试单"
+                    ],
+                    vocabulary: [
+                        "trade fair",
+                        "packaging needs",
+                        "foldable sleeve box",
+                        "return logistics cost",
+                        "high-value parts",
+                        "customized proposal",
+                        "estimated quotation range",
+                        "video meeting",
+                        "annual volume",
+                        "trial order"
+                    ]
+                },
+                initialAI: "Hi, this is Daniel from Germany. We met at your booth during the exhibition last week and I'm interested in your returnable packaging for automotive parts. Could you send me more information? If the concept fits our project, we may arrange an internal review soon.",
+                aiResponses: [
+                    "A video meeting next week sounds good. Can you include your technical manager as well? Our engineering team will have detailed questions about load capacity and divider design.",
+                    "Please send the proposal before the meeting. My team wants to review the price range, sample lead time, and whether the box can be customized with our logo.",
+                    "If the meeting goes well, we may start with a pilot order for one production line. Please also prepare a suggested sample plan for that scenario."
+                ]
+            }
+        ];
+
+        // ========== DOM元素 ==========
+        const chatContainer = document.getElementById('chat-container');
+        const startBtn = document.getElementById('start-btn');
+        const hintBtn = document.getElementById('hint-btn');
+        const voiceStatus = document.getElementById('voice-status');
+        const statusText = document.getElementById('status-text');
+        const inputContainer = document.getElementById('input-container');
+        const textInput = document.getElementById('text-input');
+        const sendTextBtn = document.getElementById('send-text-btn');
+        const currentDayEl = document.getElementById('current-day');
+        const totalDaysEl = document.getElementById('total-days');
+        const displayDayEl = document.getElementById('display-day');
+        const progressFill = document.getElementById('progress-fill');
+        const progressPercent = document.getElementById('progress-percent');
+        const lessonTitle = document.getElementById('lesson-title');
+        const lessonDesc = document.getElementById('lesson-description');
+        const promptContent = document.getElementById('prompt-content');
+        const promptArea = document.getElementById('prompt-area');
+        const lessonList = document.getElementById('lesson-list');
+        const hintModal = document.getElementById('hint-modal');
+        const hintContent = document.getElementById('hint-content');
+        const closeHint = document.getElementById('close-hint');
+        const practiceAgainBtn = document.getElementById('practice-again-btn');
+
+        // ========== 初始化 ==========
+        function init() {
+            loadProgress();
+            renderLessonCards();
+            setupSpeechRecognition();
+            bindEvents();
+            updateLessonDisplay();
+        }
+
+        // ========== 进度管理 ==========
+        function loadProgress() {
+            const saved = localStorage.getItem('oral_training_progress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                currentDay = Math.min(Math.max(data.currentDay || 1, 1), lessonsData.length);
+            }
+            updateProgressUI();
+        }
+
+        function saveProgress() {
+            const data = {
+                currentDay: currentDay,
+                lastUpdated: new Date().toISOString()
+            };
+            localStorage.setItem('oral_training_progress', JSON.stringify(data));
+        }
+
+        function updateProgressUI() {
+            const totalLessons = lessonsData.length;
+            currentDay = Math.min(Math.max(currentDay, 1), totalLessons);
+            currentDayEl.textContent = currentDay;
+            totalDaysEl.textContent = totalLessons;
+            displayDayEl.textContent = currentDay;
+
+            const percent = Math.round((currentDay / totalLessons) * 100);
+            progressFill.style.width = `${percent}%`;
+            progressPercent.textContent = percent;
+
+            updateLessonDisplay();
+        }
+
+        function updateLessonDisplay() {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            if (!lesson) return;
+
+            lessonTitle.textContent = lesson.title;
+            lessonDesc.textContent = lesson.description;
+            promptContent.textContent = lesson.prompt;
+
+            chatContainer.innerHTML = '';
+            addMessage('ai', lesson.initialAI, 'AI 客户代表 · Emily');
+
+            chatHistory = [
+                { role: 'ai', content: lesson.initialAI, speaker: 'AI 客户代表 · Emily' }
+            ];
+
+            updateDemoAudioArea();
+            updateTranslationPanel();
+            stopAudio();
+        }
+
+        // ========== 课程卡片渲染 ==========
+        function renderLessonCards() {
+            lessonList.innerHTML = '';
+
+            const totalLessons = lessonsData.length;
+            for (let i = 1; i <= totalLessons; i++) {
+                const lesson = lessonsData.find(l => l.day === i);
+                if (!lesson) continue;
+
+                const card = document.createElement('div');
+                card.className = `lesson-card ${i === currentDay ? 'active' : ''} ${i < currentDay ? 'completed' : ''}`;
+                card.dataset.day = i;
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-day">Day ${i}</div>
+                        <div class="card-status ${i <= currentDay ? 'status-complete' : 'status-locked'}">
+                            ${i < currentDay ? '<i class="fas fa-check-circle"></i> 已完成' :
+                              i === currentDay ? '<i class="fas fa-spinner"></i> 当前课程' :
+                              '<i class="fas fa-book-open"></i> 待学习'}
+                        </div>
+                    </div>
+                    <h3 class="card-title">${lesson.title}</h3>
+                    <p class="card-desc">${lesson.description}</p>
+                `;
+
+                card.addEventListener('click', () => {
+                    if (i !== currentDay) {
+                        currentDay = i;
+                        saveProgress();
+                        updateProgressUI();
+                        renderLessonCards();
+                        document.querySelector('.current-lesson').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+
+                lessonList.appendChild(card);
+            }
+        }
+
+        // ========== 语音识别设置 ==========
+        function setupSpeechRecognition() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.lang = 'en-US';
+                
+                recognition.onstart = () => {
+                    voiceStatus.style.display = 'flex';
+                    statusText.textContent = '🎙️ 正在聆听...请开始说英语';
+                    startBtn.innerHTML = '<i class="fas fa-stop"></i> 停止录音';
+                    startBtn.style.background = 'linear-gradient(135deg,#e53935 0%,#b71c1c 100%)';
+                    startBtn.disabled = false;
+                    isRecording = true;
+                };
+                
+                recognition.onresult = (event) => {
+                    const transcript = event.results[0][0].transcript;
+                    addMessage('user', transcript, '您的回答');
+                    setTimeout(() => { aiResponse(transcript); }, 800);
+                };
+                
+                recognition.onerror = (event) => {
+                    const errMap = {
+                        'no-speech': '未检测到说话声，请靠近麦克风后重试',
+                        'not-allowed': '麦克风权限被拒绝，请在浏览器设置中允许麦克风访问',
+                        'network': '网络错误，请检查网络连接后重试',
+                        'audio-capture': '麦克风不可用，请检查设备'
+                    };
+                    const msg = errMap[event.error] || `语音识别错误 (${event.error})，请重试`;
+                    showToast(msg, 3000);
+                    stopRecording();
+                };
+                
+                recognition.onend = () => {
+                    stopRecording();
+                };
+            } else {
+                showToast('您的浏览器不支持语音识别，请使用 Chrome 或 Edge，或使用文字输入', 4000);
+                inputContainer.classList.add('active');
+                startBtn.disabled = true;
+                startBtn.innerHTML = '<i class="fas fa-microphone-slash"></i> 不支持语音';
+            }
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            voiceStatus.style.display = 'none';
+            startBtn.innerHTML = '<i class="fas fa-microphone"></i> 开始语音对话';
+            startBtn.style.background = '';
+            startBtn.disabled = false;
+        }
+
+        // ========== 事件绑定 ==========
+        function bindEvents() {
+            // 语音按钮
+            startBtn.addEventListener('click', () => {
+                if (startBtn.disabled) return;
+                if (!recognition) setupSpeechRecognition();
+                if (!isRecording) {
+                    try {
+                        startBtn.disabled = true;
+                        startBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 启动中...';
+                        recognition.start();
+                    } catch(e) {
+                        showToast('麦克风启动失败，请刷新页面后重试');
+                        stopRecording();
+                    }
+                } else {
+                    recognition.stop();
+                }
+            });
+            
+            // 提示按钮
+            hintBtn.addEventListener('click', showHint);
+            
+            // 文字输入发送
+            sendTextBtn.addEventListener('click', () => {
+                const text = textInput.value.trim();
+                if (text) {
+                    addMessage('user', text, '您的回答');
+                    textInput.value = '';
+                    
+                    setTimeout(() => {
+                        aiResponse(text);
+                    }, 1000);
+                }
+            });
+            
+            // 回车发送
+            textInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendTextBtn.click();
+                }
+            });
+            
+            // 模态框关闭
+            closeHint.addEventListener('click', () => {
+                hintModal.style.display = 'none';
+            });
+            
+            // 再练习一次
+            practiceAgainBtn.addEventListener('click', () => {
+                hintModal.style.display = 'none';
+                resetConversation();
+            });
+            
+            // 点击模态框外部关闭
+            hintModal.addEventListener('click', (e) => {
+                if (e.target === hintModal) {
+                    hintModal.style.display = 'none';
+                }
+            });
+            
+            // ========== 翻译面板收起/展开 ==========
+            const toggleTranslation = document.getElementById('toggle-translation');
+            const translationText = document.getElementById('translation-text');
+            const translationEnglish = document.getElementById('translation-english');
+            let translationVisible = true;
+            
+            toggleTranslation.addEventListener('click', () => {
+                translationVisible = !translationVisible;
+                if (translationVisible) {
+                    translationText.style.display = 'block';
+                    translationEnglish.style.display = 'block';
+                    toggleTranslation.innerHTML = '<i class="fas fa-eye-slash"></i> 收起';
+                } else {
+                    translationText.style.display = 'none';
+                    translationEnglish.style.display = 'none';
+                    toggleTranslation.innerHTML = '<i class="fas fa-eye"></i> 展开翻译';
+                }
+            });
+
+        // ========== 口音选择 ==========
+        const accentAmerican = document.getElementById('accent-american');
+        const accentBritish = document.getElementById('accent-british');
+        
+        accentAmerican.addEventListener('click', () => {
+            if (currentAccent === 'american') return;
+            currentAccent = 'american';
+            accentAmerican.classList.add('active');
+            accentBritish.classList.remove('active');
+            // 显示反馈
+            showAccentFeedback('🇺🇸 已切换为美式英语');
+            stopAudio();
+        });
+        
+        accentBritish.addEventListener('click', () => {
+            if (currentAccent === 'british') return;
+            currentAccent = 'british';
+            accentBritish.classList.add('active');
+            accentAmerican.classList.remove('active');
+            // 显示反馈
+            showAccentFeedback('🇬🇧 已切换为英式英语');
+            stopAudio();
+        });
+            
+        // ========== 学习模式切换 ==========
+        const modeListenFirst = document.getElementById('mode-listen-first');
+        const modeDirect = document.getElementById('mode-direct');
+        const modeDesc = document.getElementById('mode-desc');
+        const demoAudioArea = document.getElementById('demo-audio-area');
+        
+        modeListenFirst.addEventListener('click', () => {
+            if (currentMode === 'listen-first') return;
+            currentMode = 'listen-first';
+            modeListenFirst.classList.add('active');
+            modeDirect.classList.remove('active');
+            modeDesc.innerHTML = '<i class="fas fa-info-circle"></i> 先听后说模式：系统会先播放示范音频，您可以跟读练习';
+            hideAudioSupportTip();
+            updateDemoAudioArea();
+        });
+        
+        modeDirect.addEventListener('click', () => {
+            if (currentMode === 'direct') return;
+            currentMode = 'direct';
+            modeDirect.classList.add('active');
+            modeListenFirst.classList.remove('active');
+            modeDesc.innerHTML = '<i class="fas fa-info-circle"></i> 直接对话模式：直接与AI客户进行口语对话练习';
+            demoAudioArea.style.display = 'none';
+            hideAudioSupportTip();
+            stopAudio();
+        });
+        
+        // ========== 示范音频控制 ==========
+        const playDemoBtn = document.getElementById('play-demo-btn');
+        const replayDemoBtn = document.getElementById('replay-demo-btn');
+        const slowDemoBtn = document.getElementById('slow-demo-btn');
+        const copyDemoBtn = document.getElementById('copy-demo-btn');
+        
+        playDemoBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                stopAudio();
+            } else {
+                playDemoAudio(1.0);
+            }
+        });
+        
+        replayDemoBtn.addEventListener('click', () => {
+            stopAudio();
+            setTimeout(() => playDemoAudio(1.0), 300);
+        });
+        
+        slowDemoBtn.addEventListener('click', () => {
+            stopAudio();
+            setTimeout(() => playDemoAudio(0.65), 300);
+        });
+
+        if (copyDemoBtn) {
+            copyDemoBtn.addEventListener('click', copyDemoText);
+        }
+    }
+        
+        // ========== 示范音频播放功能（基于预生成 MP3） ==========
+
+        function showAudioSupportTip(message) {
+            const tip = document.getElementById('audio-support-tip');
+            if (!tip) return;
+            tip.textContent = message;
+            tip.style.display = 'block';
+        }
+
+        function hideAudioSupportTip() {
+            const tip = document.getElementById('audio-support-tip');
+            if (!tip) return;
+            tip.style.display = 'none';
+        }
+
+        async function copyDemoText() {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            const demoText = lesson && lesson.hint && lesson.hint.answer ? lesson.hint.answer : '';
+            if (!demoText) {
+                showToast('当前课程暂无可复制的示范英文');
+                return;
+            }
+
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(demoText);
+                } else {
+                    const temp = document.createElement('textarea');
+                    temp.value = demoText;
+                    document.body.appendChild(temp);
+                    temp.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(temp);
+                }
+                showToast('英文示范已复制');
+            } catch (error) {
+                console.warn('复制英文失败:', error);
+                showToast('复制失败，请手动选择英文原文');
+            }
+        }
+
+        function resetDemoAudioUI() {
+            if (pendingAudioTimer) {
+                clearTimeout(pendingAudioTimer);
+                pendingAudioTimer = null;
+            }
+
+            const playingStatus = document.getElementById('playing-status');
+            const playBtn = document.getElementById('play-demo-btn');
+
+            if (playingStatus) playingStatus.style.display = 'none';
+            if (playBtn) {
+                playBtn.disabled = false;
+                playBtn.innerHTML = '<i class="fas fa-play"></i> 播放示范';
+            }
+        }
+
+        function cleanupDemoAudio(audio = currentDemoAudio) {
+            if (!audio) return;
+            audio.onplay = null;
+            audio.onended = null;
+            audio.onerror = null;
+            audio.onloadeddata = null;
+            audio.oncanplaythrough = null;
+            audio.pause();
+            audio.currentTime = 0;
+        }
+
+        function playDemoAudio(rate = 1.0) {
+            stopAudio();
+            hideAudioSupportTip();
+
+            const lesson = getLessonByDay(currentDay);
+            if (!lesson) return;
+
+            const demoText = lesson && lesson.hint && lesson.hint.answer ? lesson.hint.answer : '';
+            if (!demoText) {
+                showToast('暂无示范内容');
+                return;
+            }
+
+            const audioSource = getLessonAudioSource(lesson, currentAccent);
+            if (!audioSource) {
+                showAudioSupportTip('当前课程还没有配置示范音频，请先复制英文原文继续练习。');
+                showToast('当前课程音频未配置');
+                return;
+            }
+
+            const playBtn = document.getElementById('play-demo-btn');
+            const requestId = Date.now();
+            currentAudioRequestId = requestId;
+
+            playBtn.disabled = true;
+            playBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 音频加载中...';
+
+            const audio = new Audio(audioSource);
+            audio.preload = 'auto';
+            audio.playbackRate = rate;
+            currentDemoAudio = audio;
+
+            pendingAudioTimer = setTimeout(() => {
+                if (!isPlaying && currentAudioRequestId === requestId) {
+                    stopAudio();
+                    showAudioSupportTip('音频加载超时，请再试一次；也可以先点“复制英文原文”继续练习。');
+                    showToast('示范音频加载超时，请稍后重试');
+                }
+            }, 8000);
+
+            audio.onplay = () => {
+                if (currentAudioRequestId !== requestId) return;
+                if (pendingAudioTimer) {
+                    clearTimeout(pendingAudioTimer);
+                    pendingAudioTimer = null;
+                }
+                hideAudioSupportTip();
+                isPlaying = true;
+                document.getElementById('playing-status').style.display = 'block';
+                playBtn.disabled = false;
+                playBtn.innerHTML = '<i class="fas fa-stop"></i> 停止播放';
+            };
+
+            audio.onended = () => {
+                if (currentAudioRequestId !== requestId) return;
+                cleanupDemoAudio(audio);
+                currentDemoAudio = null;
+                currentAudioRequestId = 0;
+                isPlaying = false;
+                resetDemoAudioUI();
+            };
+
+            audio.onerror = () => {
+                if (currentAudioRequestId !== requestId) return;
+                console.warn('示范音频加载失败:', audioSource);
+                stopAudio();
+                showAudioSupportTip('示范音频加载失败，请稍后重试；也可以先复制英文原文继续练习。');
+                showToast('示范音频加载失败');
+            };
+
+            audio.onloadeddata = () => {
+                if (currentAudioRequestId !== requestId || isPlaying) return;
+                playBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 即将播放...';
+            };
+
+            const playPromise = audio.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+                playPromise.catch((error) => {
+                    if (currentAudioRequestId !== requestId) return;
+                    console.warn('示范音频启动失败:', error);
+                    stopAudio();
+                    showAudioSupportTip('当前环境拦截了音频播放，请再点一次；也可以先复制英文原文继续练习。');
+                    showToast('示范音频启动失败，请再试一次');
+                });
+            }
+        }
+        
+        function stopAudio() {
+            currentAudioRequestId = 0;
+            if (currentDemoAudio) {
+                cleanupDemoAudio(currentDemoAudio);
+                currentDemoAudio = null;
+            }
+            isPlaying = false;
+            resetDemoAudioUI();
+        }
+
+
+        // ========== 口音切换反馈提示 ==========
+        function showAccentFeedback(msg) {
+            const accentInfo = document.querySelector('.accent-selector div:last-child');
+            if (accentInfo) {
+                const orig = accentInfo.innerHTML;
+                accentInfo.innerHTML = `<i class="fas fa-check-circle" style="color:#4caf50"></i> ${msg}`;
+                setTimeout(() => { accentInfo.innerHTML = orig; }, 2000);
+            }
+        }
+
+        // ========== 通用提示 Toast ==========
+        function showToast(msg, duration = 2500) {
+            let toast = document.getElementById('toast-tip');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'toast-tip';
+                toast.style.cssText = 'position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.75);color:#fff;padding:10px 22px;border-radius:24px;font-size:14px;z-index:9999;pointer-events:none;transition:opacity 0.3s;';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = msg;
+            toast.style.opacity = '1';
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => { toast.style.opacity = '0'; }, duration);
+        }
+        
+        function updateDemoAudioArea() {
+            const demoAudioArea = document.getElementById('demo-audio-area');
+            const demoText = document.getElementById('demo-text');
+            const demoTranslation = document.getElementById('demo-translation');
+            hideAudioSupportTip();
+            
+            if (currentMode === 'listen-first') {
+                demoAudioArea.style.display = 'block';
+                
+                const lesson = getLessonByDay(currentDay);
+                if (lesson && lesson.hint) {
+                    let text = '';
+                    let translation = '';
+                    
+                    if (typeof lesson.hint === 'object' && lesson.hint !== null) {
+                        text = lesson.hint.answer || '';
+                        translation = lesson.hint.translation || '暂无翻译';
+                    } else if (typeof lesson.hint === 'string') {
+                        text = lesson.hint;
+                        translation = '暂无翻译';
+                    }
+                    
+                    demoText.textContent = text;
+                    demoTranslation.textContent = translation;
+                    preloadLessonAudio(lesson, currentAccent);
+                }
+            } else {
+                demoAudioArea.style.display = 'none';
+            }
+        }
+
+        
+        // ========== 更新翻译面板 ==========
+        function updateTranslationPanel() {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            const translationText = document.getElementById('translation-text');
+            const translationEnglish = document.getElementById('translation-english');
+            
+            if (!lesson || !lesson.hint) {
+                translationText.textContent = '暂无翻译';
+                translationEnglish.textContent = '';
+                return;
+            }
+            
+            let translation = '';
+            let english = '';
+            
+            if (typeof lesson.hint === 'object' && lesson.hint !== null) {
+                translation = lesson.hint.translation || '暂无翻译';
+                english = lesson.hint.answer || '';
+            } else {
+                translation = '暂无翻译';
+                english = lesson.hint || '';
+            }
+            
+            translationText.textContent = translation;
+            translationEnglish.innerHTML = '<span style="font-size:11px;color:#4caf50;font-weight:600;margin-right:6px;">📝 英文原文</span>' + english;
+        }
+
+        // ========== 对话功能 ==========
+        function addMessage(role, content, speaker = '') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message message-${role}`;
+            
+            messageDiv.innerHTML = `
+                ${speaker ? `<div class="message-role">${speaker}</div>` : ''}
+                <div class="message-content">${content}</div>
+            `;
+            
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            
+            // 记录历史
+            chatHistory.push({ role, content, speaker: speaker || (role === 'ai' ? 'AI 客户代表' : '您') });
+        }
+
+        function aiResponse(userInput) {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            if (!lesson) return;
+            
+            let response = '';
+            
+            // 根据当前课程和用户输入生成AI回复
+            switch(currentDay) {
+                case 1:
+                    if (userInput.toLowerCase().includes('product') || userInput.toLowerCase().includes('tell me about')) {
+                        response = "Thanks for the introduction. We specifically need plastic containers for small automotive parts. Do you have containers with dividers or compartments?";
+                    } else {
+                        response = "I'm not sure I understood. Could you tell me about your main products first?";
+                    }
+                    break;
+                case 2:
+                    if (userInput.toLowerCase().includes('h') || userInput.toLowerCase().includes('pp') || userInput.toLowerCase().includes('material')) {
+                        response = "That's helpful. Our factory has some chemical exposure in certain areas. Which of your pallets has the best chemical resistance?";
+                    } else {
+                        response = "Could you explain more about the materials you use? We need to know chemical resistance properties.";
+                    }
+                    break;
+                case 3:
+                    if (userInput.toLowerCase().includes('rack') || userInput.toLowerCase().includes('storage')) {
+                        response = "Our rack system has 2-meter high shelves. What's the maximum weight capacity for your rackable pallets?";
+                    } else {
+                        response = "We have standard European pallet racks. What type of plastic pallet works best with rack systems?";
+                    }
+                    break;
+                case 4:
+                    if (userInput.toLowerCase().includes('esd') || userInput.toLowerCase().includes('static') || userInput.toLowerCase().includes('electronic')) {
+                        response = "Good. Do your ESD-safe boxes come with certification? We need documentation for our quality system.";
+                    } else {
+                        response = "Our main concern is static electricity damaging components. Do you have anti-static options?";
+                    }
+                    break;
+                case 5:
+                    if (userInput.toLowerCase().includes('vda') || userInput.toLowerCase().includes('standard') || userInput.toLowerCase().includes('size')) {
+                        response = "We need containers for small engine parts. Do you have VDA containers with attached lids?";
+                    } else {
+                        response = "Our assembly line has specific conveyor dimensions. What standard sizes do you offer?";
+                    }
+                    break;
+                case 6:
+                    if (userInput.toLowerCase().includes('question') || userInput.toLowerCase().includes('ask') || userInput.length > 10) {
+                        response = "Let me see... We need about 500 containers, indoor use, temperature range 0-40°C. Budget is around €15,000. What can you offer?";
+                    } else {
+                        response = "Could you ask me some questions to understand our needs better?";
+                    }
+                    break;
+                case 7:
+                    if (userInput.toLowerCase().includes('budget') || userInput.toLowerCase().includes('price') || userInput.toLowerCase().includes('cost')) {
+                        response = "We're looking at about €8,000-€10,000 for the first order. Can we see some pricing?";
+                    } else {
+                        response = "Our budget is flexible depending on quality. Could you give me a price range?";
+                    }
+                    break;
+                default:
+                    response = "That's interesting. Could you tell me more?";
+            }
+            
+            setTimeout(() => {
+                addMessage('ai', response, 'AI 客户代表 · Emily');
+            }, 800);
+        }
+
+        // ========== 提示功能 ==========
+        function showHint() {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            if (!lesson) return;
+            
+            // 处理hint字段（可能是对象或字符串）
+            let answerText = '';
+            let translationText = '';
+            let keyPointsList = '';
+            let vocabularyList = '';
+            
+            if (typeof lesson.hint === 'object' && lesson.hint !== null) {
+                answerText = lesson.hint.answer || '';
+                translationText = lesson.hint.translation || '暂无翻译';
+                if (lesson.hint.keyPoints && Array.isArray(lesson.hint.keyPoints)) {
+                    keyPointsList = lesson.hint.keyPoints.map(point => `<li>${point}</li>`).join('');
+                }
+                if (lesson.hint.vocabulary && Array.isArray(lesson.hint.vocabulary)) {
+                    vocabularyList = lesson.hint.vocabulary.map(word => `<span style="display: inline-block; background: #e3f2fd; color: #1565c0; padding: 4px 10px; border-radius: 12px; margin: 3px; font-size: 13px;">${word}</span>`).join('');
+                }
+            } else {
+                answerText = lesson.hint || '';
+                translationText = '暂无翻译';
+            }
+            
+            hintContent.innerHTML = `
+                <div style="background: #f0f9eb; border-left: 4px solid #07c160; padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #1b5e20; margin-bottom: 10px;">
+                        <i class="fas fa-star"></i> 参考答案（英文）
+                    </h4>
+                    <p style="color: #2e7d32; line-height: 1.7;">${answerText}</p>
+                </div>
+                
+                <div style="background: #fff8e1; border-left: 4px solid #ff9800; padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #e65100; margin-bottom: 10px;">
+                        <i class="fas fa-globe-asia"></i> 中文翻译
+                    </h4>
+                    <p style="color: #5d4037; line-height: 1.7;">${translationText}</p>
+                </div>
+                
+                ${keyPointsList ? `
+                <div style="background: #e3f2fd; border-left: 4px solid #1976d2; padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #0d47a1; margin-bottom: 10px;">
+                        <i class="fas fa-lightbulb"></i> 学习要点
+                    </h4>
+                    <ul style="color: #1565c0; line-height: 1.7; padding-left: 20px;">
+                        ${keyPointsList}
+                    </ul>
+                </div>
+                ` : ''}
+                
+                ${vocabularyList ? `
+                <div style="background: #f3e5f5; border-left: 4px solid #7b1fa2; padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #4a148c; margin-bottom: 10px;">
+                        <i class="fas fa-book"></i> 核心词汇
+                    </h4>
+                    <div style="line-height: 1.8;">
+                        ${vocabularyList}
+                    </div>
+                </div>
+                ` : ''}
+                
+                <div style="background: #fff3e0; border-left: 4px solid #ff9800; padding: 15px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #e65100; margin-bottom: 10px;">
+                        <i class="fas fa-graduation-cap"></i> 练习建议
+                    </h4>
+                    <ol style="color: #ef6c00; line-height: 1.7; padding-left: 20px;">
+                        <li>先听示范音频，注意语调和发音</li>
+                        <li>对照中文翻译，理解句子含义</li>
+                        <li>跟读练习，模仿语音语调</li>
+                        <li>理解关键表达和专业词汇</li>
+                        <li>尝试用自己的话组织回答</li>
+                        <li>每天练习15分钟，持续积累外贸口语表达</li>
+                    </ol>
+                </div>
+            `;
+            
+            hintModal.style.display = 'flex';
+        }
+
+        function resetConversation() {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            if (!lesson) return;
+            
+            chatContainer.innerHTML = '';
+            addMessage('ai', lesson.initialAI, 'AI 客户代表 · Emily');
+            chatHistory = [
+                { role: 'ai', content: lesson.initialAI, speaker: 'AI 客户代表 · Emily' }
+            ];
+        }
+
+        // ========== 导出功能（飞书环境） ==========
+        function exportToFeishu() {
+            // 模拟飞书环境导出
+            const data = {
+                appName: "塑料物流包装外贸口语训练营",
+                version: "1.0",
+                currentDay: currentDay,
+                totalProgress: Math.round((currentDay / lessonsData.length) * 100),
+                lastPractice: new Date().toISOString()
+            };
+            
+            console.log("飞书应用数据:", data);
+            alert("已准备就绪，可作为飞书微应用部署！");
+        }
+
+        // ========== 启动应用 ==========
+        window.addEventListener('DOMContentLoaded', init);
+
+        // 导出到全局，供飞书环境调用
+        window.OralTrainingApp = {
+            exportToFeishu,
+            resetConversation,
+            getProgress: () => ({ currentDay, total: lessonsData.length, percent: Math.round((currentDay / lessonsData.length) * 100) })
+        };
+    </script>
+</body>
+</html>
