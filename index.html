@@ -1961,7 +1961,7 @@ async function resolveLessonAudioSource(lesson, accent = currentAccent) {
             audio.currentTime = 0;
         }
 
-        function playDemoAudio(rate = 1.0) {
+       async function playDemoAudio(rate = 1.0) {
             stopAudio();
             hideAudioSupportTip();
 
@@ -1974,7 +1974,8 @@ async function resolveLessonAudioSource(lesson, accent = currentAccent) {
                 return;
             }
 
-            const audioSource = getLessonAudioSource(lesson, currentAccent);
+            const audioSource = await resolveLessonAudioSource(lesson, currentAccent);
+
             if (!audioSource) {
                 showAudioSupportTip('当前课程还没有配置示范音频，请先复制英文原文继续练习。');
                 showToast('当前课程音频未配置');
