@@ -478,7 +478,7 @@
             
             <div class="progress-container">
                 <div class="progress-info">
-                    <span>第 <span id="current-day">1</span> 天 / <span id="total-days">39</span></span>
+                    <span>第 <span id="current-day">1</span> 天 / <span id="total-days">38</span></span>
                     <span><span id="progress-percent">3</span>% 完成</span>
                 </div>
                 <div class="progress-bar">
@@ -729,18 +729,43 @@
             return lessonsData.find(l => l.day === day);
         }
 
-        function getLessonAudioSource(lesson, accent = currentAccent) {
-            if (!lesson) return '';
+        function getLessonAudioSources(lesson, accent = currentAccent) {
+            if (!lesson) return [];
 
             if (lesson.audio && typeof lesson.audio === 'object') {
-                if (accent === 'british') {
-                    return lesson.audio.british || lesson.audio.uk || lesson.audio.american || lesson.audio.us || lesson.audio.default || '';
-                }
-                return lesson.audio.american || lesson.audio.us || lesson.audio.british || lesson.audio.uk || lesson.audio.default || '';
+                const orderedSources = accent === 'british'
+                    ? [lesson.audio.british, lesson.audio.uk, lesson.audio.american, lesson.audio.us, lesson.audio.default]
+                    : [lesson.audio.american, lesson.audio.us, lesson.audio.british, lesson.audio.uk, lesson.audio.default];
+
+                return [...new Set(orderedSources.filter(Boolean))];
             }
 
             const dayCode = String(lesson.day).padStart(2, '0');
-            return `assets/audio/day-${dayCode}-${accent}.mp3`;
+            return [
+                `assets/audio/day-${dayCode}-${accent}.mp3`,
+                `day-${dayCode}-${accent}.mp3`
+            ];
+        }
+
+        function getLessonAudioSource(lesson, accent = currentAccent) {
+            const sources = getLessonAudioSources(lesson, accent);
+            return sources[0] || '';
+        }
+
+        async function resolveLessonAudioSource(lesson, accent = currentAccent) {
+            const sources = getLessonAudioSources(lesson, accent);
+            if (!sources.length) return '';
+
+            for (const source of sources) {
+                try {
+                    const response = await fetch(source, { method: 'HEAD', cache: 'no-store' });
+                    if (response.ok) return source;
+                } catch (error) {
+                    console.warn('音频探测失败:', source, error);
+                }
+            }
+
+            return sources[0] || '';
         }
 
         function preloadLessonAudio(lesson, accent = currentAccent) {
@@ -750,6 +775,7 @@
             preloadAudio.preload = 'auto';
             preloadAudio.src = source;
         }
+
 
 
         // ========== 30天课程数据 ==========
@@ -1488,37 +1514,40 @@
             },
             {
                 day: 38,
-                title: "旺季备货规划与库存管理建议",
-                description: "学习如何帮助客户制定科学的备货策略，避免旺季断货或库存积压",
-                difficulty: "高级",
+                title: "展会后重点客户跟进与视频会议邀约",
+                description: "学习在展会结束后快速跟进客户需求，发起视频会议并推进样品或试单合作",
+                difficulty: "中级",
                 duration: "15分钟",
-                tags: ["备货规划", "库存管理", "旺季", "JIT"],
-                prompt: "客户询问如何规划旺季备货，请提供科学的库存管理建议",
+                tags: ["展会跟进", "视频会议", "需求确认", "样品推进"],
+                prompt: "你在德国展会上接触到一位潜在客户，对方回国后希望进一步了解方案，请完成一次专业跟进并邀约视频会议",
                 hint: {
-                    answer: "For peak season planning, I recommend a data-driven approach. Based on your historical sales data and growth projection, I suggest ordering 60% of your estimated peak demand now to secure production slots, then placing a second order for the remaining 40% about 6 weeks before peak season. This way you have buffer stock without overstocking. For inventory management, we can set up a Vendor-Managed Inventory system where we monitor your stock levels through weekly reports and automatically trigger replenishment when inventory drops below your set threshold. This reduces your storage costs and ensures you never run out during critical periods.",
-                    translation: "对于旺季规划，我建议采用数据驱动的方法。根据您的历史销售数据和增长预测，我建议现在订购预计旺季需求的60%来确保生产档位，然后在旺季前6周左右下第二个订单补充剩余40%。这样您既有缓冲库存又不会过度积压。在库存管理方面，我们可以建立一个供应商管理库存系统，通过每周报告监控您的库存水平，当库存降至您设定的阈值以下时自动触发补货。这可以降低您的存储成本并确保在关键时期不会断货。",
+                    answer: "Thank you again for visiting our booth at the trade fair. It was a pleasure discussing your packaging needs for automotive components. Based on our conversation, I understand you're looking for a foldable sleeve box solution that can reduce return logistics cost while protecting high-value parts during export. I've already asked our team to prepare a customized proposal, including product specifications, sample photos, and an estimated quotation range. I can send that to you within 24 hours. To move things forward efficiently, I'd also like to invite you to a 30-minute video meeting next Tuesday or Wednesday. During the call, we can review your packaging dimensions, expected annual volume, and sample plan in detail. If the discussion goes well, we can arrange sample production immediately after the meeting and target a trial order this month.",
+                    translation: "再次感谢您在展会上到访我们的展位。很高兴和您交流汽车零部件包装需求。根据我们的沟通，我理解您正在寻找一种可折叠围板箱方案，既能降低回运物流成本，也能在出口过程中保护高价值零件。我已经让团队准备一份定制方案，其中包括产品规格、样品图片以及预估报价区间，我可以在24小时内发给您。为了更高效地推进，我也想邀请您在下周二或周三参加一个30分钟的视频会议。会议中我们可以详细确认包装尺寸、年度需求量和样品计划。如果沟通顺利，我们可以在会后立即安排打样，并争取本月内推进试单。",
                     keyPoints: [
-                        "旺季备货分两阶段：前期60%+后期40%",
-                        "供应商管理库存系统VMI减少库存压力",
-                        "定期销售数据分析预测需求",
-                        "旺季前6周为关键补货时间点"
+                        "先感谢客户在展会接触，延续良好第一印象",
+                        "复述客户需求，证明你认真记录并理解痛点",
+                        "明确承诺跟进资料交付时间：24小时内",
+                        "主动提出30分钟视频会议，推进到下一步",
+                        "把会议目标说清楚：尺寸、年用量、样品计划、试单"
                     ],
                     vocabulary: [
-                        "data-driven",
-                        "peak season planning",
-                        "buffer stock",
-                        "Vendor-Managed Inventory (VMI)",
-                        "replenishment",
-                        "storage costs",
-                        "critical periods",
-                        "threshold"
+                        "trade fair",
+                        "packaging needs",
+                        "foldable sleeve box",
+                        "return logistics cost",
+                        "high-value parts",
+                        "customized proposal",
+                        "estimated quotation range",
+                        "video meeting",
+                        "annual volume",
+                        "trial order"
                     ]
                 },
-                initialAI: "We're approaching our peak season in Q4 and we've had stockouts last year. How should we plan our inventory this time to avoid the same problem while not overstocking?",
+                initialAI: "Hi, this is Daniel from Germany. We met at your booth during the exhibition last week and I'm interested in your returnable packaging for automotive parts. Could you send me more information? If the concept fits our project, we may arrange an internal review soon.",
                 aiResponses: [
-                    "What's your projected peak season demand compared to last year? And how much warehouse space do you have available? This will help me calculate the optimal order quantity.",
-                    "The Vendor-Managed Inventory system sounds interesting. What are the setup costs and how does the monitoring system work? Do we need any special software?",
-                    "We've already waited too long. Is there any way to get an expedited order shipped within 2 weeks? We're willing to pay extra for air freight if necessary."
+                    "A video meeting next week sounds good. Can you include your technical manager as well? Our engineering team will have detailed questions about load capacity and divider design.",
+                    "Please send the proposal before the meeting. My team wants to review the price range, sample lead time, and whether the box can be customized with our logo.",
+                    "If the meeting goes well, we may start with a pilot order for one production line. Please also prepare a suggested sample plan for that scenario."
                 ]
             },
             {
@@ -1755,168 +1784,6 @@
                     "You mentioned a potential raw material issue. How confident are you that your backup supplier can deliver on time? We cannot afford a delay on this order.",
                     "If the delay does happen, what is your proposed solution? Will you air freight the remaining units at your cost to meet our deadline?",
                     "We appreciate the early warning, but we need a firm commitment by Wednesday. If you cannot guarantee the timeline, we may need to discuss splitting the order with another supplier."
-                ]
-            },
-            {
-                day: 45,
-                title: "出口质检标准与第三方验货配合",
-                description: "学习如何向客户说明产品质检流程、接受第三方验货机构介入、处理验货不合格情况及提出纠正措施",
-                difficulty: "高级",
-                duration: "15分钟",
-                tags: ["质检标准", "第三方验货", "QC流程", "不合格品处理"],
-                prompt: "一位美国客户要求在发货前安排SGS第三方验货，并提出他们有自己的AQL抽检标准（AQL 2.5）。请向客户确认验货安排，说明你们的内部质检流程，并表达配合第三方验货的积极态度",
-                hint: {
-                    answer: "Thank you for bringing up the pre-shipment inspection requirement. We fully support third-party inspection and are happy to coordinate with SGS or any inspection agency of your choice. Regarding your AQL 2.5 standard, we are familiar with this sampling plan and have aligned our internal quality control process accordingly. Here is an overview of our QC procedure before shipment: First, our QC team conducts a 100% visual inspection of all units immediately after production, checking for surface defects, dimensional accuracy, and labeling compliance. Second, we perform a random functional test on a sample batch, including drop tests, stacking load tests, and fit verification for any interlocking components. Third, once our internal inspection is passed, we will arrange a production completion notice to SGS and coordinate a mutually convenient date for their on-site inspection at our factory. We will provide the inspector with full access to the goods, relevant test reports, and our internal QC checklist. In the event that the inspection reveals any non-conformities, we will immediately conduct a root cause analysis and implement corrective actions before re-inspection. We will not ship any goods until we receive the SGS inspection certificate confirming the batch meets your AQL 2.5 requirements. Please let us know the SGS contact information you would like us to coordinate with, and we will take it from there.",
-                    translation: "感谢您提出发货前验货的要求。我们完全支持第三方验货，很乐意配合SGS或您指定的任何检验机构。关于您的AQL 2.5抽检标准，我们对这套抽样方案很熟悉，并已将我们的内部质检流程与之对齐。以下是我们发货前质检流程的概述：首先，生产完成后，我们的QC团队对所有单品进行100%目检，检查外观缺陷、尺寸精度以及标签合规性。其次，我们对样品批次进行随机功能测试，包括跌落测试、堆码载荷测试，以及互锁组件的配合验证。第三，一旦我们的内部检验通过，我们将向SGS发出生产完成通知，并协调双方都方便的时间安排他们到工厂进行现场验货。我们将为验货员提供完整的货物查阅权限、相关检测报告以及我们的内部QC清单。如果验货中发现任何不合格项，我们将立即进行根本原因分析，实施纠正措施，并安排复验。在收到SGS出具的符合您AQL 2.5要求的验货证书之前，我们不会发运任何货物。请告知您希望我们对接的SGS联系人信息，我们将从那里跟进。",
-                    keyPoints: [
-                        "主动欢迎第三方验货，展示质量自信",
-                        "明确表示熟悉客户指定的AQL抽检标准",
-                        "分步骤说明内部质检流程，体现专业性",
-                        "说明第三方验货的配合方式（开放查阅、提供报告）",
-                        "明确不合格品的处理原则：根因分析→纠正→复验→再发货",
-                        "承诺凭证发货，降低客户风险感知"
-                    ],
-                    vocabulary: [
-                        "pre-shipment inspection",
-                        "third-party inspection",
-                        "AQL (Acceptance Quality Limit)",
-                        "sampling plan",
-                        "visual inspection",
-                        "dimensional accuracy",
-                        "drop test",
-                        "stacking load test",
-                        "non-conformity",
-                        "root cause analysis",
-                        "corrective action",
-                        "inspection certificate"
-                    ]
-                },
-                initialAI: "We would like to arrange a third-party inspection before shipment. We use AQL 2.5 as our standard and typically work with SGS. Can you confirm whether your factory accepts third-party inspectors on-site, and walk me through your internal QC process?",
-                aiResponses: [
-                    "What happens if SGS finds defects during inspection? Will you hold the shipment, and how quickly can you fix the issues and arrange a re-inspection?",
-                    "We have had issues with suppliers in the past where the packaging dimensions were slightly off and caused problems on our production line. How do you ensure dimensional accuracy on your products?",
-                    "Can you share a sample of your internal QC checklist or test reports so we can review your quality standards before we place the order?"
-                ]
-            },
-            {
-                day: 46,
-                title: "新客户开发：LinkedIn与社媒营销话术",
-                description: "学习如何通过LinkedIn等社交媒体平台主动开发潜在客户，撰写专业且具吸引力的开发信，建立初步商务联系",
-                difficulty: "中级",
-                duration: "15分钟",
-                tags: ["客户开发", "社媒营销", "LinkedIn", "开发信"],
-                prompt: "你在LinkedIn上发现一家德国汽车零部件公司的采购经理，对方近期发布了关于优化供应链和降低包装成本的动态。请撰写一条专业的LinkedIn连接请求消息，介绍你们公司的围板箱解决方案，并争取获得进一步沟通的机会",
-                hint: {
-                    answer: "Hi [Name], I came across your recent post about optimizing your supply chain and reducing packaging costs. As a specialist in collapsible pallet boxes and returnable packaging solutions, I have helped several automotive Tier-1 suppliers achieve 30-40% logistics cost savings while improving parts protection during transit. I noticed your company focuses on [specific product line from their profile], and I believe our foldable sleeve boxes could be a good fit for your inbound logistics. Would you be open to a brief call to explore whether this might align with your current packaging strategy? No pressure - just happy to share some industry insights that might be useful. Best regards, [Your Name] from UGET Packaging.",
-                    translation: "您好[姓名]，我注意到您最近关于优化供应链和降低包装成本的动态。作为可折叠围板箱和循环包装解决方案的专业供应商，我们已帮助多家汽车一级供应商实现了30-40%的物流成本节约，同时提升了运输过程中的零部件保护。我注意到贵司专注于[根据其资料填写的具体产品线]，相信我们的折叠围板箱很适合您的入厂物流。您是否愿意进行一次简短通话，探讨这是否符合您当前的包装策略？没有压力——只是很高兴分享一些可能有用的行业见解。此致，[您的姓名]来自优盖特包装。",
-                    keyPoints: [
-                        "提及客户的具体动态或帖子内容，展示你做了功课",
-                        "用具体数字（30-40%成本节约）建立可信度",
-                        "关联客户公司业务，说明为什么你的产品适合他们",
-                        "提出低压力的下一步（简短通话），降低客户抵触",
-                        "强调价值分享而非推销，建立信任感",
-                        "保持简洁专业，LinkedIn消息不宜过长"
-                    ],
-                    vocabulary: [
-                        "came across",
-                        "optimizing supply chain",
-                        "collapsible pallet boxes",
-                        "returnable packaging",
-                        "logistics cost savings",
-                        "parts protection",
-                        "inbound logistics",
-                        "foldable sleeve boxes",
-                        "packaging strategy",
-                        "industry insights",
-                        "Tier-1 supplier",
-                        "brief call"
-                    ]
-                },
-                initialAI: "I see you viewed my LinkedIn profile. Are you a packaging supplier? We are actually quite happy with our current supplier, so I am not sure if this is relevant to us right now.",
-                aiResponses: [
-                    "We are currently reviewing our packaging strategy for Q3. What specific advantages do your collapsible boxes offer compared to traditional corrugated packaging?",
-                    "30-40% cost savings sounds impressive. Can you share a case study from another automotive client that shows the actual ROI calculation?",
-                    "I am open to a brief call, but I need to understand first - do you have experience with export packaging to Europe, particularly with the new EU packaging regulations?"
-                ]
-            },
-            {
-                day: 47,
-                title: "关税政策应对与成本优化方案",
-                description: "学习如何应对各国关税政策变化，帮助客户计算关税成本并提供合理避税建议，在贸易摩擦背景下保持竞争力",
-                difficulty: "高级",
-                duration: "15分钟",
-                tags: ["关税政策", "成本优化", "国际贸易", "原产地规则"],
-                prompt: "一位美国进口商的采购经理询问：由于中美贸易摩擦，他们公司需要为进口的中国塑料包装支付额外关税。他们想知道是否有办法降低成本，例如通过调整原产地或寻找替代方案。请专业回应客户的关税关切，并提供切实可行的成本优化建议",
-                hint: {
-                    answer: "I understand your concern about the additional tariffs on Chinese imports. This is a challenge many of our US clients are facing. Let me share some options we've helped others with. First, regarding rules of origin - if any components are manufactured in third countries, we can explore whether partial assembly or processing there could change the country of origin declaration under the applicable trade agreement. Second, we can conduct a thorough tariff classification review - sometimes products are classified under different HTS codes with different duty rates. Third, for larger volume commitments, we can discuss whether consolidating shipments or adjusting product specifications might provide tariff savings. Fourth, we can explore duty drawback programs if your company exports products manufactured with imported materials. I'd like to schedule a detailed review call with our trade compliance specialist to analyze your specific situation and identify the most effective solutions. Have you already had a tariff classification done for our products?",
-                    translation: "我理解您对中美进口额外关税的担忧。这是我们许多美国客户都面临的挑战。让我分享一些我们帮助其他客户解决的方案。首先，关于原产地规则——如果任何组件在第三国制造，我们可以探讨是否可以在那里进行部分组装或加工，以改变适用贸易协定下的原产地申报。其次，我们可以进行全面的关税分类审查——有时产品可以在不同HTS代码下分类，享受不同的税率。第三，对于更大批量的承诺，我们可以讨论是否可以通过整合运输或调整产品规格来节省关税。第四，我们可以探索关税退税计划，如果贵公司使用进口材料生产出口产品。我希望与我们的贸易合规专员安排一次详细的审查电话，分析您的具体情况并确定最有效的解决方案。您是否已经对我们的产品进行了关税分类？",
-                    keyPoints: [
-                        "理解客户关切，建立共情，不回避敏感话题",
-                        "提供多个可行方案，展现专业性和灵活性",
-                        "原产地调整需合规，强调合法途径",
-                        "关税分类审查是常用途径",
-                        "提出关税退税计划适合有出口业务的客户",
-                        "建议专业合规专员介入处理复杂问题"
-                    ],
-                    vocabulary: [
-                        "additional tariffs",
-                        "rules of origin",
-                        "country of origin",
-                        "HTS codes (Harmonized Tariff Schedule)",
-                        "tariff classification",
-                        "duty rates",
-                        "duty drawback",
-                        "trade compliance",
-                        "third countries",
-                        "consolidating shipments",
-                        "product specifications"
-                    ]
-                },
-                initialAI: "We just received notification that our company will need to pay an additional 25% tariff on all plastic packaging imports from China. This significantly impacts our margins. Are there any ways you can help us reduce this cost? Do you have manufacturing in other countries?",
-                aiResponses: [
-                    "What do you mean by tariff classification review? How could reclassifying the products reduce our duty rate? Is this legal?",
-                    "We do export products manufactured with some imported materials. Can you explain more about the duty drawback program? How much can we potentially save?",
-                    "Your suggestions are helpful, but honestly, we are also considering switching to a supplier in Vietnam or Mexico. How competitive would you be if you had to compete with Southeast Asian manufacturers?"
-                ]
-            },
-            {
-                day: 48,
-                title: "供应链数字化与ESG可持续包装解决方案",
-                description: "学习如何向客户介绍供应链数字化技术和ESG可持续发展理念，将环保优势转化为市场竞争力",
-                difficulty: "高级",
-                duration: "15分钟",
-                tags: ["供应链数字化", "ESG", "可持续包装", "循环经济", "碳中和"],
-                prompt: "一位欧洲跨国公司的供应链总监询问你们的包装解决方案如何帮助他们实现碳中和目标和供应链数字化，请阐述你们在ESG和数字化方面的独特价值",
-                hint: {
-                    answer: "Excellent question - ESG and digitalization are crucial for modern supply chains. Let me explain our two-pronged approach. On the sustainability side: 1) Our PCR (Post-Consumer Recycled) pallets contain 30% recycled HDPE material, reducing carbon footprint by 15%. 2) Our RFID-tagged containers enable closed-loop returnable packaging systems, eliminating single-use waste. 3) We provide a Life Cycle Assessment report showing CO2 savings compared to wooden or corrugated alternatives. On the digitalization side: 1) Our IoT-enabled smart pallets with embedded sensors track location, temperature, and handling conditions in real time. 2) Our mobile app provides full inventory visibility and predictive maintenance alerts. 3) We offer integration with ERP systems like SAP and Oracle for automated replenishment. This combination helps clients achieve both sustainability KPIs and supply chain efficiency simultaneously.",
-                    translation: "非常好的问题——ESG和数字化转型对现代供应链至关重要。让我解释我们的双重优势。在可持续发展方面：1）我们的PCR（消费后回收）托盘含有30%回收HDPE材料，碳排放减少15%。2）我们带有RFID标签的容器可实现闭环可回收包装系统，消除一次性废弃物。3）我们提供生命周期评估报告，展示相比木制或瓦楞替代品的CO2节省。在数字化方面：1）我们搭载物联网技术的智能托盘内置传感器，实时追踪位置、温度和处理状况。2）我们的移动应用提供完整的库存可视性和预测性维护警报。3）我们提供与SAP、Oracle等ERP系统集成，实现自动补货。这种结合帮助客户同时实现可持续发展KPI和供应链效率提升。",
-                    keyPoints: [
-                        "先分两大方面回答：ESG可持续 + 供应链数字化",
-                        "具体数据支撑：30%回收材料、15%碳减排",
-                        "技术创新亮点：RFID闭环系统、物联网智能托盘",
-                        "系统集成能力：ERP系统对接",
-                        "强调双重价值：既满足环保合规又提升运营效率"
-                    ],
-                    vocabulary: [
-                        "ESG (Environmental, Social, Governance)",
-                        "PCR (Post-Consumer Recycled) material",
-                        "carbon footprint",
-                        "closed-loop system",
-                        "Life Cycle Assessment (LCA)",
-                        "IoT-enabled smart pallets",
-                        "RFID tags",
-                        "predictive maintenance",
-                        "ERP integration",
-                        "sustainability KPIs",
-                        "CO2 savings",
-                        "supply chain transparency"
-                    ]
-                },
-                initialAI: "Our company has made a public commitment to achieve net-zero emissions by 2035. We're also integrating Industry 4.0 technologies into our global supply chain. How can your plastic packaging solutions support both our ESG goals and digital transformation initiatives?",
-                aiResponses: [
-                    "The 30% PCR content is interesting. What's the durability and load capacity compared to 100% virgin material? We can't compromise on performance for sustainability.",
-                    "Smart pallets sound promising for tracking, but we have a mixed fleet of assets. Can your RFID system work with existing barcode and QR code systems?",
-                    "What kind of CO2 savings data can you provide for a large-scale implementation? We need this for our annual sustainability report."
                 ]
             }
         ];
@@ -2330,7 +2197,7 @@
             audio.currentTime = 0;
         }
 
-        function playDemoAudio(rate = 1.0) {
+        async function playDemoAudio(rate = 1.0) {
             stopAudio();
             hideAudioSupportTip();
 
@@ -2343,19 +2210,23 @@
                 return;
             }
 
-            const audioSource = getLessonAudioSource(lesson, currentAccent);
-            if (!audioSource) {
-                showAudioSupportTip('当前课程还没有配置示范音频，请先复制英文原文继续练习。');
-                showToast('当前课程音频未配置');
-                return;
-            }
-
             const playBtn = document.getElementById('play-demo-btn');
             const requestId = Date.now();
             currentAudioRequestId = requestId;
 
             playBtn.disabled = true;
             playBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 音频加载中...';
+
+            const audioSource = await resolveLessonAudioSource(lesson, currentAccent);
+            if (currentAudioRequestId !== requestId) return;
+
+            if (!audioSource) {
+                playBtn.disabled = false;
+                playBtn.innerHTML = '<i class="fas fa-play"></i> 播放示范';
+                showAudioSupportTip('当前课程还没有配置示范音频，请先复制英文原文继续练习。');
+                showToast('当前课程音频未配置');
+                return;
+            }
 
             const audio = new Audio(audioSource);
             audio.preload = 'auto';
@@ -2416,6 +2287,7 @@
                 });
             }
         }
+
         
         function stopAudio() {
             currentAudioRequestId = 0;

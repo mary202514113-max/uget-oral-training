@@ -14,17 +14,20 @@ REPO_OWNER = "mary202514113-max"
 REPO_NAME = "uget-oral-training"
 BRANCH = "main"
 
-# 需要推送的文件列表
+# 需要推送的文件列表（2026-04-09 同步到最新50课版本）
+LOCAL_BASE = r"D:\优盖特客户数据\外贸口语培训小程序\uget-oral-training"
+
 FILES_TO_PUSH = [
-    ("training_app.html", "c:/Users/Lenovo/WorkBuddy/20260403194237/training_app.html"),
-    ("index.html", "c:/Users/Lenovo/WorkBuddy/20260403194237/index.html"),
+    ("training_app.html", os.path.join(LOCAL_BASE, "training_app.html")),
+    ("index.html", os.path.join(LOCAL_BASE, "index.html")),
 ]
 
 # 音频文件
-AUDIO_DIR = "c:/Users/Lenovo/WorkBuddy/20260403194237/assets/audio"
-for f in os.listdir(AUDIO_DIR):
-    if f.endswith('.mp3'):
-        FILES_TO_PUSH.append((f"assets/audio/{f}", os.path.join(AUDIO_DIR, f)))
+AUDIO_DIR = os.path.join(LOCAL_BASE, "assets")
+if os.path.exists(AUDIO_DIR):
+    for f in os.listdir(AUDIO_DIR):
+        if f.endswith('.mp3'):
+            FILES_TO_PUSH.append((f"assets/{f}", os.path.join(AUDIO_DIR, f)))
 
 def get_file_sha(owner, repo, path, branch, token):
     """获取文件当前 SHA（如果存在）"""
@@ -86,7 +89,7 @@ def main():
         print("示例: $env:GITHUB_TOKEN='ghp_xxxxxxxxxxxx'")
         return 1
     
-    commit_message = "Add Day 44 course: Production progress sync & exception alert communication"
+    commit_message = "Sync Day 49-50 + fix Day 37 missing: 50 courses total (2026-04-09)"
     
     print(f"开始推送 {len(FILES_TO_PUSH)} 个文件到 GitHub...")
     print(f"仓库: {REPO_OWNER}/{REPO_NAME}, 分支: {BRANCH}")
