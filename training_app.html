@@ -478,7 +478,7 @@
             
             <div class="progress-container">
                 <div class="progress-info">
-                    <span>第 <span id="current-day">1</span> 天 / <span id="total-days">39</span></span>
+                    <span>第 <span id="current-day">1</span> 天 / <span id="total-days">53</span></span>
                     <span><span id="progress-percent">3</span>% 完成</span>
                 </div>
                 <div class="progress-bar">
@@ -2053,6 +2053,124 @@
                     "That's an interesting point about export clearance. We don't have a local agent in China, so I can see how EXW could create complications. Can you tell me more about what's involved in FOB and how it compares in total cost?",
                     "Your freight rates being 15-20% below market is quite attractive. Could you share a sample cost comparison between EXW and CIF Hamburg so I can present it to my management?",
                     "If we go with CIF Hamburg, what documents do we receive, and what is the insurance coverage? We need to make sure our finance team is comfortable with the arrangement."
+                ]
+            },
+            {
+                day: 52,
+                title: "老客户复购激活与交叉销售",
+                description: "学习如何主动联系老客户，挖掘复购需求并推荐新产品线，提升客户终身价值",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["客户维护", "复购激活", "交叉销售", "客户关系"],
+                prompt: "一位2年前合作过的德国汽车零部件客户（曾采购300套围板箱）已经很久没有联系，现在需要主动跟进，了解其当前包装需求变化，并推荐公司新推出的防静电周转箱产品线",
+                hint: {
+                    answer: "Hi Michael, I hope this email finds you well. It's been a while since we last connected — I was reviewing our records and noticed we supplied your team with 300 sets of FBC-1210 collapsible bulk containers back in 2023 for your transmission parts project. I trust those have been serving you well. I'm reaching out today because we've expanded our product line significantly since then, and I thought of you specifically. We've launched a new series of ESD-safe turnover boxes that are gaining traction in the automotive electronics sector — ANSI/ESD S20.20 certified, surface resistivity under 10^9 ohms, perfect for protecting ECUs, sensors, and control modules during transport and storage. Given your expertise in automotive components, I wondered if your product range has expanded into electronics-heavy assemblies where anti-static packaging might be relevant. Even if not, I'd love to catch up and hear how your packaging needs have evolved. Are you still using the same volume of containers, or have your requirements changed? I'd be happy to schedule a brief call or send you our latest catalog if you're interested.",
+                    translation: "您好Michael，希望这封邮件能让您一切安好。我们上次联系已经有一段时间了——我回顾记录时发现，2023年我们曾为您的变速箱零部件项目供应过300套FBC-1210折叠围板箱。相信那些产品一直很好地为您服务着。我今天联系您是因为自那时起我们显著扩展了产品线，而且我专门想到了您。我们新推出了一系列防静电周转箱，在汽车电子领域越来越受欢迎——通过ANSI/ESD S20.20认证，表面电阻率低于10的9次方欧姆，非常适合在运输和存储过程中保护ECU、传感器和控制模块。鉴于您在汽车零部件领域的专业经验，我想知道您的产品线是否已扩展到电子元件较多的总成领域，那里可能需要防静电包装。即使没有，我也很想叙叙旧，听听您的包装需求有何变化。您现在的容器用量还和以前一样吗，还是需求已经改变了？如果您感兴趣，我很乐意安排一次简短通话或给您发送我们的最新产品目录。",
+                    keyPoints: [
+                        "开场提及历史合作，唤起客户记忆",
+                        "展示对客户的持续关注：回顾记录、记得具体项目",
+                        "介绍新产品时关联客户行业背景",
+                        "用具体技术参数建立专业可信度",
+                        "询问客户业务变化，展现真诚关心而非纯推销",
+                        "提供低压力互动选项：电话或目录"
+                    ],
+                    vocabulary: [
+                        "reach out",
+                        "expand product line",
+                        "gain traction",
+                        "ESD-safe turnover boxes",
+                        "surface resistivity",
+                        "ECU (Electronic Control Unit)",
+                        "control modules",
+                        "anti-static packaging",
+                        "catch up",
+                        "evolve",
+                        "product range",
+                        "latest catalog"
+                    ]
+                },
+                initialAI: "Hello, this is Michael from Autotech Components. I remember working with you a couple of years ago on some packaging for our transmission parts. To be honest, we haven't had much new packaging demand recently as our production has been stable. What brings you to reach out after all this time?",
+                aiResponses: [
+                    "ESD-safe boxes? We actually started manufacturing some electronic control units last year, and our current supplier's anti-static packaging has been inconsistent. Tell me more about your ESD certification.",
+                    "Thanks for checking in. We've actually increased our production volume by about 30% since 2023. We might need to replenish some of those collapsible containers soon. Do you still stock the FBC-1210 model?",
+                    "I appreciate you remembering our project. We're actually exploring new markets in EV battery components. Do you have any packaging solutions for lithium battery transport?"
+                ]
+            },
+            {
+                day: 53,
+                title: "处理客户投诉与售后跟进",
+                description: "学习专业应对客户质量投诉、有效沟通解决方案、维护长期合作关系的技巧",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["客户投诉", "售后服务", "质量纠纷", "关系维护"],
+                prompt: "一位澳大利亚物流公司的采购经理来电投诉，上周到货的200套塑料周转箱中有15%出现了裂纹，要求退货或赔偿。需要专业应对并提供解决方案",
+                hint: {
+                    answer: "Thank you very much for bringing this to my attention, and I sincerely apologize for the inconvenience this has caused your operations. Your feedback is extremely important to us, and I want to assure you that we take quality issues very seriously. Let me review the order details immediately — order number, production batch, and delivery documentation — so I can initiate an investigation with our quality control team. In the meantime, could you help me understand the extent of the damage? Are the cracked boxes affecting your current operations, and is this impacting any of your deliveries to your clients? I want to propose a few options for your consideration: First, we can arrange an immediate replacement shipment for the affected units at no additional cost. Second, our technical team can conduct an on-site inspection to assess the cause of the cracking and determine whether this is an isolated incident or a broader batch issue. Third, if you prefer to keep the damaged units for further evaluation, we can offer a partial credit or compensation. I understand how frustrating this situation is, and I want to work with you to resolve this as quickly as possible while ensuring this doesn't happen again in the future.",
+                    translation: "非常感谢您向我们反馈这个问题，我对此给您运营带来的不便深表歉意。您的反馈对我们极其重要，我向您保证我们非常重视质量问题。让我立即查阅订单详情——订单号、生产批次和交货文件——以便启动与质量控制团队的调查。与此同时，能否请您帮我了解一下损坏程度？这些裂纹箱子是否影响了您目前的运营，是否影响了您向客户的交货？我想提出几个方案供您考虑：第一，我们可以为受影响的产品安排立即补发，无需额外费用。第二，我们的技术团队可以进行现场检查，评估裂纹原因，判断这是个别事件还是更广泛的批次问题。第三，如果您希望保留损坏的产品以供进一步评估，我们可以提供部分信用额度或赔偿。我理解这个情况让您很困扰，我想与您合作，尽快解决这个问题，同时确保今后不再发生此类情况。",
+                    keyPoints: [
+                        "首先道歉并感谢客户反馈，展现重视态度",
+                        "立即承诺调查，不推卸责任",
+                        "主动询问具体影响范围，展现关心而非敷衍",
+                        "提供多个解决方案，让客户有选择权",
+                        "承诺改进措施，维护长期合作关系",
+                        "使用专业术语展示行业经验"
+                    ],
+                    vocabulary: [
+                        "bring to attention",
+                        "inconvenience",
+                        "initiate investigation",
+                        "batch issue",
+                        "on-site inspection",
+                        "partial credit",
+                        "compensation",
+                        "resolve",
+                        "ensure quality"
+                    ]
+                },
+                initialAI: "This is David Chen from Australian Logistics Solutions. I'm calling about an order we received last week — 200 units of your PT-6040 pallet containers. I'm very disappointed. About 30 boxes have developed cracks already, and we've only been using them for a week. This is unacceptable. We're paying premium prices for what should be quality products.",
+                aiResponses: [
+                    "These cracked boxes are actually affecting our warehouse operations. We're worried about the safety of stacking them. We need this resolved immediately, or we'll have to look for a different supplier.",
+                    "To be honest, this is not the first time we've had quality issues. Last year we had similar problems with a different batch. We need to know if this is a systemic problem with your products.",
+                    "The cracks appeared mainly on the corners and along the ribbing. It's like the material is becoming brittle. Could this be a material quality issue from your manufacturing process?"
+                ]
+            },
+            {
+                day: 54,
+                title: "展会现场客户开发与名片跟进",
+                description: "学习在国际展会上高效开发潜在客户、快速建立信任、展后及时跟进的实战技巧",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["展会开发", "客户拜访", "展后跟进", "初次接触"],
+                prompt: "你正在广州交易会（广交会）的展位上，一位来自德国的采购总监停在你们的塑料物流包装展品前，对折叠式围板箱似乎很感兴趣，请主动上前介绍并争取留下联系方式",
+                hint: {
+                    answer: "Good morning! Welcome to UGET Packaging. I noticed you were looking at our collapsible pallet collar system — that's actually one of our most popular products with European clients. My name is Mary, and I'm the international sales manager here. May I take a moment to walk you through some of the key features? This particular model is made from high-density polyethylene with a patented folding mechanism that reduces storage volume by up to 75% when not in use. We've been supplying clients in Germany, the Netherlands, and Poland for over eight years, and we're fully compliant with EU packaging regulations. Are you currently using reusable packaging in your supply chain, or are you looking to make the transition? I'd love to understand your specific requirements — whether it's load capacity, stack height, custom dimensions, or surface treatment for compatibility with your conveyor systems. Could I get your business card? I'll prepare a tailored product catalogue and quotation based on what you share with me today, and follow up with you within 48 hours after the fair.",
+                    translation: "早上好！欢迎来到优盖特包装展位。我注意到您在看我们的折叠式围板箱系统——这实际上是我们在欧洲客户中最受欢迎的产品之一。我叫Mary，是这里的国际销售经理。我能花一点时间为您介绍一下主要特点吗？这款产品采用高密度聚乙烯制造，配有专利折叠机制，不使用时可将储存体积减少多达75%。我们已经向德国、荷兰和波兰的客户供货超过八年，完全符合欧盟包装法规。您目前在供应链中是否已经在使用可循环包装，还是正在考虑转型？我很想了解您的具体需求——无论是承重能力、堆叠高度、定制尺寸，还是与您传送系统兼容的表面处理。能给我一张名片吗？我将根据您今天分享的信息准备定制产品目录和报价，并在展会结束后48小时内跟进您。",
+                    keyPoints: [
+                        "主动开场时先引导对方关注产品亮点，而非直接推销",
+                        "迅速介绍自己职位，增加信任感",
+                        "用具体数据（75%、8年、合规认证）增强说服力",
+                        "通过提问了解客户现状和需求，展现专业性",
+                        "展后承诺48小时内跟进，留下行动承诺",
+                        "索要名片时用行动承诺（定制目录+报价）作为交换价值"
+                    ],
+                    vocabulary: [
+                        "collapsible pallet collar",
+                        "patented folding mechanism",
+                        "storage volume reduction",
+                        "EU packaging regulations",
+                        "load capacity",
+                        "stack height",
+                        "custom dimensions",
+                        "surface treatment",
+                        "conveyor system",
+                        "tailored quotation"
+                    ]
+                },
+                initialAI: "Hello. I'm Klaus Weber, procurement director at Weber Automotive Group in Stuttgart. We supply parts to BMW and Volkswagen and are looking to upgrade our internal logistics packaging. Your folding boxes caught my eye — we currently use wooden pallets and single-use cardboard, but our sustainability department is pushing us to find more eco-friendly and reusable options.",
+                aiResponses: [
+                    "Interesting. What's the maximum load capacity per unit, and can they be stacked when loaded? Our parts range from 50kg to 300kg per box, and we stack up to four high in our warehouse.",
+                    "We also need to consider our automated conveyor lines — the boxes need to fit our 1200x1000mm pallet standard and have smooth bottom surfaces. Can you customise the dimensions and surface finish?",
+                    "We're evaluating three suppliers this week. What makes UGET different from the other Chinese packaging manufacturers? And do you have any German or European clients in the automotive sector we could speak with as references?"
                 ]
             }
         ];
