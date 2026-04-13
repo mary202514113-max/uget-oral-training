@@ -478,7 +478,7 @@
             
             <div class="progress-container">
                 <div class="progress-info">
-                    <span>第 <span id="current-day">1</span> 天 / <span id="total-days">39</span></span>
+                    <span>第 <span id="current-day">1</span> 天 / <span id="total-days">53</span></span>
                     <span><span id="progress-percent">3</span>% 完成</span>
                 </div>
                 <div class="progress-bar">
@@ -2057,46 +2057,324 @@
             },
             {
                 day: 52,
-                title: "质量投诉处理与解决方案谈判",
-                description: "学习如何专业、得体地处理客户的质量投诉，通过有效沟通化解矛盾，提出合理补偿方案，维护长期合作关系",
+                title: "老客户复购激活与交叉销售",
+                description: "学习如何主动联系老客户，挖掘复购需求并推荐新产品线，提升客户终身价值",
                 difficulty: "高级",
                 duration: "15分钟",
-                tags: ["质量投诉", "售后处理", "客户关系", "补偿谈判"],
-                prompt: "一位德国客户的采购经理来电投诉，他上周收到的300套塑料周转箱中，有近15%出现了箱体变形和颜色不均的问题。这批货是客户在线广交会上下的单，客户对你们公司印象不错，这是首次投诉。请专业受理投诉：承认问题、查明原因、提出切实可行的解决方案，并维护长期合作关系的信心",
+                tags: ["客户维护", "复购激活", "交叉销售", "客户关系"],
+                prompt: "一位2年前合作过的德国汽车零部件客户（曾采购300套围板箱）已经很久没有联系，现在需要主动跟进，了解其当前包装需求变化，并推荐公司新推出的防静电周转箱产品线",
                 hint: {
-                    answer: "Mr. Weber, thank you for bringing this to our attention immediately — I can hear how concerning this is for your team, and I want to assure you that we take quality issues extremely seriously, especially with a valued customer like yourself. First, please accept our sincere apologies for the inconvenience this has caused. From what you're describing — approximately 15 percent of the shipment showing warping and color inconsistency — I want to be transparent with you: we conducted our own quality inspection before shipment and the pass rate was 99.2 percent, so this level of defect is genuinely unexpected on our end. My immediate hypothesis is that these units may have been exposed to excessive heat or direct sunlight during transit or storage before they reached you, since our warehouse is climate-controlled but we cannot fully control conditions once the goods leave our facility. However, regardless of the root cause, I want to make this right for you today. I've already checked our inventory and we have 45 replacement units in the same specification available immediately. Here's what I'd like to propose: one, we'll ship the 45 replacements to you at our expense, arriving within 7 working days. Two, for the remaining affected units — since the warping is cosmetic and doesn't affect the structural integrity, we'd like to offer you a 25 percent discount on those units as compensation, reflected as a credit toward your next order. Three, going forward, for orders of this size and above, we will include a humidity and temperature indicator card in each shipment so you can verify storage conditions upon arrival. I'd also like to personally conduct a video call with your quality team this week to review the damaged units together and ensure our findings align. We value your trust in us, and I want to make sure this is resolved in a way that strengthens, not weakens, our partnership. Would this proposal work for you, and is there anything else you'd like us to consider?",
-                    translation: "韦伯先生，感谢您第一时间将此问题告知我们——我能感受到这件事对您团队的影响，我向您保证我们非常重视质量问题，尤其是像您这样的重要客户。首先，请接受我们诚挚的歉意。据您描述，约有15%的货物出现箱体变形和颜色不均的问题，我想坦诚相告：我们出货前自己做了质检，合格率是99.2%，所以出现这种缺陷率确实出乎我们意料。我初步判断，这批问题产品可能在运输途中或到达贵司前的存储阶段，暴露于过热或阳光直射环境下，因为我们仓库有温湿度控制，但货物离厂后我们无法完全控制存储条件。不过，不管根本原因是什么，我希望今天就把这件事处理好。我已经查过库存，同规格的替换产品现有45套可以立即发货。我提议如下：第一，我们承担费用将这45套替换品发给您，预计7个工作日内到达。第二，对于其余受损产品——由于变形属于外观问题，不影响结构强度，我们愿以此批货物25%的折扣作为补偿，折算为下次订单的信用额度。第三，今后对此类规模及以上的订单，我们会在每批货物中附上温湿度指示卡，方便您在收货时核验存储条件。另外，我想本周与您的质检团队进行一次视频通话，一起查看受损产品，确保我们的分析结果一致。我们珍视您对我们的信任，我希望解决这个问题的方式能巩固而非削弱我们的合作关系。这个方案您觉得可以吗？还有什么需要我们考虑的吗？",
+                    answer: "Hi Michael, I hope this email finds you well. It's been a while since we last connected — I was reviewing our records and noticed we supplied your team with 300 sets of FBC-1210 collapsible bulk containers back in 2023 for your transmission parts project. I trust those have been serving you well. I'm reaching out today because we've expanded our product line significantly since then, and I thought of you specifically. We've launched a new series of ESD-safe turnover boxes that are gaining traction in the automotive electronics sector — ANSI/ESD S20.20 certified, surface resistivity under 10^9 ohms, perfect for protecting ECUs, sensors, and control modules during transport and storage. Given your expertise in automotive components, I wondered if your product range has expanded into electronics-heavy assemblies where anti-static packaging might be relevant. Even if not, I'd love to catch up and hear how your packaging needs have evolved. Are you still using the same volume of containers, or have your requirements changed? I'd be happy to schedule a brief call or send you our latest catalog if you're interested.",
+                    translation: "您好Michael，希望这封邮件能让您一切安好。我们上次联系已经有一段时间了——我回顾记录时发现，2023年我们曾为您的变速箱零部件项目供应过300套FBC-1210折叠围板箱。相信那些产品一直很好地为您服务着。我今天联系您是因为自那时起我们显著扩展了产品线，而且我专门想到了您。我们新推出了一系列防静电周转箱，在汽车电子领域越来越受欢迎——通过ANSI/ESD S20.20认证，表面电阻率低于10的9次方欧姆，非常适合在运输和存储过程中保护ECU、传感器和控制模块。鉴于您在汽车零部件领域的专业经验，我想知道您的产品线是否已扩展到电子元件较多的总成领域，那里可能需要防静电包装。即使没有，我也很想叙叙旧，听听您的包装需求有何变化。您现在的容器用量还和以前一样吗，还是需求已经改变了？如果您感兴趣，我很乐意安排一次简短通话或给您发送我们的最新产品目录。",
                     keyPoints: [
-                        "接到投诉第一时间表示重视，不要急于推卸责任",
-                        "先承认问题存在，再解释可能原因，展示透明度",
-                        "用具体数字说明质检情况（99.2%），让客户感知品控水平",
-                        "提出分层次的解决方案：立即替换 + 折扣补偿 + 长期预防措施",
-                        "主动提出视频通话跟进，将危机转化为加深信任的机会",
-                        "用'credit toward next order'代替'discount'，促进复购"
+                        "开场提及历史合作，唤起客户记忆",
+                        "展示对客户的持续关注：回顾记录、记得具体项目",
+                        "介绍新产品时关联客户行业背景",
+                        "用具体技术参数建立专业可信度",
+                        "询问客户业务变化，展现真诚关心而非纯推销",
+                        "提供低压力互动选项：电话或目录"
                     ],
                     vocabulary: [
-                        "quality complaint",
-                        "warp / warping",
-                        "color inconsistency",
-                        "cosmetic defect",
-                        "structural integrity",
-                        "pass rate",
-                        "replacement unit",
-                        "compensation",
-                        "credit toward next order",
-                        "humidity and temperature indicator",
-                        "root cause",
-                        "climate-controlled warehouse",
-                        "sincere apologies",
-                        "make it right",
-                        "strengthen our partnership"
+                        "reach out",
+                        "expand product line",
+                        "gain traction",
+                        "ESD-safe turnover boxes",
+                        "surface resistivity",
+                        "ECU (Electronic Control Unit)",
+                        "control modules",
+                        "anti-static packaging",
+                        "catch up",
+                        "evolve",
+                        "product range",
+                        "latest catalog"
                     ]
                 },
-                initialAI: "Hello, this is Hans Weber from LogiPack Germany. I'm calling about our order that arrived last Tuesday — order number LP-2025-0847, 300 sets of your FBC-1210 plastic turnover boxes. I'm very disappointed. When we opened the containers, we found that at least 40 to 45 units have significant problems: some boxes are warped out of shape, and many have uneven coloring — the blue is patchy and inconsistent. Some of my colleagues are questioning whether we should have ordered from you at all. I need to know what you are going to do about this.",
+                initialAI: "Hello, this is Michael from Autotech Components. I remember working with you a couple of years ago on some packaging for our transmission parts. To be honest, we haven't had much new packaging demand recently as our production has been stable. What brings you to reach out after all this time?",
                 aiResponses: [
-                    "Thank you for showing me the photos. The warping is more severe than I initially thought from your description. Can you tell me — were the containers stored indoors or outdoors after delivery? We've had an unusually hot period here in Hamburg, and some of our storage areas are not fully climate-controlled.",
-                    "I'm relieved to hear you have replacement stock available. However, 45 units is not enough — we need at least 50 replacements to cover the damaged stock plus a buffer. Can you increase the quantity? Also, when you say the color issue may be cosmetic, I need to be clear: for us, appearance matters because we supply to automotive factories and they have strict visual standards.",
-                    "The 25 percent discount proposal is interesting, but I would need to discuss it with our finance team. In the meantime, we are holding the payment for this invoice. Can you confirm that you accept a delayed payment until this matter is fully resolved?"
+                    "ESD-safe boxes? We actually started manufacturing some electronic control units last year, and our current supplier's anti-static packaging has been inconsistent. Tell me more about your ESD certification.",
+                    "Thanks for checking in. We've actually increased our production volume by about 30% since 2023. We might need to replenish some of those collapsible containers soon. Do you still stock the FBC-1210 model?",
+                    "I appreciate you remembering our project. We're actually exploring new markets in EV battery components. Do you have any packaging solutions for lithium battery transport?"
+                ]
+            },
+            {
+                day: 53,
+                title: "处理客户投诉与售后跟进",
+                description: "学习专业应对客户质量投诉、有效沟通解决方案、维护长期合作关系的技巧",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["客户投诉", "售后服务", "质量纠纷", "关系维护"],
+                prompt: "一位澳大利亚物流公司的采购经理来电投诉，上周到货的200套塑料周转箱中有15%出现了裂纹，要求退货或赔偿。需要专业应对并提供解决方案",
+                hint: {
+                    answer: "Thank you very much for bringing this to my attention, and I sincerely apologize for the inconvenience this has caused your operations. Your feedback is extremely important to us, and I want to assure you that we take quality issues very seriously. Let me review the order details immediately — order number, production batch, and delivery documentation — so I can initiate an investigation with our quality control team. In the meantime, could you help me understand the extent of the damage? Are the cracked boxes affecting your current operations, and is this impacting any of your deliveries to your clients? I want to propose a few options for your consideration: First, we can arrange an immediate replacement shipment for the affected units at no additional cost. Second, our technical team can conduct an on-site inspection to assess the cause of the cracking and determine whether this is an isolated incident or a broader batch issue. Third, if you prefer to keep the damaged units for further evaluation, we can offer a partial credit or compensation. I understand how frustrating this situation is, and I want to work with you to resolve this as quickly as possible while ensuring this doesn't happen again in the future.",
+                    translation: "非常感谢您向我们反馈这个问题，我对此给您运营带来的不便深表歉意。您的反馈对我们极其重要，我向您保证我们非常重视质量问题。让我立即查阅订单详情——订单号、生产批次和交货文件——以便启动与质量控制团队的调查。与此同时，能否请您帮我了解一下损坏程度？这些裂纹箱子是否影响了您目前的运营，是否影响了您向客户的交货？我想提出几个方案供您考虑：第一，我们可以为受影响的产品安排立即补发，无需额外费用。第二，我们的技术团队可以进行现场检查，评估裂纹原因，判断这是个别事件还是更广泛的批次问题。第三，如果您希望保留损坏的产品以供进一步评估，我们可以提供部分信用额度或赔偿。我理解这个情况让您很困扰，我想与您合作，尽快解决这个问题，同时确保今后不再发生此类情况。",
+                    keyPoints: [
+                        "首先道歉并感谢客户反馈，展现重视态度",
+                        "立即承诺调查，不推卸责任",
+                        "主动询问具体影响范围，展现关心而非敷衍",
+                        "提供多个解决方案，让客户有选择权",
+                        "承诺改进措施，维护长期合作关系",
+                        "使用专业术语展示行业经验"
+                    ],
+                    vocabulary: [
+                        "bring to attention",
+                        "inconvenience",
+                        "initiate investigation",
+                        "batch issue",
+                        "on-site inspection",
+                        "partial credit",
+                        "compensation",
+                        "resolve",
+                        "ensure quality"
+                    ]
+                },
+                initialAI: "This is David Chen from Australian Logistics Solutions. I'm calling about an order we received last week — 200 units of your PT-6040 pallet containers. I'm very disappointed. About 30 boxes have developed cracks already, and we've only been using them for a week. This is unacceptable. We're paying premium prices for what should be quality products.",
+                aiResponses: [
+                    "These cracked boxes are actually affecting our warehouse operations. We're worried about the safety of stacking them. We need this resolved immediately, or we'll have to look for a different supplier.",
+                    "To be honest, this is not the first time we've had quality issues. Last year we had similar problems with a different batch. We need to know if this is a systemic problem with your products.",
+                    "The cracks appeared mainly on the corners and along the ribbing. It's like the material is becoming brittle. Could this be a material quality issue from your manufacturing process?"
+                ]
+            },
+            {
+                day: 54,
+                title: "展会现场客户开发与名片跟进",
+                description: "学习在国际展会上高效开发潜在客户、快速建立信任、展后及时跟进的实战技巧",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["展会开发", "客户拜访", "展后跟进", "初次接触"],
+                prompt: "你正在广州交易会（广交会）的展位上，一位来自德国的采购总监停在你们的塑料物流包装展品前，对折叠式围板箱似乎很感兴趣，请主动上前介绍并争取留下联系方式",
+                hint: {
+                    answer: "Good morning! Welcome to UGET Packaging. I noticed you were looking at our collapsible pallet collar system — that's actually one of our most popular products with European clients. My name is Mary, and I'm the international sales manager here. May I take a moment to walk you through some of the key features? This particular model is made from high-density polyethylene with a patented folding mechanism that reduces storage volume by up to 75% when not in use. We've been supplying clients in Germany, the Netherlands, and Poland for over eight years, and we're fully compliant with EU packaging regulations. Are you currently using reusable packaging in your supply chain, or are you looking to make the transition? I'd love to understand your specific requirements — whether it's load capacity, stack height, custom dimensions, or surface treatment for compatibility with your conveyor systems. Could I get your business card? I'll prepare a tailored product catalogue and quotation based on what you share with me today, and follow up with you within 48 hours after the fair.",
+                    translation: "早上好！欢迎来到优盖特包装展位。我注意到您在看我们的折叠式围板箱系统——这实际上是我们在欧洲客户中最受欢迎的产品之一。我叫Mary，是这里的国际销售经理。我能花一点时间为您介绍一下主要特点吗？这款产品采用高密度聚乙烯制造，配有专利折叠机制，不使用时可将储存体积减少多达75%。我们已经向德国、荷兰和波兰的客户供货超过八年，完全符合欧盟包装法规。您目前在供应链中是否已经在使用可循环包装，还是正在考虑转型？我很想了解您的具体需求——无论是承重能力、堆叠高度、定制尺寸，还是与您传送系统兼容的表面处理。能给我一张名片吗？我将根据您今天分享的信息准备定制产品目录和报价，并在展会结束后48小时内跟进您。",
+                    keyPoints: [
+                        "主动开场时先引导对方关注产品亮点，而非直接推销",
+                        "迅速介绍自己职位，增加信任感",
+                        "用具体数据（75%、8年、合规认证）增强说服力",
+                        "通过提问了解客户现状和需求，展现专业性",
+                        "展后承诺48小时内跟进，留下行动承诺",
+                        "索要名片时用行动承诺（定制目录+报价）作为交换价值"
+                    ],
+                    vocabulary: [
+                        "collapsible pallet collar",
+                        "patented folding mechanism",
+                        "storage volume reduction",
+                        "EU packaging regulations",
+                        "load capacity",
+                        "stack height",
+                        "custom dimensions",
+                        "surface treatment",
+                        "conveyor system",
+                        "tailored quotation"
+                    ]
+                },
+                initialAI: "Hello. I'm Klaus Weber, procurement director at Weber Automotive Group in Stuttgart. We supply parts to BMW and Volkswagen and are looking to upgrade our internal logistics packaging. Your folding boxes caught my eye — we currently use wooden pallets and single-use cardboard, but our sustainability department is pushing us to find more eco-friendly and reusable options.",
+                aiResponses: [
+                    "Interesting. What's the maximum load capacity per unit, and can they be stacked when loaded? Our parts range from 50kg to 300kg per box, and we stack up to four high in our warehouse.",
+                    "We also need to consider our automated conveyor lines — the boxes need to fit our 1200x1000mm pallet standard and have smooth bottom surfaces. Can you customise the dimensions and surface finish?",
+                    "We're evaluating three suppliers this week. What makes UGET different from the other Chinese packaging manufacturers? And do you have any German or European clients in the automotive sector we could speak with as references?"
+                ]
+            },
+            // ============ Day 55：客户技术方案咨询与定制化报价 ============
+            {
+                day: 55,
+                title: "客户技术方案咨询与定制化报价",
+                description: "学习如何接收客户技术需求、快速完成内部评估、回复专业定制化报价的全流程英文表达",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["技术评估", "定制报价", "产品规格确认", "客户需求分析"],
+                prompt: "你收到一封来自土耳其某电池制造企业的邮件，他们需要在一条新生产线上配置可循环使用的塑料围板箱包装系统，每箱承重要求不低于200公斤，需要防静电处理，并要求兼容自动化传送线体，请回复邮件并电话沟通了解完整需求后给出定制化报价方案",
+                hint: {
+                    answer: "Thank you for your inquiry about our reusable packaging solutions. I've reviewed your requirements and would like to schedule a brief call to gather a few more technical details before I prepare a detailed quotation for you. From what I understand so far, you're looking for: a collapsible pallet collar box with a minimum load capacity of 200kg per unit, anti-static surface treatment for battery manufacturing environments, compatibility with your automated conveyor system on a 1200x1000mm pallet standard, and ideally a modular design that can be easily integrated into your existing production line layout. Before I finalize the specification, may I ask a few follow-up questions? First, what is the exact conveyor belt width and clearance height in your facility — this will determine the maximum outer dimensions we can offer. Second, do you require the anti-static properties to meet any specific industry standard, such as ANSI/ESD S20.20 or IEC 61340? Third, what is your estimated monthly order volume, and do you need the boxes to be delivered fully assembled or flat-packed to reduce shipping costs? And finally, what is your target price range per unit, and do you have a preferred incoterm for delivery — CIF Istanbul or DDP to your factory? Once I have these answers, I can have a tailored technical proposal and quotation ready for you within 48 hours, including material specifications, dimensional drawings, and a cost comparison against your current single-use packaging expense. Looking forward to your response.",
+                    translation: "感谢您对我司可循环包装解决方案的咨询。在准备详细报价之前，我已经梳理了您的需求，并希望能安排一个简短的电话进一步了解技术细节，从而为您提供更精准的方案。截至目前，我了解到您需要的是：承重不低于每箱200公斤的折叠式围板箱，电池制造环境用防静电表面处理，适配1200x1000毫米托盘标准的自动化传送线体兼容性，以及可轻松整合到现有生产线布局的模块化设计。在确认规格之前，我可以问几个跟进问题吗？第一，您工厂传送带的精确宽度和净空高度是多少？这将决定我们可提供的最大外尺寸。第二，您对防静电性能是否有特定的行业标准要求，比如ANSI/ESD S20.20或IEC 61340？第三，您预计的月订单量是多少？需要整箱发货还是平板包装以降低运输成本？最后，您期望的单价区间是多少，以及您偏好哪种交货条款—— CIF 伊斯坦布尔还是 DDP 到您工厂？一旦获得这些信息，我可以在48小时内为您提供一份定制化技术方案和报价，包括材料规格、尺寸图纸，以及与您目前一次性包装费用的成本对比。期待您的回复。",
+                    keyPoints: [
+                        "收到客户需求后不要急于报价，先系统梳理已知信息并标注缺失项",
+                        "通过结构化提问逐一确认关键技术参数（尺寸、载重、标准、合规）",
+                        "引用行业标准（ANSI/ESD S20.20、IEC 61340）展示专业性",
+                        "主动提供多选项（组装/平板包装、CIF/DDP）让客户做选择",
+                        "报价前先做成本对比分析，用数据证明可循环包装的长期价值",
+                        "明确承诺回复时间（48小时），建立专业可信的时间预期"
+                    ],
+                    vocabulary: [
+                        "load capacity",
+                        "anti-static surface treatment",
+                        "automated conveyor system",
+                        "modular design",
+                        "clearance height",
+                        "ANSI/ESD S20.20",
+                        "IEC 61340",
+                        "flat-packed",
+                        "incoterm",
+                        "tailored quotation"
+                    ]
+                },
+                initialAI: "Hello Mary, I'm Hasan from Ekinci Battery Solutions in Istanbul. We are a lithium-ion battery manufacturer and we saw your products at the Canton Fair. We are setting up a new production line and need reusable plastic packaging for our battery modules. Our requirements: each box must carry at least 200kg, it must be anti-static, and it needs to work with our automated conveyor lines. Can you provide a quotation for us? We need at least 500 units to start.",
+                aiResponses: [
+                    "Thank you for the details. I have a few technical questions to refine the specification. What are the exact dimensions of your battery modules, and how many units do you plan to stack per box? Also, do you require the anti-static property to meet any specific international standard?",
+                    "We also need to know your conveyor belt width and the clearance height in your factory. And what is your preferred delivery term — CIF Istanbul or DDP to our facility? We need to finalize the logistics cost before confirming the quotation.",
+                    "Based on the volume of 500 units per month, we can offer a competitive unit price. However, I need one more confirmation: do you prefer the boxes delivered fully assembled or flat-packed for shipping? Flat-packed will reduce your freight cost by approximately 40%."
+                ]
+            },
+            {
+                day: 56,
+                title: "合同条款谈判与订单确认",
+                description: "学习与客户谈判合同细节、付款条款、交货条件、质量保证条款，并促成订单最终确认的实战技巧",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["合同谈判", "订单确认", "条款协商", "商务签约"],
+                prompt: "与一位来自荷兰的物流公司采购经理进行最终合同谈判，确认付款方式（30%定金+70%信用证）、交货条款（CIF鹿特丹）、质量保证条款（1年质保），并促成订单签署",
+                hint: {
+                    answer: "Thank you for confirming the commercial terms. I'm pleased to say we're very close to finalizing this order. Let me summarize the key points we've agreed upon: Product — 1,000 units of FBC-1210 collapsible pallet collars, unit price USD 28.50 CIF Rotterdam; Payment — 30% deposit by T/T upon signing, 70% balance against irrevocable Letter of Credit at sight; Delivery — 30 days after deposit confirmation, shipped to Rotterdam Port; Quality — 12-month warranty covering manufacturing defects, with free replacement for any confirmed quality issues. Regarding the Letter of Credit, we'd recommend using a prime bank such as HSBC or Deutsche Bank to ensure smooth processing. Our engineering team can also provide on-site installation support if needed, at an additional cost of USD 1,500. Shall I prepare the formal Purchase Agreement and Proforma Invoice for your review? Once you confirm the draft contract, we can proceed to signing, and I'll send you the bank details for the deposit payment. We're honored to have Weber Automotive as our partner, and I assure you we'll deliver top-quality products and professional service.",
+                    translation: "感谢您确认商业条款。我很高兴地说，我们已经非常接近最终确定这笔订单了。让我总结一下我们已达成一致的关键要点：产品——1000套FBC-1210折叠式围板箱，单价28.50美元CIF鹿特丹；付款——签署时30%T/T定金，70%凭不可撤销即期信用证支付；交货——定金确认后30天发货至鹿特丹港；质量——12个月质保覆盖制造缺陷，确认的质量问题免费换货。关于信用证，我们建议使用汇丰或德意志银行等顶级银行以确保流程顺利。我们的工程团队还可以提供现场安装支持，额外费用1500美元。我可以准备正式的采购协议和形式发票供您审阅吗？一旦您确认合同草案，我们就可签署，我将发送银行账户信息给您支付定金。我们很荣幸能有韦伯汽车作为合作伙伴，我向您保证我们将交付优质产品和专业服务。",
+                    keyPoints: [
+                        "总结已确认的所有条款，展示专业性和清晰度",
+                        "付款条款：30%定金+70%信用证，完整表述",
+                        "交货条款：CIF术语明确目的港",
+                        "质量保证：12个月质保+换货承诺",
+                        "建议使用顶级银行开立信用证，消除对方顾虑",
+                        "主动提出安装服务增值选项",
+                        "用Proforma Invoice让客户正式审阅",
+                        "以合作承诺结尾，增强客户信心"
+                    ],
+                    vocabulary: [
+                        "finalizing the order",
+                        "Purchase Agreement",
+                        "Proforma Invoice",
+                        "Letter of Credit at sight",
+                        "irrevocable L/C",
+                        "deposit confirmation",
+                        "warranty",
+                        "manufacturing defects",
+                        "on-site installation",
+                        "banking details"
+                    ]
+                },
+                initialAI: "Mary, we've reviewed your quotation and we're ready to move forward. Before we sign the contract, I need to clarify a few points: First, our finance department requires the payment terms to be 30% deposit and 70% against an irrevocable Letter of Credit. Second, can you guarantee delivery by the end of June as we discussed? Third, what exactly does your warranty cover? And fourth, do you offer any installation support in Europe?",
+                aiResponses: [
+                    "The L/C terms are acceptable, but we need the contract to clearly state that the Letter of Credit must be issued within 5 business days after contract signing. Can you add that clause?",
+                    "We're also concerned about what happens if the quality issues appear after the warranty period expires. Can we negotiate an extended warranty for an additional fee?",
+                    "Before we proceed with the contract, can you send me a draft Purchase Agreement for our legal department to review? We typically need 5-7 business days for contract approval internally."
+                ]
+            },
+            {
+                day: 57,
+                title: "跨境电商平台开拓与询盘转化",
+                description: "学习通过阿里巴巴国际站、Made-in-China等平台高效回复海外买家询盘，将冷询盘转化为正式订单的专业话术与跟进策略",
+                difficulty: "中级",
+                duration: "15分钟",
+                tags: ["跨境电商", "询盘转化", "阿里巴巴", "平台开拓"],
+                prompt: "阿里巴巴国际站上有一位来自墨西哥的买家发来询盘，询问周转箱的最小起订量、价格区间以及能否提供定制颜色，请用专业英文回复并引导其进入深度沟通",
+                hint: {
+                    answer: "Dear Mr. Rodriguez, Thank you for your inquiry on Alibaba regarding our plastic turnover boxes — we're glad to connect with you! To answer your questions directly: Minimum Order Quantity (MOQ) is 500 pieces per size. However, for first-time orders, we can accept a trial order of 200 pieces to help you evaluate quality before committing to larger volumes. Price Range: USD 3.80–6.50/pc depending on size, material specification, and order quantity. Our best pricing is available at 1,000 pieces and above — I can provide a detailed price list if you share your target size and load-bearing requirements. Custom Colors: Absolutely! We offer full custom color options (Pantone matching) with no extra tooling cost for orders above 500 pieces. Standard lead time for custom colors is 15 working days. We specialize in packaging solutions for automotive, e-commerce, and manufacturing clients across Latin America and have exported to 30+ countries. I've attached our product catalog and certificate of compliance for your reference. To help me prepare a precise quotation, could you please share: 1) Which box size are you interested in? 2) Approximate annual demand? 3) Do you have specific stacking load or stacking height requirements? Looking forward to building a long-term partnership with you. Best regards, Mary | Uget Packaging",
+                    translation: "亲爱的罗德里格斯先生，感谢您通过阿里巴巴就我们的塑料周转箱发来询盘——很高兴与您取得联系！直接回答您的问题：最小起订量（MOQ）每种规格500件。但对于首次合作，我们可以接受200件的试样订单，让您在大量采购前先评估质量。价格区间：根据尺寸、材料规格和订购数量，每件3.80至6.50美元。1000件及以上可获得最优价格——如果您告知目标尺寸和承重需求，我可以提供详细报价单。定制颜色：完全可以！500件以上订单提供全定制颜色（潘通配色），无额外模具费。定制颜色的标准交货期为15个工作日。我们专注于为拉丁美洲的汽车、电商和制造业客户提供包装解决方案，已向30多个国家出口。我已附上产品目录和合规证书供您参考。为了给您准备精确报价，请您告知：1) 您对哪种箱子尺寸感兴趣？2) 大致年需求量是多少？3) 是否有特定的堆叠载荷或堆叠高度要求？期待与您建立长期合作关系。",
+                    keyPoints: [
+                        "询盘回复三要素：直接回答问题、展示专业背景、引导深度沟通",
+                        "MOQ灵活处理：标准MOQ + 试单选项，降低客户决策门槛",
+                        "价格区间报法：给出范围而非精确价，保留谈判空间",
+                        "定制化承诺：颜色定制零模具费是差异化卖点",
+                        "凭证背书：附产品目录和合规证书增强可信度",
+                        "反问三点：尺寸/年需求/技术要求，引导进入报价阶段",
+                        "签名信息专业：姓名+公司+部门，体现正规化"
+                    ],
+                    vocabulary: [
+                        "inquiry / RFQ (Request for Quotation)",
+                        "Minimum Order Quantity (MOQ)",
+                        "trial order",
+                        "Pantone matching",
+                        "tooling cost",
+                        "lead time",
+                        "certificate of compliance",
+                        "stacking load",
+                        "load-bearing requirements",
+                        "long-term partnership"
+                    ]
+                },
+                initialAI: "Hello, I found your plastic turnover boxes on Alibaba. We are a warehouse equipment distributor in Mexico City. I have some questions: What is your minimum order quantity? What is the price range for your standard boxes? Can you produce in custom colors, specifically green and yellow for our brand? Please reply ASAP as we need to place an order before end of this month.",
+                aiResponses: [
+                    "Thank you for your quick reply. The trial order option sounds good. We are interested in the 600x400x220mm size. Can you share the exact price for 300 pieces in two colors — 150 green and 150 yellow? Also, do you have any clients in Mexico we can contact as a reference?",
+                    "The price looks competitive. However, our logistics partner says the shipping cost from China to Mexico City is very high right now. Can you offer DDP (Delivered Duty Paid) pricing? Also, what payment terms do you accept?",
+                    "We are almost ready to place a trial order. But our finance department needs a formal Proforma Invoice first. Can you send one? Also, can you complete the order within 3 weeks including shipping?"
+                ]
+            },
+            {
+                day: 58,
+                title: "海外仓储物流包装解决方案咨询",
+                description: "学习如何为海外仓储和物流客户设计定制化的包装解决方案，包括仓储空间优化、货架适配、自动化仓储系统兼容等专业咨询对话",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["海外仓储", "物流包装", "空间优化", "自动化仓储"],
+                prompt: "一位来自荷兰的物流仓储经理正在咨询塑料周转箱和托盘的解决方案。他们新建了一个自动化立体仓库，需要能够兼容AS/RS系统的包装产品。请用专业英文介绍你们的产品如何满足他们的仓储需求，包括尺寸标准化、货架适配、RFID追溯等方面",
+                hint: {
+                    answer: "Good morning, Mr. Van der Berg. Thank you for reaching out to us regarding your new automated warehouse project in Rotterdam. I'm excited to learn that you're implementing an AS/RS system — this is exactly where our packaging solutions excel. Let me walk you through how our products integrate seamlessly with automated storage and retrieval systems. First, dimensional standardization: Our entire product line follows the European modular system — 600×400mm, 400×300mm, and 300×200mm base dimensions. This ensures perfect compatibility with standard Euro pallets and automated conveyor systems. All our boxes feature uniform stacking rims and interlocking designs for stable high-bay storage up to 15 meters. Second, AS/RS compatibility: Our heavy-duty foldable large containers, specifically the FLC 1208 series, are engineered with reinforced base structures that withstand the dynamic forces of automated shuttle systems. The smooth exterior surfaces prevent snagging on conveyor rails, and the precise dimensional tolerances (±2mm) ensure reliable handling by robotic grippers. Third, RFID traceability: Every container can be equipped with embedded RFID tags or molded-in chip pockets for seamless integration with your WMS. We offer pre-configured tag placements that won't interfere with stacking stability or barcode scanning. Fourth, weight optimization: Our latest honeycomb-structured designs reduce empty container weight by 22% while maintaining load capacity, significantly reducing your energy consumption for vertical transport. For your specific project, I'd recommend scheduling a technical consultation where our engineers can review your AS/RS specifications and provide 3D simulation models of container flow through your system. Would you be available for a video call next Tuesday to discuss your racking configuration and throughput requirements?",
+                    translation: "早上好，范德伯格先生。感谢您就鹿特丹的新自动化仓库项目与我们联系。很高兴得知您正在实施AS/RS系统——这正是我们的包装解决方案的优势所在。让我为您介绍我们的产品如何与自动化存取系统无缝集成。首先，尺寸标准化：我们的整个产品线遵循欧洲模块化系统——600×400毫米、400×300毫米和300×200毫米基础尺寸。这确保了与标准欧标托盘和自动化输送系统的完美兼容。所有箱子都具有统一的堆叠边缘和互锁设计，可在高达15米的高层仓库中稳定存储。其次，AS/RS兼容性：我们的重型可折叠大型容器，特别是FLC 1208系列，采用加固底座结构设计，能够承受自动化穿梭系统的动态力。光滑的外表面防止在输送轨道上卡住，精确的尺寸公差（±2毫米）确保机器人夹具可靠操作。第三，RFID可追溯性：每个容器都可以配备嵌入式RFID标签或模制芯片槽，与您的WMS无缝集成。我们提供预配置的标记位置，不会干扰堆叠稳定性或条码扫描。第四，重量优化：我们最新的蜂窝结构设计在保持承载能力的同时将空容器重量减少22%，显著降低垂直运输的能耗。针对您的具体项目，我建议安排一次技术咨询，我们的工程师可以审查您的AS/RS规格，并提供容器在系统中流动的3D仿真模型。您下周二是否有空进行视频通话，讨论您的货架配置和吞吐量要求？",
+                    keyPoints: [
+                        "开场建立专业关联：将客户项目与产品优势直接挂钩",
+                        "结构化呈现：用First/Second/Third/Fourth分层阐述，逻辑清晰",
+                        "技术参数具体化：尺寸、公差、高度等数据增强可信度",
+                        "行业术语运用：AS/RS、WMS、Euro pallets、shuttle systems等",
+                        "解决方案思维：不仅卖产品，更提供系统集成方案",
+                        "增值展示：能耗降低22%等量化收益吸引客户",
+                        "主动推进：提出技术咨询+3D仿真+视频会议，推动下一步"
+                    ],
+                    vocabulary: [
+                        "AS/RS (Automated Storage and Retrieval System)",
+                        "WMS (Warehouse Management System)",
+                        "Euro pallets / European modular system",
+                        "dimensional standardization",
+                        "stacking rims / interlocking designs",
+                        "high-bay storage",
+                        "RFID traceability / embedded RFID tags",
+                        "robotic grippers",
+                        "honeycomb-structured designs",
+                        "throughput requirements",
+                        "3D simulation models",
+                        "racking configuration"
+                    ]
+                },
+                initialAI: "Hello, this is Pieter Van der Berg from Rotterdam Logistics. We're building a new automated warehouse with AS/RS system. I saw your foldable large containers online. Can you tell me if your products are compatible with automated storage systems? We need containers that work with robotic handling and can be tracked in our WMS.",
+                aiResponses: [
+                    "That sounds promising. What is the maximum stacking height your containers can handle? Our warehouse has 12-meter high racks. Also, do you have any reference projects in Europe with similar AS/RS implementations?",
+                    "The RFID integration is important for us. Can your containers come with pre-installed RFID tags, or do we need to install them ourselves? What tag frequencies do you support?",
+                    "We're concerned about the weight capacity. Our automated system handles loads up to 800kg per pallet position. Can your containers support that? Also, what is your typical lead time for a 2,000-unit order to the Netherlands?"
+                ]
+            },
+
+            // ============ 第59天：危险品包装出口认证与UN标准 ============
+            {
+                day: 59,
+                title: "危险品包装出口认证与UN标准",
+                description: "学习锂电池及化工产品出口所需的危险品包装UN认证、UN38.3测试报告及危包证办理流程",
+                difficulty: "高级",
+                duration: "15分钟",
+                tags: ["UN认证", "危险品包装", "UN38.3测试", "危包证"],
+                prompt: "你的美国客户需要采购一批用于锂电池运输的塑料包装箱，要求包装必须通过UN认证。请用专业英文解释UN认证体系、UN38.3测试要求以及如何办理危包证",
+                hint: {
+                    answer: "Thank you for your question about UN certification for lithium battery packaging. This is a critical compliance area, and I appreciate the opportunity to explain our capabilities. Let me break this down into three key aspects. First, the UN certification framework: For transporting lithium batteries internationally, packaging must comply with the United Nations Recommendations on the Transport of Dangerous Goods, specifically Chapter 38.3, also known as UN38.3. This applies to all lithium battery shipments by air, sea, or land. Our company is UN certified to produce packaging that meets UN 4G/Y50/S/--/** specifications, where 4G indicates composite packaging, Y50 means rated for up to 50 kilograms gross weight, and S indicates inner packaging requirements. Second, UN38.3 testing requirements: Before we can certify our packaging for lithium battery transport, the battery cells and packs must undergo and pass eight UN38.3 tests — these include altitude simulation, thermal cycling, vibration, shock, short circuit, impact, forced discharge, and vibration at high temperature. The test report must be from an accredited laboratory such as TÜV, SGS, or UL. We maintain partnerships with several accredited testing facilities in China that can complete the full test battery in approximately 4 to 6 weeks. Third, the Dangerous Goods Package Certificate, also called危包证 in China: This is issued by the commodity inspection bureau and is mandatory for exporting dangerous goods packaging from China. We handle the entire application process on your behalf, including product type testing, factory assessment, and certificate issuance. The standard processing time is 5 to 7 business days. For your order, I'll need to know the specific lithium battery type — are these lithium ion cells or lithium metal batteries? And what's the瓦时额定值 (watt-hour rating)? This will determine the exact UN specification required and help us confirm whether additional regulatory approvals, such as DOT or IATA compliance, are needed for your specific destination market.",
+                    translation: "感谢您提出关于锂电池包装UN认证的问题。这是一个关键的合规领域，我很感谢有机会解释我们的能力。让我将其分为三个关键方面来解释。首先，UN认证框架：对于国际运输锂电池，包装必须符合联合国《关于危险货物运输的建议书》，具体是第38.3章，也称为UN38.3。这适用于所有通过空运、海运或陆运的锂电池运输。我们公司已获得UN认证，可生产符合UN 4G/Y50/S/--/**规格的包装，其中4G表示复合包装，Y50表示额定总重最高50公斤，S表示内包装要求。其次，UN38.3测试要求：在我们能够为锂电池运输认证包装之前，电池芯和电池组必须通过并完成八项UN38.3测试——包括高度模拟、热循环、振动、冲击、短路、撞击、强制放电和高温振动。测试报告必须来自认可实验室，如TÜV、SGS或UL。我们与中国多家认可测试机构保持合作关系，可在大约4至6周内完成全部测试。第三，危险货物包装证书，在中国称为危包证：由商品检验局签发，是从中国出口危险货物包装的强制要求。我们代表您处理整个申请流程，包括产品型式测试、工厂评估和证书签发。标准处理时间为5至7个工作日。对于您的订单，我需要了解具体的锂电池类型——是锂离子电芯还是锂金属电池？以及瓦时额定值是多少？这将决定所需的确切UN规格，并帮助我们确认是否需要针对您的特定目的地市场进行额外的监管批准，如DOT或IATA合规。",
+                    keyPoints: [
+                        "UN 4G/Y50/S规格解读：4G复合包装、Y50最大50kg、S内包装要求",
+                        "UN38.3八项测试：高度模拟、热循环、振动、冲击、短路、撞击、强制放电、高温振动",
+                        "危包证是出口中国危险品包装的强制证书",
+                        "认可实验室TÜV、SGS、UL的权威性",
+                        "瓦时额定值(Wh)决定具体UN规格",
+                        "DOT(美国)和IATA(空运)是额外的目的地市场认证"
+                    ],
+                    vocabulary: [
+                        "UN38.3 certification",
+                        "UN 4G/Y50/S specification",
+                        "lithium battery packaging",
+                        "dangerous goods package certificate (危包证)",
+                        "altitude simulation test",
+                        "thermal cycling test",
+                        "accredited testing laboratory",
+                        "watt-hour rating (Wh)",
+                        "DOT compliance",
+                        "IATA compliance"
+                    ]
+                },
+                initialAI: "Hi, I'm Robert Chen from a battery manufacturer in California. We're looking for UN-certified packaging for shipping our lithium battery products to Europe and North America. Can your company provide UN-certified packaging? What certifications do you have, and what's involved in getting the UN certification? We've had issues with suppliers claiming certification but not having proper documentation.",
+                aiResponses: [
+                    "That's helpful. What about the test requirements? Our batteries are 100Wh lithium ion packs. How long does the UN38.3 testing take, and can we use our existing test reports from a previous certification?",
+                    "We're also shipping to customers in South Korea and Japan. Does your UN certification cover those markets too? And what's the difference between UN certification and the危包证 you mentioned?",
+                    "Our procurement timeline is tight — we need to ship within 3 weeks. Can you provide pre-certified packaging with existing UN marks, or do we need to go through the full certification process for each order?"
                 ]
             }
         ];

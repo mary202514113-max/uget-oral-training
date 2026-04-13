@@ -5,6 +5,7 @@
 // 更新：2026年4月4日 新增第36天课程（处理索赔与争议解决）
 // 更新：2026年4月12日 新增第53-55天课程
 // 更新：2026年4月12日 补充第51天课程（产品退货处理与理赔谈判）
+// 更新：2026-04-13 新增第59天课程（危险品包装出口认证与UN标准）
 // 更新：2026年4月12日 新增第57天课程（跨境电商平台客户开发与新兴市场开拓）
 // 更新：2026年4月5日 新增第37天课程（处理索赔与争议解决）
 // 更新：2026年4月8日 新增第46-47天课程
@@ -18,7 +19,7 @@
 const ORAL_TRAINING_COURSES = {
     appName: "塑料物流包装外贸口语训练营",
     version: "3.9",
-    description: "57天、每天15分钟的口语对话训练，专门针对塑料物流包装外贸行业",
+    description: "59天、每天15分钟的口语对话训练，专门针对塑料物流包装外贸行业",
     targetAudience: "外贸业务员、销售经理、客户服务人员",
     
     courses: [
@@ -1452,10 +1453,93 @@ const ORAL_TRAINING_COURSES = {
         }
     ],
 
+        // ============ 第58天：海关认证与出口合规申报 ============
+        {
+            day: 58,
+            title: "海关认证与出口合规申报",
+            description: "学习塑料包装产品出口所需的海关编码申报、出口许可证办理及合规文件准备",
+            difficulty: 4,
+            duration: "15分钟",
+            tags: ["海关编码", "出口合规", "文件申报", "认证流程"],
+            prompt: "你的英国进口商客户询问一批折叠式围板箱出口到中国的海关手续，特别是需要提供哪些认证文件和海关编码",
+            hint: {
+                answer: "That's a great question, and I'm glad you raised it. Exporting plastic logistics packaging from China involves several key compliance steps. First, the most important document is the commercial invoice and packing list — these declare the value, quantity, and specifications of your shipment. For the HS code, collapsible pallet collar boxes made from high-density polyethylene typically fall under HS Code 3923.10.00. This code determines your export duty rate and any applicable regulatory requirements. You'll also need a certificate of origin, especially if you want to benefit from preferential tariff rates under any free trade agreements between China and the UK. If your buyer requires proof of quality and safety standards, we can provide a quality inspection report and material safety data sheet — we can also arrange SGS or Bureau Veritas inspection if needed. For sea freight documentation, we'll prepare a bill of lading, which is the contract of carriage between the shipper and the carrier. Please note that as of 2026, all export shipments of plastic packaging to the UK must include a UKCA compliance declaration if they are subject to UK packaging regulations. We handle all of this documentation on our end and will prepare a complete set of compliance documents for your customs clearance. The whole process typically takes 3 to 5 business days for documentation preparation. Do you have a specific compliance requirement from your side — such as ISPM 15 heat treatment certification for wooden components or any other import permits?",
+                translation: "这是个很好的问题，很高兴您提出了这一点。从中国出口塑料物流包装涉及几个关键合规步骤。首先，最重要的文件是商业发票和装箱单——这些文件用于申报货物的价值、数量和规格。关于HS编码，高密度聚乙烯制造的折叠式围板箱通常归入HS编码3923.10.00。该编码决定了您的出口税率和任何适用的监管要求。您还需要原产地证书，特别是如果您想享受中英之间的任何自由贸易协定下的优惠关税税率。如果您的买家需要质量和安全标准的证明，我们可以提供质量检验报告和材料安全数据表——如需要，我们也可以安排SGS或必维国际检验集团的检验。对于海运文件，我们将准备海运提单，这是托运人与承运人之间的运输合同。请注意，自2026年起，所有出口到英国的塑料包装货物，如果属于英国包装法规的适用范围，必须包含UKCA合规声明。我们这边处理所有这些文件的准备，并将为您的海关清关准备一套完整的合规文件。整个文件准备流程通常需要3至5个工作日。您那边是否有具体的合规要求——例如木质组件的ISPM 15热处理认证或其他任何进口许可证？",
+                keyPoints: [
+                    "HS编码（3923.10.00）是海关申报的核心，必须准确",
+                    "原产地证书CO是享受FTA优惠关税的必要文件",
+                    "UKCA声明自2026年起对英国市场为强制要求",
+                    "质量检验报告（SGS/BV）可增强客户信任",
+                    "ISPM 15热处理认证针对含木质包装的出口",
+                    "完整合规文件套件通常需要3-5个工作日准备"
+                ],
+                vocabulary: [
+                    "HS Code",
+                    "commercial invoice",
+                    "packing list",
+                    "certificate of origin",
+                    "bill of lading",
+                    "UKCA compliance declaration",
+                    "ISPM 15 heat treatment",
+                    "SGS inspection",
+                    "preferential tariff rate",
+                    "customs clearance"
+                ]
+            },
+            initialAI: "Hi there. I'm Sarah from a UK logistics company. We're very interested in importing your collapsible pallet collar boxes — looks like a quality product. But to be honest, our procurement team is quite strict about compliance. Could you walk me through what documentation we need for UK customs? Specifically, what's the correct HS code, and what certificates do we need to clear UK customs? Also, we've had issues before with suppliers not providing complete documentation. How do you handle this?",
+            aiResponses: [
+                "One more thing — we also need to ship these to our distribution center in Rotterdam for a European contract. Does that change anything in terms of documentation, and can you handle both UK and EU compliance in one shipment?",
+                "What about environmental compliance? We're required to provide documentation that the plastic materials meet EU REACH regulations. Can your products meet this standard, and can you provide supporting documentation?",
+                "I've heard some Chinese suppliers charge extra for compliance documentation. What's included in your standard export service, and what would be an additional cost?"
+            ]
+        },
+
+        // ============ 第59天：危险品包装出口认证与UN标准 ============
+        {
+            day: 59,
+            title: "危险品包装出口认证与UN标准",
+            description: "学习锂电池及化工产品出口所需的危险品包装UN认证、UN38.3测试报告及危包证办理流程",
+            difficulty: 4,
+            duration: "15分钟",
+            tags: ["UN认证", "危险品包装", "UN38.3测试", "危包证"],
+            prompt: "你的美国客户需要采购一批用于锂电池运输的塑料包装箱，要求包装必须通过UN认证。请用专业英文解释UN认证体系、UN38.3测试要求以及如何办理危包证",
+            hint: {
+                answer: "Thank you for your question about UN certification for lithium battery packaging. This is a critical compliance area, and I appreciate the opportunity to explain our capabilities. Let me break this down into three key aspects. First, the UN certification framework: For transporting lithium batteries internationally, packaging must comply with the United Nations Recommendations on the Transport of Dangerous Goods, specifically Chapter 38.3, also known as UN38.3. This applies to all lithium battery shipments by air, sea, or land. Our company is UN certified to produce packaging that meets UN 4G/Y50/S/--/** specifications, where 4G indicates composite packaging, Y50 means rated for up to 50 kilograms gross weight, and S indicates inner packaging requirements. Second, UN38.3 testing requirements: Before we can certify our packaging for lithium battery transport, the battery cells and packs must undergo and pass eight UN38.3 tests — these include altitude simulation, thermal cycling, vibration, shock, short circuit, impact, forced discharge, and vibration at high temperature. The test report must be from an accredited laboratory such as TÜV, SGS, or UL. We maintain partnerships with several accredited testing facilities in China that can complete the full test battery in approximately 4 to 6 weeks. Third, the Dangerous Goods Package Certificate, also called危包证 in China: This is issued by the commodity inspection bureau and is mandatory for exporting dangerous goods packaging from China. We handle the entire application process on your behalf, including product type testing, factory assessment, and certificate issuance. The standard processing time is 5 to 7 business days. For your order, I'll need to know the specific lithium battery type — are these lithium ion cells or lithium metal batteries? And what's the瓦时额定值 (watt-hour rating)? This will determine the exact UN specification required and help us confirm whether additional regulatory approvals, such as DOT or IATA compliance, are needed for your specific destination market.",
+                translation: "感谢您提出关于锂电池包装UN认证的问题。这是一个关键的合规领域，我很感谢有机会解释我们的能力。让我将其分为三个关键方面来解释。首先，UN认证框架：对于国际运输锂电池，包装必须符合联合国《关于危险货物运输的建议书》，具体是第38.3章，也称为UN38.3。这适用于所有通过空运、海运或陆运的锂电池运输。我们公司已获得UN认证，可生产符合UN 4G/Y50/S/--/**规格的包装，其中4G表示复合包装，Y50表示额定总重最高50公斤，S表示内包装要求。其次，UN38.3测试要求：在我们能够为锂电池运输认证包装之前，电池芯和电池组必须通过并完成八项UN38.3测试——包括高度模拟、热循环、振动、冲击、短路、撞击、强制放电和高温振动。测试报告必须来自认可实验室，如TÜV、SGS或UL。我们与中国多家认可测试机构保持合作关系，可在大约4至6周内完成全部测试。第三，危险货物包装证书，在中国称为危包证：由商品检验局签发，是从中国出口危险货物包装的强制要求。我们代表您处理整个申请流程，包括产品型式测试、工厂评估和证书签发。标准处理时间为5至7个工作日。对于您的订单，我需要了解具体的锂电池类型——是锂离子电芯还是锂金属电池？以及瓦时额定值是多少？这将决定所需的确切UN规格，并帮助我们确认是否需要针对您的特定目的地市场进行额外的监管批准，如DOT或IATA合规。",
+                keyPoints: [
+                    "UN 4G/Y50/S规格解读：4G复合包装、Y50最大50kg、S内包装要求",
+                    "UN38.3八项测试：高度模拟、热循环、振动、冲击、短路、撞击、强制放电、高温振动",
+                    "危包证是出口中国危险品包装的强制证书",
+                    "认可实验室TÜV、SGS、UL的权威性",
+                    "瓦时额定值(Wh)决定具体UN规格",
+                    "DOT(美国)和IATA(空运)是额外的目的地市场认证"
+                ],
+                vocabulary: [
+                    "UN38.3 certification",
+                    "UN 4G/Y50/S specification",
+                    "lithium battery packaging",
+                    "dangerous goods package certificate (危包证)",
+                    "altitude simulation test",
+                    "thermal cycling test",
+                    "accredited testing laboratory",
+                    "watt-hour rating (Wh)",
+                    "DOT compliance",
+                    "IATA compliance"
+                ]
+            },
+            initialAI: "Hi, I'm Robert Chen from a battery manufacturer in California. We're looking for UN-certified packaging for shipping our lithium battery products to Europe and North America. Can your company provide UN-certified packaging? What certifications do you have, and what's involved in getting the UN certification? We've had issues with suppliers claiming certification but not having proper documentation.",
+            aiResponses: [
+                "That's helpful. What about the test requirements? Our batteries are 100Wh lithium ion packs. How long does the UN38.3 testing take, and can we use our existing test reports from a previous certification?",
+                "We're also shipping to customers in South Korea and Japan. Does your UN certification cover those markets too? And what's the difference between UN certification and the危包证 you mentioned?",
+                "Our procurement timeline is tight — we need to ship within 3 weeks. Can you provide pre-certified packaging with existing UN marks, or do we need to go through the full certification process for each order?"
+            ]
+        }
+    ],
+
     // 应用配置
     config: {
         dailyTime: 15,
-        totalDays: 57,
+        totalDays: 59,
         targetLanguages: ["英语"],
         supportedBrowser: ["Chrome", "Edge", "Safari", "Feishu Browser"],
         storageType: "localStorage",
