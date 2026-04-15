@@ -14,12 +14,13 @@
 // 更新：2026-4月6日 新增第40天课程（跨文化商务沟通与新兴市场开发）
 // 更新：2026年4月5日 新增第38-39天课程
 // 更新：2026年4月9日 补充第37天课程（新能源电池包装出口认证说明）
+// 更新：2026年4月15日 新增第62-63天课程（目的港查验、碳关税应对）
 
 
 const ORAL_TRAINING_COURSES = {
     appName: "塑料物流包装外贸口语训练营",
-    version: "3.9",
-    description: "59天、每天15分钟的口语对话训练，专门针对塑料物流包装外贸行业",
+    version: "4.0",
+    description: "63天、每天15分钟的口语对话训练，专门针对塑料物流包装外贸行业",
     targetAudience: "外贸业务员、销售经理、客户服务人员",
     
     courses: [
@@ -1533,13 +1534,101 @@ const ORAL_TRAINING_COURSES = {
                 "We're also shipping to customers in South Korea and Japan. Does your UN certification cover those markets too? And what's the difference between UN certification and the危包证 you mentioned?",
                 "Our procurement timeline is tight — we need to ship within 3 weeks. Can you provide pre-certified packaging with existing UN marks, or do we need to go through the full certification process for each order?"
             ]
+        },
+
+        // ============ 第61天：ESG报告与可持续包装方案沟通 ============
+        {
+            day: 61,
+            title: "ESG报告与可持续包装方案沟通",
+            description: "学习如何应对客户对ESG（环境、社会和公司治理）报告的要求，介绍可持续包装材料、回收方案及碳足迹计算",
+            difficulty: 4,
+            duration: "15分钟",
+            tags: ["ESG报告", "可持续包装", "碳足迹", "回收循环", "环保认证"],
+            prompt: "你的欧洲汽车客户要求提供ESG报告，特别是关于塑料包装的碳足迹、回收率及可持续材料使用情况。请用专业英文解释你们公司的可持续包装战略、相关认证和ESG数据",
+            hint: {
+                answer: "Thank you for your inquiry about our ESG performance and sustainable packaging strategy. This is a priority for our company, and I'm pleased to provide detailed information on our environmental, social, and governance initiatives. Starting with environmental impact, we have implemented a comprehensive carbon footprint management system for our plastic packaging products. Based on our 2025 lifecycle assessment, our HDPE collapsible pallet collar boxes have a carbon footprint of 3.2 kg CO₂e per unit, which is 28% lower than the industry average for similar products in China. This reduction is achieved through several key initiatives: first, we use 30% recycled content (post-consumer and post-industrial recycled HDPE) in all our standard products, and we can increase this to 50% for customers with specific sustainability requirements. Second, our manufacturing plant has achieved ISO 14001:2015 environmental management certification and operates on 40% renewable energy from onsite solar panels. Third, we have partnered with a closed-loop recycling scheme where customers can return used pallet collars to our regional collection centers for recycling — we provide a recycling certificate for each ton of material returned. In terms of social responsibility, all our production facilities are SA8000 certified, ensuring fair labor practices, safe working conditions, and continuous training for our workforce. We also have a community engagement program that supports plastic waste collection initiatives in local communities. For governance, we publish an annual sustainability report aligned with the Global Reporting Initiative (GRI) standards and have established an independent sustainability committee that reviews our ESG performance quarterly. For your specific needs, I can provide a customized ESG data sheet for your procurement department, including product-specific carbon footprint data, material composition breakdown, and third-party verification reports from SGS or TÜV. Would you also be interested in exploring our new bio-based plastic packaging line, which uses 20% plant-based materials and is fully compostable in industrial composting facilities?",
+                translation: "感谢您对我们ESG表现和可持续包装战略的询问。这是我们公司的优先事项，我很高兴提供关于我们环境、社会和治理举措的详细信息。从环境影响开始，我们为塑料包装产品实施了全面的碳足迹管理系统。根据我们2025年的生命周期评估，我们的HDPE折叠式围板箱每单位的碳足迹为3.2千克二氧化碳当量，比中国同类产品的行业平均水平低28%。这一减少是通过几个关键举措实现的：首先，我们在所有标准产品中使用30%的再生材料（消费后和工业后回收的HDPE），对于有特定可持续性要求的客户，我们可以将此比例提高到50%。其次，我们的制造工厂已获得ISO 14001:2015环境管理体系认证，并采用现场太阳能电池板提供的40%可再生能源运行。第三，我们与闭环回收计划合作，客户可以将使用过的围板箱返还到我们的区域收集中心进行回收——我们为每吨回收材料提供回收证书。在社会责任方面，我们所有生产设施都获得了SA8000认证，确保公平劳动实践、安全工作条件和员工持续培训。我们还有一个社区参与计划，支持当地社区的塑料废物收集行动。在治理方面，我们发布符合全球报告倡议（GRI）标准的年度可持续发展报告，并设立了独立的可持续发展委员会，每季度审查我们的ESG表现。针对您的具体需求，我可以为您的采购部门提供定制的ESG数据表，包括特定产品的碳足迹数据、材料成分分解以及来自SGS或TÜV的第三方验证报告。您是否有兴趣了解我们的新型生物基塑料包装系列，该系列使用20%的植物基材料，在工业堆肥设施中可完全堆肥？",
+                keyPoints: [
+                    "碳足迹数据具体化：3.2 kg CO₂e（比行业平均低28%）更有说服力",
+                    "再生材料比例分级：标准产品30%，可定制提升至50%",
+                    "认证体系全面：ISO 14001环境管理+SA8000社会责任",
+                    "闭环回收计划提供回收证书，增强客户参与度",
+                    "GRI标准年度报告体现治理透明度",
+                    "生物基塑料包装作为创新解决方案提供附加值"
+                ],
+                vocabulary: [
+                    "ESG (Environmental, Social, and Governance)",
+                    "carbon footprint (CO₂e)",
+                    "recycled content (post-consumer / post-industrial)",
+                    "closed-loop recycling",
+                    "ISO 14001 certification",
+                    "SA8000 certification",
+                    "Global Reporting Initiative (GRI)",
+                    "lifecycle assessment",
+                    "renewable energy",
+                    "bio-based plastics",
+                    "compostable packaging"
+                ]
+            },
+            initialAI: "Hello, I'm Anna Müller from a German automotive manufacturer. Our company has set ambitious ESG targets for 2030, and we're reviewing all our suppliers' sustainability performance. We need detailed ESG data for the plastic packaging we purchase, including carbon footprint per unit, recycled content percentage, and information about your social compliance. Can you provide this information in a format that aligns with our sustainability reporting requirements?",
+            aiResponses: [
+                { triggers: ["third-party verification", "external audit", "audit report"], response: "That's helpful. What about third-party verification? Do you have external audits of your ESG data? We need documentation that can be included in our own sustainability reports for external stakeholders." },
+                { triggers: ["end-of-life", "recycling", "take-back", "disposal"], response: "We're particularly concerned about end-of-life options. If we switch to your packaging, what happens to it after our customers use it? Do you have a take-back program, and what percentage of material is actually recycled versus landfilled?" },
+                { triggers: ["total cost of ownership", "TCO", "cost comparison", "disposal cost"], response: "Our procurement team is also evaluating the total cost of ownership, including disposal costs. Can you provide a cost comparison between your standard packaging and the higher recycled content options, including any potential recycling subsidies or credits?" }
+            ]
+        },
+
+        // ============ 第62天：目的港查验与海关清关流程应对 ============
+        {
+            day: 62,
+            title: "目的港查验与海关清关流程应对",
+            description: "学习当货物在目的港遭遇海关查验、文件不符或清关延误时，如何专业地与海外客户沟通并提供解决方案",
+            difficulty: 4,
+            duration: "15分钟",
+            tags: ["海关查验", "清关延误", "文件不符", "目的港", "应急处理"],
+            prompt: "你的英国客户通知你，他们的一批围板箱在利物浦港被海关查验，原因是HS编码申报与实际货物不符。请用专业英文向客户解释情况、提供解决方案并安抚客户情绪",
+            hint: {
+                answer: "Thank you for informing us about the customs inspection at Liverpool Port. I completely understand your concern, and I want to assure you that we are treating this matter with the highest priority. Let me explain the situation and our immediate action plan. The discrepancy appears to be related to the HS code classification — our export documentation listed 3923.10.00 for plastic pallets and pallet collars, but Liverpool customs may be interpreting your specific order configuration differently, possibly as 3923.90.00 for other plastic articles. This is a classification interpretation issue rather than a compliance violation, and it is resolvable. Here is what we are doing right now: First, our customs broker in the UK is already in contact with Liverpool Port customs to clarify the product specifications and provide additional technical documentation, including material composition certificates and product technical datasheets. Second, we are preparing a supplementary declaration that provides more detailed product descriptions to support the original HS code classification. Third, if required, we can arrange for a customs classification ruling from HMRC to definitively resolve any ambiguity. In terms of timeline, we expect to have this resolved within 48 to 72 hours. The goods are not being held for any security or safety concerns — this is purely a documentation clarification. To prevent any impact on your operations, we can also arrange expedited air freight for a small emergency batch if you have immediate production needs. I will update you every 12 hours on progress until the shipment is released. Can you confirm whether your customs broker has received any specific requests from Liverpool customs that we should prioritize in our response?",
+                translation: "感谢您通知我们关于利物浦港海关查验的情况。我完全理解您的担忧，并向您保证我们正在以最高优先级处理此事。请允许我说明情况以及我们的即时行动计划。差异似乎与HS编码分类有关——我们的出口文件将3923.10.00列为塑料托盘和围板箱，但利物浦海关可能对您的特定订单配置有不同的解读，可能将其归类为3923.90.00的其他塑料制品。这是一个分类解释问题，而非合规违规，是可以解决的。以下是我们目前正在采取的措施：首先，我们在英国的报关行已经与利物浦港海关取得联系，澄清产品规格并提供额外的技术文件，包括材料成分证书和产品技术数据表。其次，我们正在准备补充申报，提供更详细的产品描述以支持原始HS编码分类。第三，如有需要，我们可以向英国税务海关总署（HMRC）申请海关分类裁定，以最终解决任何歧义。关于时间安排，我们预计将在48至72小时内解决此问题。货物并非因任何安全或安保问题被扣留——这纯粹是文件澄清问题。为避免对您的运营造成任何影响，如果您有紧急生产需求，我们还可以安排少量紧急货物的空运。我将每12小时向您更新一次进展，直到货物放行。您能否确认您的报关行是否收到了利物浦海关提出的任何需要我们优先处理的具体要求？",
+                keyPoints: ["第一时间安抚客户情绪，表达理解和重视", "解释问题本质：HS编码解释差异，非合规违规", "三层解决方案：联系海关澄清→补充文件→申请官方裁定", "给出明确时间预期：48-72小时解决", "提供应急备选方案：空运紧急批次", "承诺定期更新：每12小时汇报进展", "主动询问客户方信息：是否有海关具体要求"],
+                vocabulary: ["customs inspection", "HS code classification", "customs broker", "supplementary declaration", "customs classification ruling", "HMRC", "documentation clarification", "material composition certificate", "expedited air freight", "emergency batch", "security or safety concerns"]
+            },
+            initialAI: "Hi Mary, this is David from Greenfield Logistics, your customer's customs broker in Liverpool. I'm afraid I have some bad news — the shipment of 500 collapsible pallet collars that arrived yesterday has been flagged for customs inspection. The issue is that customs believe the HS code 3923.10.00 on the documentation doesn't match the goods. They're suggesting it should be 3923.90.00 instead. The goods are currently being held at the port, and my client is quite anxious because they need these boxes for a production run next week. What can you do to help resolve this quickly?",
+            aiResponses: [
+                { triggers: ["documentation", "specification", "material"], response: "Thanks for the quick response. Customs have asked for additional documentation — specifically a detailed product specification sheet showing the material composition and a letter from the manufacturer confirming the intended use of the product. Can you provide these within 24 hours?" },
+                { triggers: ["cost", "duty", "who will bear", "guarantee"], response: "My client is asking about the cost implications. If customs reclassify the goods to 3923.90.00, the duty rate could be higher. Who will bear the additional duty cost if this happens? And can you guarantee the shipment will be released by Friday?" },
+                { triggers: ["certificate of origin", "bonded warehouse", "demurrage"], response: "We've received the additional documents, but customs are now asking for a certificate of origin with a specific format. Can you provide a revised certificate? Also, my client wants to know if you can arrange for the goods to be transferred to a customs bonded warehouse while we sort this out, to avoid demurrage charges at the port." }
+            ]
+        },
+
+        // ============ 第63天：碳关税应对与绿色供应链准入谈判 ============
+        {
+            day: 63,
+            title: "碳关税应对与绿色供应链准入谈判",
+            description: "学习如何应对欧盟碳边境调节机制(CBAM)等碳关税政策，向客户展示产品的低碳优势并谈判绿色供应链准入",
+            difficulty: 4,
+            duration: "15分钟",
+            tags: ["碳关税", "CBAM", "绿色供应链", "低碳优势", "准入谈判"],
+            prompt: "你的欧洲客户通知你，从2026年起欧盟将对进口塑料包装征收碳关税(CBAM)。请用专业英文向客户解释你们产品的低碳优势、碳足迹数据，以及如何帮助客户满足绿色供应链准入要求",
+            hint: {
+                answer: "Thank you for bringing this to our attention. The EU Carbon Border Adjustment Mechanism (CBAM) is indeed a significant development for our industry, and I'm pleased to share that we have been proactively preparing for this transition. Let me outline how our products can help you meet the new requirements and potentially reduce your carbon tariff exposure. First, our HDPE collapsible pallet collars have a verified carbon footprint of 3.2 kg CO₂e per unit, which is 28% below the industry benchmark of 4.4 kg CO₂e. This directly translates to lower CBAM charges for your imports. We have completed a comprehensive lifecycle assessment (LCA) according to ISO 14040/14044 standards, and the report is third-party verified by SGS. The assessment covers raw material extraction, manufacturing, transportation, use phase, and end-of-life recycling. Second, we can provide CBAM-compliant documentation including: detailed product carbon footprint declarations, supplier emission data for upstream materials, renewable energy certificates for our manufacturing process, and recycling certificates showing the circularity of our products. Third, regarding green supply chain qualification, we have already obtained the following certifications that are recognized by major European automotive and electronics manufacturers: ISO 14001 environmental management, ISO 50001 energy management, and we are in the final stages of obtaining the Cradle to Cradle Certified™ Bronze level for our standard product line. For your specific situation, I recommend we schedule a technical consultation where our sustainability team can walk you through the CBAM reporting templates and help you calculate the exact carbon cost savings of choosing our products versus standard alternatives. Based on your annual volume of 10,000 units, the carbon tariff difference could be approximately €4,800 per year in your favor. Would you like me to prepare a customized CBAM compliance package and carbon cost comparison analysis for your procurement team?",
+                translation: "感谢您提出这个问题。欧盟碳边境调节机制(CBAM)确实是我们行业的一项重大发展，我很高兴分享我们一直在积极为这一过渡做准备。请允许我概述我们的产品如何帮助您满足新要求并可能降低您的碳关税负担。首先，我们的HDPE折叠式围板箱经过验证的碳足迹为每单位3.2千克二氧化碳当量，比行业基准4.4千克低28%。这直接转化为更低的进口CBAM费用。我们已按照ISO 14040/14044标准完成了全面的生命周期评估(LCA)，报告由SGS第三方验证。评估涵盖原材料提取、制造、运输、使用阶段和报废回收。其次，我们可以提供符合CBAM要求的文件，包括：详细的产品碳足迹声明、上游材料的供应商排放数据、我们制造过程的可再生能源证书，以及显示产品循环性的回收证书。第三，关于绿色供应链资质，我们已经获得了以下被主要欧洲汽车和电子制造商认可的认证：ISO 14001环境管理、ISO 50001能源管理，并且我们的标准产品线正处于获得Cradle to Cradle Certified™铜级认证的最后阶段。针对您的具体情况，我建议我们安排一次技术咨询，我们的可持续发展团队可以带您了解CBAM报告模板，并帮助您计算选择我们产品而非标准替代品的准确碳成本节约。基于您每年10,000单位的采购量，碳关税差异可能每年为您节省约4,800欧元。您希望我为您的采购团队准备定制的CBAM合规包和碳成本对比分析吗？",
+                keyPoints: ["主动回应CBAM政策，展示 preparedness", "提供具体碳足迹数据：3.2 kg CO₂e（比行业低28%）", "生命周期评估(LCA)按ISO 14040/14044标准，第三方验证", "提供完整CBAM合规文件清单", "展示绿色供应链认证：ISO 14001、ISO 50001、Cradle to Cradle", "量化客户收益：基于年采购量计算碳关税节省", "主动提供定制化CBAM合规包"],
+                vocabulary: ["CBAM (Carbon Border Adjustment Mechanism)", "carbon footprint (kg CO₂e)", "lifecycle assessment (LCA)", "ISO 14040/14044 standards", "third-party verification", "renewable energy certificates", "Cradle to Cradle Certified", "green supply chain qualification", "carbon tariff exposure", "industry benchmark", "circularity", "upstream emissions"]
+            },
+            initialAI: "Hello, I'm Klaus Weber, Sustainability Manager at a German automotive manufacturer. With the EU Carbon Border Adjustment Mechanism (CBAM) coming into full effect in 2026, we need to assess the carbon footprint of all our imported packaging materials. We're particularly concerned about the additional costs and documentation requirements. Can you explain how your products comply with CBAM and what data you can provide for our reporting?",
+            aiResponses: [
+                { triggers: ["emission factors", "Scope 3", "broken down", "production stage"], response: "That's good to know. Our compliance team needs specific emission factors for Scope 3 reporting. Can you provide the carbon intensity per kilogram of product, broken down by production stage: raw materials, manufacturing, and transportation to EU border?" },
+                { triggers: ["renewable energy", "percentage", "certificates", "100% renewable"], response: "We're also evaluating suppliers based on their renewable energy usage. What percentage of your manufacturing energy comes from renewable sources, and do you have certificates to prove this? Additionally, can you commit to reaching 100% renewable energy by 2030?" },
+                { triggers: ["SBTi", "science-based target", "validation", "approved supplier"], response: "Our procurement policy now requires all packaging suppliers to have a validated science-based target (SBTi) for emissions reduction. Do you have SBTi validation, and if not, what's your timeline for obtaining it? This is becoming a mandatory requirement for our approved supplier list." }
+            ]
         }
     ],
 
     // 应用配置
     config: {
         dailyTime: 15,
-        totalDays: 59,
+        totalDays: 63,
         targetLanguages: ["英语"],
         supportedBrowser: ["Chrome", "Edge", "Safari", "Feishu Browser"],
         storageType: "localStorage",
