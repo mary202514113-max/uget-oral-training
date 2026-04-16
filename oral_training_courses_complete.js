@@ -14,13 +14,14 @@
 // 更新：2026-4月6日 新增第40天课程（跨文化商务沟通与新兴市场开发）
 // 更新：2026年4月5日 新增第38-39天课程
 // 更新：2026年4月9日 补充第37天课程（新能源电池包装出口认证说明）
+// 更新：2026-04-16 新增第67天课程（长期客户关系维护与复购谈判）
 // 更新：2026年4月15日 新增第62-63天课程（目的港查验、碳关税应对）
 
 
 const ORAL_TRAINING_COURSES = {
     appName: "塑料物流包装外贸口语训练营",
-    version: "4.0",
-    description: "63天、每天15分钟的口语对话训练，专门针对塑料物流包装外贸行业",
+    version: "4.1",
+    description: "67天、每天15分钟的口语对话训练，专门针对塑料物流包装外贸行业",
     targetAudience: "外贸业务员、销售经理、客户服务人员",
     
     courses: [
@@ -1643,13 +1644,160 @@ const ORAL_TRAINING_COURSES = {
                 { triggers: ["finance department", "FOB terms", "marine insurance", "insurance claim", "DAP"], response: "That makes sense. But I need to check with our finance department — in our company policy, we typically use FOB terms for all Asian purchases. If we go with DAP, would the marine insurance be included, and what happens if the goods are damaged during transit? Who files the insurance claim?" },
                 { triggers: ["partial shipments", "price adjustments", "smaller shipment", "FOB price remain"], response: "Thank you for the clarification on the FOB terms. One more question — we may need to arrange partial shipments for this order, with 1,000 units in June and 1,000 units in July. Would the FOB price remain the same for both shipments, or would there be price adjustments for the smaller shipment sizes?" }
             ]
+        },
+        {
+            day: 65,
+            title: "样品寄送流程与客户验货协调",
+            description: "学习如何与客户协调样品寄送流程，包括样品选择、物流安排、验货时间表和验货标准确认，确保样品顺利到达并通过客户检验",
+            difficulty: 3,
+            duration: "15分钟",
+            tags: ["样品管理", "物流协调", "验货标准", "快递安排", "检验流程"],
+            prompt: "欧洲客户要求尽快收到你的塑料周转箱样品进行质量检验，同时希望安排线上视频验货。请用专业英文与客户协调样品规格、发货方式、预计到达时间，以及视频验货的具体安排",
+            hint: {
+                answer: "Good morning Mr. Schneider, thank you for your prompt response regarding the sample arrangement. I'm pleased to confirm that we're moving forward with the samples as discussed. Let me walk you through the details so we're fully aligned on the timeline and expectations. For the sample set, we'll prepare three units of our 600x400x230mm standard folding crate in blue HDPE material, which matches your requested specification for the automotive parts storage application. I'll also include a complimentary sample of our anti-static variant at no extra charge, so your quality team can evaluate both options side by side. Regarding the logistics, I recommend shipping via DHL Express for the fastest delivery. Based on our experience with European shipments, the estimated transit time from Shanghai to your Hamburg office is approximately four to six business days, which means you should receive the samples by next Wednesday or Thursday at the latest. I'll share the tracking number with you as soon as the shipment is dispatched tomorrow afternoon. For the video inspection, I suggest scheduling it for the morning of next Thursday, which would give your team one full day to receive and unpack the samples. Our quality engineer will join the call to walk through each inspection point, including dimensional accuracy, load capacity demonstration, hinge durability testing, and surface finish assessment. The video call can be conducted via Zoom or Microsoft Teams, whichever platform your team prefers. I'll send you a detailed inspection checklist by email tomorrow morning so your team can prepare their evaluation criteria in advance. Could you please confirm the shipping address is still the Hamburg warehouse location, and let me know your preferred time slot for the Thursday video inspection? We're flexible between 9:00 AM and 12:00 PM CET.",
+                translation: "早上好施耐德先生，感谢您关于样品安排的及时回复。很高兴确认我们正按讨论推进样品事宜。让我详细说明各项安排，确保我们在时间表和期望上完全一致。关于样品组合，我们将准备三件600x400x230mm蓝色HDPE材质的标准折叠周转箱，符合您汽车零部件存储应用的规格要求。我还会免费附赠一件防静电变体样品，供您的质量团队对比评估两个选项。关于物流安排，我建议通过DHL Express发货以获得最快配送。根据我们往欧洲发货的经验，从上海到您汉堡办公室的预估运输时间约为四到六个工作日，这意味着您最晚应在下周三或周四收到样品。样品明天下午发出后我会立即与您分享追踪号码。关于视频验货，我建议安排在下周四上午，这样您的团队有一整天时间接收和拆包样品。我们的质量工程师将参与通话，逐一演示各检验要点，包括尺寸精度、载重能力测试、铰链耐用性测试和表面质量评估。视频通话可以通过Zoom或Microsoft Teams进行，看贵团队更倾向哪个平台。我明天上午会通过邮件发送详细的检验清单，方便贵团队提前准备评估标准。请您确认收货地址是否仍是汉堡仓库位置，并告知您对下周四视频验货的偏好时间段。我们上午9点到中午12点（中欧时间）都可以配合。",
+                keyPoints: [
+                    "明确列出样品规格（尺寸、材质、数量），避免客户期望偏差",
+                    "主动提供额外变体样品，展示产品线和专业度",
+                    "给出具体运输时间和快递方式，管理客户预期",
+                    "预判验货需求，主动提出视频验货方案",
+                    "列出具体检验项目，体现专业性和质量自信",
+                    "提供灵活时间选项，尊重客户时区和工作习惯",
+                    "提前发送检验清单，让客户感受到服务周到"
+                ],
+                vocabulary: [
+                    "sample set / sample shipment",
+                    "folding crate",
+                    "anti-static variant",
+                    "DHL Express",
+                    "transit time",
+                    "tracking number",
+                    "video inspection",
+                    "dimensional accuracy",
+                    "load capacity",
+                    "hinge durability",
+                    "surface finish",
+                    "inspection checklist",
+                    "evaluation criteria",
+                    "CET (Central European Time)"
+                ]
+            },
+            initialAI: "Good morning Mary. We've reviewed the technical drawings you sent last week and we're satisfied with the specifications. Now we'd like to move to the next step and get physical samples for evaluation. Our quality team needs to conduct load testing and drop testing before we can approve the bulk order. Could you arrange the samples as soon as possible? We're working on a tight timeline — the new warehouse project starts in June, so we need to finalize the supplier selection by mid-May. Also, is it possible to do a video call inspection before we receive the samples? We'd like to see your production facility and quality control process.",
+            aiResponses: [
+                { triggers: ["certification documents", "material safety", "load test reports", "procurement policy"], response: "That sounds like a solid plan. The Hamburg warehouse address is correct. For the video call, let's do Thursday at 10:00 AM CET — I'll send you the Zoom link. One question: do the samples come with any certification documents? Our procurement policy requires material safety certificates and load test reports for all packaging materials." },
+                { triggers: ["unit pricing", "first order", "5,000 pieces", "quality inspection"], response: "Perfect, thank you for the detailed arrangement. I appreciate you including the anti-static variant — that's actually something we're considering for our electronics division as well. Could you also share the unit pricing for a first order of 5,000 pieces if the samples pass our quality inspection?" },
+                { triggers: ["quality assurance", "sample quality", "mass production", "consistency"], response: "Great, the Thursday 10 AM CET time slot works for our entire quality team. Just one concern — we've had issues with Chinese suppliers in the past where the sample quality didn't match the bulk production quality. What kind of quality assurance mechanism do you have in place to ensure consistency between sample and mass production?" }
+            ]
+        },
+        {
+            day: 66,
+            title: "包装货物损坏索赔与售后理赔流程",
+            description: "学习当客户提出货物损坏索赔时，如何专业处理理赔流程：证据收集、责任界定、理赔金额谈判，以及在保护公司利益的同时维护长期客户关系",
+            difficulty: 3,
+            duration: "15分钟",
+            tags: ["售后理赔", "货物损坏", "保险索赔", "质量责任", "客户关系维护"],
+            prompt: "你的欧洲客户在收到货物后发现10%的折叠箱在运输过程中出现裂纹或破损，提出全额索赔要求。请用专业英文处理该理赔请求：确认损坏情况、界定责任归属、核查保险覆盖、提出合理的解决方案，同时维护长期合作关系",
+            hint: {
+                answer: "Good morning Mr. Bernard, thank you for bringing this matter to our attention and I sincerely apologize for the inconvenience this damage has caused your operations. I understand the urgency of resolving this issue and I'd like to work with you systematically to reach a fair resolution. Let me explain our standard damage claim procedure and share my initial assessment. First, regarding the claim details — you've reported that approximately 10% of the shipment, meaning about 200 units out of the 2,000 collapsible pallet collars received, show signs of cracking or breakage. I want to express my genuine concern about this, and I assure you we take quality complaints very seriously. Our quality team needs to review the evidence before we can proceed with any formal claim resolution. Could you please provide the following documentation: photographs of the damaged units clearly showing the cracks and breakage, the bill of lading number and the shipping date, photographs of the packaging condition when received, and the destination port or warehouse where the goods were received and stored? This documentation is essential because it helps us determine whether the damage occurred during transit, during unloading, or due to improper storage at the destination. Second, regarding responsibility allocation — based on our standard sales contract with CIF Hamburg terms, our responsibility as the seller ends when the goods pass the ship's rail at the port of loading in Shanghai. The marine insurance for this shipment was arranged under our CIF coverage at 110% of the goods value, with the insurance certificate number INS-2026-0847 issued by Ping An Insurance. Third, regarding our proposed resolution — regardless of the insurance outcome, we're prepared to offer a goodwill package: replacement units for all confirmed damaged pieces at no additional cost, shipped via air freight within 5-7 working days; coverage of all return logistics costs; and a root cause analysis report shared within two weeks. As a longer-term preventive measure, I recommend upgrading the packaging specification for all future shipments with double-layer cardboard corner protectors and UV-resistant reinforced stretch film, at approximately $0.35 additional cost per unit. Would this upgraded packaging option be acceptable to you? In the meantime, please send us the documentation I requested and we'll begin the formal claim assessment immediately. Our goal is to have this fully resolved within 15 working days.",
+                translation: "早上好伯纳德先生，感谢您将此问题告知我们，我对此次损坏给您运营带来的不便深表歉意。我理解解决此问题的紧迫性，希望与您系统性地合作，达成公平的解决方案。请允许我介绍我们的标准损坏索赔流程，并分享我的初步评估。首先，关于索赔详情——您报告约10%的货物，即收到的2,000件折叠式围板箱中约200件出现裂纹或破损。我们的质量团队需要审查相关证据后才能正式处理任何索赔解决方案。您能否提供以下文件：清晰显示裂纹和破损的损坏单元照片、提单号和发运日期、收货时包装状况的照片，以及货物接收和存储的目的地港口或仓库信息？这些文件至关重要，因为有助于我们确定损坏是发生在运输途中、卸货过程中，还是由于目的地存储不当所致。其次，关于责任归属——根据我们标准销售合同中CIF汉堡条款，作为卖方，我们的责任在货物在上海装运港越过船舷时终止。本批货物的海运保险已按货物价值110%投保，保险证书编号为INS-2026-0847，由平安保险承保。第三，关于我们提出的解决方案——无论保险结果如何，我们准备提供以下诚意方案：对于所有经确认的损坏件免费提供替换产品，通过空运发货，在5-7个工作日内收到；承担退货物流费用；以及在两周内分享根本原因分析报告。作为长期预防措施，我建议升级包装规格，增加双层纸板护角和抗紫外线加强型缠绕膜，每单位成本增加约0.35美元。您是否接受此升级方案？请将所需文件发送给我们，我们将立即开始正式索赔评估。我们的目标是在15个工作日内完全解决此问题。",
+                keyPoints: [
+                    "第一时间表达歉意和诚意，展示售后负责态度",
+                    "要求提供完整证据链：照片、提单、包装状况、存储环境",
+                    "引用合同条款（CIF）界定责任边界，明确海运险覆盖范围",
+                    "主动提供保险证书编号，增强可信度",
+                    "分层解决方案：替换货物 + 承担退货费用 + 根因分析报告",
+                    "从长期关系出发，提出预防性包装升级方案（+$0.35/件）",
+                    "设定明确的解决时限（15个工作日），展示执行力"
+                ],
+                vocabulary: [
+                    "damage claim / compensation claim",
+                    "cracking and breakage",
+                    "bill of lading (B/L)",
+                    "marine insurance",
+                    "responsibility allocation",
+                    "root cause analysis",
+                    "preventive measure",
+                    "goodwill package",
+                    "packing specification upgrade",
+                    "corrugated cardboard corner protector",
+                    "stretch film",
+                    "claim assessment",
+                    "documentary evidence",
+                    "return logistics cost"
+                ]
+            },
+            initialAI: "Good morning, this is Jean-Pierre Bernard, logistics manager at LogiFlex GmbH in Lyon, France. We received our order of 2,000 collapsible pallet collars last week, and I'm very disappointed to report that approximately 200 units arrived with significant cracks and breakages. This is completely unacceptable — we were counting on these units for our warehouse reconfiguration project which starts next Monday. We're demanding a full refund or complete replacement of all damaged units. This is the third time we've had quality issues with Chinese packaging suppliers and frankly, I'm losing patience. I need to know how you're going to resolve this immediately.",
+            aiResponses: [
+                { triggers: ["thermal stress cracking", "outdoors", "unloading", "forklift", "handling"], response: "I understand your frustration and I appreciate you documenting the damage so thoroughly. We've had similar issues with sea transit to European ports — the humidity and temperature variations during ocean transport can cause stress cracking in lower-quality HDPE materials. Could you tell me: were the damaged units stored outdoors at any point before use, and were they unloaded using a forklift or manual handling? This will help us determine whether the cracking was pre-existing or caused during unloading." },
+                { triggers: ["air freight", "replacement units", "500 units", "goodwill resolution"], response: "The documentation you've provided is very helpful. Based on the photos showing the crack patterns, our quality team suspects this is thermal stress cracking, which typically occurs when HDPE products are exposed to rapid temperature changes during sea transit. We're going to file a claim with our marine insurance company immediately. In the meantime, can we arrange for 500 replacement units to be air-shipped to you so you can continue with your project? The air freight cost would be approximately €1,800, which we'd cover as part of our goodwill resolution." },
+                { triggers: ["insurance", "compensation", "15% discount", "next order", "humidity indicators", "desiccant"], response: "We appreciate your patience while we completed our investigation. The insurance assessment confirmed that the damage was caused by excessive moisture inside the container during transit — a covered peril under our marine insurance. The insurance company has approved a compensation claim of €8,500. However, we want to go beyond the insurance payment and restore your confidence in our partnership. We're offering a 15% discount on your next order of 5,000 units, and we'd like to propose a new packaging specification with humidity indicators and desiccant packs for all future shipments to European destinations." }
+            ]
+        },
+        // ============ Day 67：长期客户关系维护 ============
+        // 更新：2026-04-16 追加第67天课程（长期客户关系维护与复购谈判）
+        {
+            day: 67, 
+            title: "长期客户关系维护与复购谈判",
+            description: "学习如何维护老客户关系、处理合作中的摩擦、争取复购订单，以及在长期合作中持续创造价值、巩固伙伴关系",
+            difficulty: 3, 
+            duration: "15分钟",
+            tags: ["客户关系", "复购谈判", "长期合作", "价值创造", "关系维护"],
+            prompt: "一位合作两年、年度采购额约30万美元的德国老客户表示在考虑更换供应商，理由是竞争对手价格更低。请用专业英文维护客户关系，分析竞品差距、强调服务差异化价值、提出续约优惠方案，争取保住这个核心客户",
+            hint: {
+                answer: "Good afternoon, Mr. Hoffmann. Thank you for your candor in sharing your concerns about the competitive pricing situation. I genuinely appreciate your honesty — it's exactly the kind of open communication that has made our partnership successful over the past two years. Let me address your concerns directly and share some perspective that I believe will be valuable for your decision-making process. First, regarding the pricing comparison — I understand that competitive quotes can look attractive, especially when we're talking about percentage differences that seem significant on paper. However, I want to highlight what our partnership has delivered over the past 24 months that may not be visible in a unit price comparison. We've maintained an on-time delivery rate of 98.5%, which means your production line has never experienced a packaging-related shutdown due to our supply failures. Our quality consistency has been exceptional — your quality department has reported zero major complaints since the initial sampling period 18 months ago. We've absorbed three rounds of raw material price increases without passing them on to you, saving you approximately $18,000 over the past year alone. We've proactively developed two custom color formulations and one specialized ESD variant specifically for your product line, at no additional R&D cost to you. Looking at the total cost of ownership rather than unit price, our analysis shows that clients who switch suppliers typically experience a 12-15% increase in their total procurement cost when factoring in quality issues, logistics complications, and the internal team hours spent on supplier re-qualification. To demonstrate our commitment to the long term, I'd like to propose a loyalty program specifically for our valued partners. For orders placed under our new annual framework agreement, we're offering: a 4% price reduction across all product lines, retroactively applied to this quarter's order; priority production slots guaranteeing your delivery timeline even during peak season; a dedicated account manager with direct WhatsApp access for urgent inquiries; and quarterly business reviews to proactively identify cost-saving opportunities in your packaging operations. This framework agreement would lock in these terms for 12 months, providing you with pricing stability and supply security. I believe we've built something valuable together over the past two years — a partnership based on trust, reliability, and mutual growth. I would very much like to continue building on this foundation. Would you be available for a video call next week so we can walk through the framework agreement details and address any remaining concerns you might have?",
+                translation: "下午好霍夫曼先生。感谢您坦诚分享关于竞争性定价问题的顾虑。我非常感谢您的坦诚——正是这种开放的沟通方式使我们的合作在过去两年里取得了成功。请允许我直接回应您的顾虑，并分享一些我认为对您决策过程有价值的观点。首先，关于价格比较——我理解有竞争力的报价看起来很有吸引力，尤其是当我们在谈论纸面上看起来很显著的百分比差异时。但我想强调，在过去24个月中，我们的合作所交付的价值，可能是您在单价比较中看不到的。我们的准时交货率保持在98.5%，这意味着您的生产线从未因我们的供应问题而出现与包装相关的停工。我们的质量一致性一直表现出色——自18个月前初始样品期以来，您的质量部门报告了零起重大投诉。我们已经三次主动吸收原材料价格上涨而没有将成本转嫁给您，仅在过去一年就为您节省了约18,000美元。我们主动为您的产品线开发了两种定制配色方案和一种专业防静电变体产品，且无需您承担任何研发成本。从总体拥有成本而非单价的角度来看，我们的分析表明，在将质量问题、物流复杂性和内部团队花在供应商再认证上的时间计算在内后，换供应商的客户通常会经历总体采购成本增加12-15%。为了展示我们对长期合作的承诺，我想为我们尊贵的合作伙伴推出一项忠诚客户计划。对于根据我们新版年度框架协议下达的订单，我们提供：所有产品线价格下调4%，可追溯应用于本季度订单；优先生产排期，保证您的交货时间表即使在旺季也能得到保障；专属客户经理，可通过WhatsApp直接联系处理紧急咨询；以及每季度业务回顾，主动识别包装运营中的成本节约机会。此框架协议将锁定12个月的这些条款，为您提供价格稳定和供应保障。我相信，在过去两年中，我们已经建立了一些有价值的东西——一种基于信任、可靠性和共同成长的伙伴关系。我非常希望继续在此基础上发展。下周您方便视频通话吗？我们可以详细讨论框架协议条款，并解决您可能存在的任何剩余顾虑？",
+                keyPoints: [
+                    "感谢客户坦诚——先肯定沟通态度，再处理问题",
+                    "量化过去合作成果：98.5%准时率、零投诉、$18,000成本节省",
+                    "引入TCO（总体拥有成本）概念，挑战单纯比价逻辑",
+                    "强调非价格价值：定制开发、优先级供应、专属服务",
+                    "主动提出具体续约方案，而非单纯要求客户留下",
+                    "提供年度框架协议锁定长期利益，降低客户决策风险",
+                    "以视频会议邀约结尾，推进实质性进展"
+                ],
+                vocabulary: [
+                    "candor / frankness",
+                    "competitive pricing",
+                    "on-time delivery rate",
+                    "quality consistency",
+                    "raw material price increases",
+                    "total cost of ownership (TCO)",
+                    "supplier re-qualification",
+                    "loyalty program",
+                    "annual framework agreement",
+                    "priority production slots",
+                    "dedicated account manager",
+                    "quarterly business review",
+                    "pricing stability",
+                    "supply security",
+                    "mutual growth"
+                ]
+            },
+            initialAI: "Hello Mary. I appreciate the good relationship we've built over the past two years. Your products have served us well and your service has been reliable. However, I have to be straightforward with you — we've received a quotation from a competitor in Taiwan with prices about 12% lower than yours for equivalent specifications. My procurement team is pressuring me to consider switching suppliers. I want to give you the opportunity to respond before we make any decisions. What can you offer to justify staying with your company?",
+            aiResponses: [
+                { triggers: ["logistics savings", "local warehouse", "stock program", "inventory reduction"], response: "That's a fair question. I understand the pressure from your procurement team. But let me share something that might change the calculation — we've been analyzing the total cost of ownership for our customers. Beyond the unit price, when we factor in our reliable delivery record preventing production line shutdowns, and the cost savings from not having to re-qualify a new supplier, the gap becomes much narrower. Have you calculated what a supplier switch would actually cost your organization in terms of internal resources and potential quality risks?" },
+                { triggers: ["annual volume", "50,000 units", "price reduction", "volume discount"], response: "I appreciate you giving me the opportunity to respond. Given our two-year partnership and your annual volume of approximately 50,000 units, I'd like to propose a strategic partnership program. We could offer a 5% price reduction if you commit to an annual volume target, plus priority manufacturing slots during peak season. Would that help bridge the gap with the competitor's quotation?" },
+                { triggers: ["competitor quality", "sample testing", "side-by-side comparison", "quality assurance"], response: "Thank you for being so direct, Mr. Hoffmann. I understand price is always a consideration. But before making a decision based solely on quotation numbers, I'd suggest we do a comprehensive comparison — including quality consistency data, delivery performance metrics, and response time for technical support. We've maintained a 98.5% on-time delivery rate and zero quality complaints for 18 months. Would it be helpful if I prepared a detailed partnership value report to present to your procurement team?" },
+                { triggers: ["framework agreement", "12 months", "price lock", "annual contract"], response: "I completely understand the pressure you're facing. Let me propose something concrete — we'd like to offer you an annual framework agreement with locked-in pricing and priority supply guarantees. This would protect you from market price fluctuations while ensuring you maintain our quality standards and service levels. Can I send you a draft agreement for review?" },
+                { triggers: ["payment terms", "net 60", "letter of credit", "flexibility"], response: "I appreciate the opportunity to make our case. Beyond pricing, I'd like to discuss how we can improve our partnership in other ways — for example, extending payment terms or offering flexible delivery schedules. What would be most valuable to your operations going forward?" },
+                { triggers: ["new product development", "custom solutions", "R&D", "innovation"], response: "While the competitor's quotation may look attractive on price, I'd like to remind you of the custom solutions we've developed specifically for your product line — the specialized ESD variant and custom colors were developed at our cost. A new supplier would require you to go through the entire sampling and qualification process again, which typically takes 3-4 months and involves significant internal resources." },
+                { triggers: ["meeting", "video call", "discuss further", "proposal"], response: "Thank you for giving me this opportunity, Mr. Hoffmann. I believe we can find a solution that works for both parties. Would you be available for a video call next week? I'd like to walk you through a comprehensive partnership proposal that addresses both pricing and the broader value we bring to your operations." },
+                { triggers: ["decision", "deadline", "two weeks", "competitive quotation"], response: "I understand this is a business decision and you need to show value to your stakeholders. Let me be clear about what we can offer — we can match a significant portion of the price gap if you're willing to commit to a longer-term partnership. But I need to know your timeline. How long do I have to present a competitive offer before you need to make a decision?" },
+                { triggers: ["supply chain", "lead time", "inventory buffer", "risk mitigation"], response: "Before we discuss pricing, I want to highlight something important — our supply chain stability. We've invested heavily in raw material inventory and production capacity to ensure we can meet your demands even during peak seasons. The competitor's lower price may come with longer lead times or less flexibility. How important is supply chain reliability to your operations?" },
+                { triggers: ["customer references", "other German clients", "testimonials", "satisfaction"], response: "I understand the quotation looks compelling on paper. But I'd like to suggest we look at the bigger picture. We have several long-term customers in Germany who have evaluated alternative suppliers and chosen to stay with us. Would it be helpful if I connected you with one of them to hear about their experience? Sometimes hearing from peers can provide valuable perspective." },
+                { triggers: ["final decision", "next steps", "action plan", "timeline"], response: "I appreciate your fairness in giving me this opportunity. Let me summarize what I can offer: a 4% price reduction across all product lines, priority production slots, a dedicated account manager, and quarterly business reviews — all locked in under a 12-month framework agreement. I believe this demonstrates our commitment to your success. What would you need to see to feel confident in recommending we continue our partnership?" },
+                { triggers: ["contract terms", "termination clause", "exit conditions", "commitment concerns"], response: "I understand you might have concerns about being locked into a long-term agreement. Let me clarify — the framework agreement includes reasonable exit provisions and flexibility clauses. Our goal is not to trap customers, but to build sustainable partnerships. We're confident that once you see the ongoing value we provide, you won't want to leave. But we want you to stay by choice, not by contract." },
+                { triggers: ["price match", "exactly match", "competitor price", "no difference"], response: "I want to be completely transparent with you — we cannot exactly match the competitor's price because our costs are different. However, when you factor in the total value we provide, including quality, reliability, and service, we believe we're actually the more cost-effective choice in the long run. Can I present a detailed value analysis to help you make the best decision for your company?" },
+                { triggers: ["negotiate directly", "your manager", "decision maker", "authority"], response: "I appreciate you sharing this directly with me, Mr. Hoffmann. Before we go further, I want to make sure I'm speaking with someone who has the authority to make this decision. Do you need to involve your manager or procurement committee? If so, I'd like to prepare a formal proposal package that you can present to them, including our value proposition, pricing structure, and service commitments." },
+                { triggers: ["referral", "recommendation", "recommend us", "partnership"], response: "Thank you for being so open about your situation. I believe the best thing I can do now is ask — if we can address your concerns about pricing and demonstrate our ongoing value, would you be willing to recommend continuing our partnership? Your satisfaction and success are what matter most to us. Let me put together a comprehensive proposal and set up a call next week to discuss it in detail." }
+            ]
         }
     ],
 
     // 应用配置
     config: {
         dailyTime: 15,
-        totalDays: 64,
+        totalDays: 67,
         targetLanguages: ["英语"],
         supportedBrowser: ["Chrome", "Edge", "Safari", "Feishu Browser"],
         storageType: "localStorage",
