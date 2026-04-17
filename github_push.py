@@ -89,7 +89,7 @@ def main():
         print("示例: $env:GITHUB_TOKEN='ghp_xxxxxxxxxxxx'")
         return 1
     
-    commit_message = "Sync Day 49-50 + fix Day 37 missing: 50 courses total (2026-04-09)"
+    commit_message = "Sync Day 61-62 courses + audio: 62 courses total (2026-04-15)"
     
     print(f"开始推送 {len(FILES_TO_PUSH)} 个文件到 GitHub...")
     print(f"仓库: {REPO_OWNER}/{REPO_NAME}, 分支: {BRANCH}")
