@@ -1167,9 +1167,9 @@ const ORAL_TRAINING_COURSES = {
                 "Actually, after thinking about it, we would prefer to keep the 40 damaged units for now if you can send us 40 replacements quickly. We are in the middle of a busy production period and cannot wait. And please ensure the replacements are packed with better protection this time."
             ]
         },
-        // ============ 第51天：国际展会客户开发与展会跟进 ============
+        // ============ 第60天：国际展会客户开发与展会跟进 ============
         {
-            day: 51,
+            day: 60,
             title: "国际展会客户开发与展会跟进",
             description: "学习如何在广交会、德国K展等国际展会上高效接待客户，并在展会后进行专业跟进，将展会流量转化为真实订单",
             difficulty: 4,
