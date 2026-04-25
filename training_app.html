@@ -2086,45 +2086,15 @@
                 "ISPM 15 heat treatment",
                 "SGS inspection",
                 "preferential tariff rate",
-                "customs clearance"",
-            ],
-        },
-    ],
-},
-],
-
-{
-            answer: "That's a great question, and I'm glad you raised it. Exporting plastic logistics packaging from China involves several key compliance steps. First, the most important document is the commercial invoice and packing list — these declare the value, quantity, and specifications of your shipment. For the HS code, collapsible pallet collar boxes made from high-density polyethylene typically fall under HS Code 3923.10.00. This code determines your export duty rate and any applicable regulatory requirements. You'll also need a certificate of origin, especially if you want to benefit from preferential tariff rates under any free trade agreements between China and the UK. If your buyer requires proof of quality and safety standards, we can provide a quality inspection report and material safety data sheet — we can also arrange SGS or Bureau Veritas inspection if needed. For sea freight documentation, we'll prepare a bill of lading, which is the contract of carriage between the shipper and the carrier. Please note that as of 2026, all export shipments of plastic packaging to the UK must include a UKCA compliance declaration if they are subject to UK packaging regulations. We handle all of this documentation on our end and will prepare a complete set of compliance documents for your customs clearance. The whole process typically takes 3 to 5 business days for documentation preparation. Do you have a specific compliance requirement from your side — such as ISPM 15 heat treatment certification for wooden components or any other import permits?",
-            translation: "这是个很好的问题，很高兴您提出了这一点。从中国出口塑料物流包装涉及几个关键合规步骤。首先，最重要的文件是商业发票和装箱单——这些文件用于申报货物的价值、数量和规格。关于HS编码，高密度聚乙烯制造的折叠式围板箱通常归入HS编码3923.10.00。该编码决定了您的出口税率和任何适用的监管要求。您还需要原产地证书，特别是如果您想享受中英之间的任何自由贸易协定下的优惠关税税率。如果您的买家需要质量和安全标准的证明，我们可以提供质量检验报告和材料安全数据表——如需要，我们也可以安排SGS或必维国际检验集团的检验。对于海运文件，我们将准备海运提单，这是托运人与承运人之间的运输合同。请注意，自2026年起，所有出口到英国的塑料包装货物，如果属于英国包装法规的适用范围，必须包含UKCA合规声明。我们这边处理所有这些文件的准备，并将为您的海关清关准备一套完整的合规文件。整个文件准备流程通常需要3至5个工作日。您那边是否有具体的合规要求——例如木质组件的ISPM 15热处理认证或其他任何进口许可证？",
-            keyPoints: [
-                "HS编码（3923.10.00）是海关申报的核心，必须准确",
-                "原产地证书CO是享受FTA优惠关税的必要文件",
-                "UKCA声明自2026年起对英国市场为强制要求",
-                "质量检验报告（SGS/BV）可增强客户信任",
-                "ISPM 15热处理认证针对含木质包装的出口",
-                "完整合规文件套件通常需要3-5个工作日准备"
-            ],
-            vocabulary: [
-                "HS Code",
-                "commercial invoice",
-                "packing list",
-                "certificate of origin",
-                "bill of lading",
-                "UKCA compliance declaration",
-                "ISPM 15 heat treatment",
-                "SGS inspection",
-                "preferential tariff rate",
                 "customs clearance"
             ]
         },
         ?"
-        ",
-            ],
+        ]
         },
-    ],
-},
 
-day: 59,
+        {
+        day: 59,
         title: "危险品包装出口认证与UN标准",
         description: "学习锂电池及化工产品出口所需的危险品包装UN认证、UN38.3测试报告及危包证办理流程",
         difficulty: 4,
@@ -3185,5 +3155,12 @@ day: 59,
         // ========== 启动应用 ==========
         window.addEventListener('DOMContentLoaded', init);
 
-        ];
-
+        // 导出到全局，供飞书环境调用
+        window.OralTrainingApp = {
+            exportToFeishu,
+            resetConversation,
+            getProgress: () => ({ currentDay, total: lessonsData.length, percent: Math.round((currentDay / lessonsData.length) * 100) })
+        };
+    </script>
+</body>
+</html>
