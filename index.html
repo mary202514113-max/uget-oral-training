@@ -2372,3 +2372,796 @@
             ]
         }
     ];
+
+        // ========== DOM元素 ==========
+        const chatContainer = document.getElementById('chat-container');
+        const startBtn = document.getElementById('start-btn');
+        const hintBtn = document.getElementById('hint-btn');
+        const voiceStatus = document.getElementById('voice-status');
+        const statusText = document.getElementById('status-text');
+        const inputContainer = document.getElementById('input-container');
+        const textInput = document.getElementById('text-input');
+        const sendTextBtn = document.getElementById('send-text-btn');
+        const currentDayEl = document.getElementById('current-day');
+        const totalDaysEl = document.getElementById('total-days');
+        const displayDayEl = document.getElementById('display-day');
+        const progressFill = document.getElementById('progress-fill');
+        const progressPercent = document.getElementById('progress-percent');
+        const lessonTitle = document.getElementById('lesson-title');
+        const lessonDesc = document.getElementById('lesson-description');
+        const promptContent = document.getElementById('prompt-content');
+        const promptArea = document.getElementById('prompt-area');
+        const lessonList = document.getElementById('lesson-list');
+        const hintModal = document.getElementById('hint-modal');
+        const hintContent = document.getElementById('hint-content');
+        const closeHint = document.getElementById('close-hint');
+        const practiceAgainBtn = document.getElementById('practice-again-btn');
+
+        // ========== 初始化 ==========
+        function init() {
+            loadProgress();
+            renderLessonCards();
+            setupSpeechRecognition();
+            bindEvents();
+            updateLessonDisplay();
+        }
+
+        // ========== 进度管理 ==========
+        function loadProgress() {
+            const saved = localStorage.getItem('oral_training_progress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                currentDay = Math.min(Math.max(data.currentDay || 1, 1), lessonsData.length);
+            }
+            updateProgressUI();
+        }
+
+        function saveProgress() {
+            const data = {
+                currentDay: currentDay,
+                lastUpdated: new Date().toISOString()
+            };
+            localStorage.setItem('oral_training_progress', JSON.stringify(data));
+        }
+
+        function updateProgressUI() {
+            const totalLessons = lessonsData.length;
+            currentDay = Math.min(Math.max(currentDay, 1), totalLessons);
+            currentDayEl.textContent = currentDay;
+            totalDaysEl.textContent = totalLessons;
+            displayDayEl.textContent = currentDay;
+
+            const percent = Math.round((currentDay / totalLessons) * 100);
+            progressFill.style.width = `${percent}%`;
+            progressPercent.textContent = percent;
+
+            updateLessonDisplay();
+        }
+
+        function updateLessonDisplay() {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            if (!lesson) return;
+
+            lessonTitle.textContent = lesson.title;
+            lessonDesc.textContent = lesson.description;
+            promptContent.textContent = lesson.prompt;
+
+            chatContainer.innerHTML = '';
+            addMessage('ai', lesson.initialAI, 'AI 客户代表 · Emily');
+
+            chatHistory = [
+                { role: 'ai', content: lesson.initialAI, speaker: 'AI 客户代表 · Emily' }
+            ];
+
+            updateDemoAudioArea();
+            updateTranslationPanel();
+            stopAudio();
+        }
+
+        // ========== 课程卡片渲染 ==========
+        function renderLessonCards() {
+            lessonList.innerHTML = '';
+
+            const totalLessons = lessonsData.length;
+            for (let i = 1; i <= totalLessons; i++) {
+                const lesson = lessonsData.find(l => l.day === i);
+                if (!lesson) continue;
+
+                const card = document.createElement('div');
+                card.className = `lesson-card ${i === currentDay ? 'active' : ''} ${i < currentDay ? 'completed' : ''}`;
+                card.dataset.day = i;
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-day">Day ${i}</div>
+                        <div class="card-status ${i <= currentDay ? 'status-complete' : 'status-locked'}">
+                            ${i < currentDay ? '<i class="fas fa-check-circle"></i> 已完成' :
+                              i === currentDay ? '<i class="fas fa-spinner"></i> 当前课程' :
+                              '<i class="fas fa-book-open"></i> 待学习'}
+                        </div>
+                    </div>
+                    <h3 class="card-title">${lesson.title}</h3>
+                    <p class="card-desc">${lesson.description}</p>
+                `;
+
+                card.addEventListener('click', () => {
+                    if (i !== currentDay) {
+                        currentDay = i;
+                        saveProgress();
+                        updateProgressUI();
+                        renderLessonCards();
+                        document.querySelector('.current-lesson').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+
+                lessonList.appendChild(card);
+            }
+        }
+
+        // ========== 语音识别设置 ==========
+        function setupSpeechRecognition() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.lang = 'en-US';
+                
+                recognition.onstart = () => {
+                    voiceStatus.style.display = 'flex';
+                    statusText.textContent = '🎙️ 正在聆听...请开始说英语';
+                    startBtn.innerHTML = '<i class="fas fa-stop"></i> 停止录音';
+                    startBtn.style.background = 'linear-gradient(135deg,#e53935 0%,#b71c1c 100%)';
+                    startBtn.disabled = false;
+                    isRecording = true;
+                };
+                
+                recognition.onresult = (event) => {
+                    const transcript = event.results[0][0].transcript;
+                    addMessage('user', transcript, '您的回答');
+                    setTimeout(() => { aiResponse(transcript); }, 800);
+                };
+                
+                recognition.onerror = (event) => {
+                    const errMap = {
+                        'no-speech': '未检测到说话声，请靠近麦克风后重试',
+                        'not-allowed': '麦克风权限被拒绝，请在浏览器设置中允许麦克风访问',
+                        'network': '网络错误，请检查网络连接后重试',
+                        'audio-capture': '麦克风不可用，请检查设备'
+                    };
+                    const msg = errMap[event.error] || `语音识别错误 (${event.error})，请重试`;
+                    showToast(msg, 3000);
+                    stopRecording();
+                };
+                
+                recognition.onend = () => {
+                    stopRecording();
+                };
+            } else {
+                showToast('您的浏览器不支持语音识别，请使用 Chrome 或 Edge，或使用文字输入', 4000);
+                inputContainer.classList.add('active');
+                startBtn.disabled = true;
+                startBtn.innerHTML = '<i class="fas fa-microphone-slash"></i> 不支持语音';
+            }
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            voiceStatus.style.display = 'none';
+            startBtn.innerHTML = '<i class="fas fa-microphone"></i> 开始语音对话';
+            startBtn.style.background = '';
+            startBtn.disabled = false;
+        }
+
+        // ========== 事件绑定 ==========
+        function bindEvents() {
+            // 语音按钮
+            startBtn.addEventListener('click', () => {
+                if (startBtn.disabled) return;
+                if (!recognition) setupSpeechRecognition();
+                if (!isRecording) {
+                    try {
+                        startBtn.disabled = true;
+                        startBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 启动中...';
+                        recognition.start();
+                    } catch(e) {
+                        showToast('麦克风启动失败，请刷新页面后重试');
+                        stopRecording();
+                    }
+                } else {
+                    recognition.stop();
+                }
+            });
+            
+            // 提示按钮
+            hintBtn.addEventListener('click', showHint);
+            
+            // 文字输入发送
+            sendTextBtn.addEventListener('click', () => {
+                const text = textInput.value.trim();
+                if (text) {
+                    addMessage('user', text, '您的回答');
+                    textInput.value = '';
+                    
+                    setTimeout(() => {
+                        aiResponse(text);
+                    }, 1000);
+                }
+            });
+            
+            // 回车发送
+            textInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendTextBtn.click();
+                }
+            });
+            
+            // 模态框关闭
+            closeHint.addEventListener('click', () => {
+                hintModal.style.display = 'none';
+            });
+            
+            // 再练习一次
+            practiceAgainBtn.addEventListener('click', () => {
+                hintModal.style.display = 'none';
+                resetConversation();
+            });
+            
+            // 点击模态框外部关闭
+            hintModal.addEventListener('click', (e) => {
+                if (e.target === hintModal) {
+                    hintModal.style.display = 'none';
+                }
+            });
+            
+            // ========== 翻译面板收起/展开 ==========
+            const toggleTranslation = document.getElementById('toggle-translation');
+            const translationText = document.getElementById('translation-text');
+            const translationEnglish = document.getElementById('translation-english');
+            let translationVisible = true;
+            
+            toggleTranslation.addEventListener('click', () => {
+                translationVisible = !translationVisible;
+                if (translationVisible) {
+                    translationText.style.display = 'block';
+                    translationEnglish.style.display = 'block';
+                    toggleTranslation.innerHTML = '<i class="fas fa-eye-slash"></i> 收起';
+                } else {
+                    translationText.style.display = 'none';
+                    translationEnglish.style.display = 'none';
+                    toggleTranslation.innerHTML = '<i class="fas fa-eye"></i> 展开翻译';
+                }
+            });
+
+        // ========== 口音选择 ==========
+        const accentAmerican = document.getElementById('accent-american');
+        const accentBritish = document.getElementById('accent-british');
+        
+        accentAmerican.addEventListener('click', () => {
+            if (currentAccent === 'american') return;
+            currentAccent = 'american';
+            accentAmerican.classList.add('active');
+            accentBritish.classList.remove('active');
+            // 显示反馈
+            showAccentFeedback('🇺🇸 已切换为美式英语');
+            stopAudio();
+        });
+        
+        accentBritish.addEventListener('click', () => {
+            if (currentAccent === 'british') return;
+            currentAccent = 'british';
+            accentBritish.classList.add('active');
+            accentAmerican.classList.remove('active');
+            // 显示反馈
+            showAccentFeedback('🇬🇧 已切换为英式英语');
+            stopAudio();
+        });
+            
+        // ========== 学习模式切换 ==========
+        const modeListenFirst = document.getElementById('mode-listen-first');
+        const modeDirect = document.getElementById('mode-direct');
+        const modeDesc = document.getElementById('mode-desc');
+        const demoAudioArea = document.getElementById('demo-audio-area');
+        
+        modeListenFirst.addEventListener('click', () => {
+            if (currentMode === 'listen-first') return;
+            currentMode = 'listen-first';
+            modeListenFirst.classList.add('active');
+            modeDirect.classList.remove('active');
+            modeDesc.innerHTML = '<i class="fas fa-info-circle"></i> 先听后说模式：系统会先播放示范音频，您可以跟读练习';
+            hideAudioSupportTip();
+            updateDemoAudioArea();
+        });
+        
+        modeDirect.addEventListener('click', () => {
+            if (currentMode === 'direct') return;
+            currentMode = 'direct';
+            modeDirect.classList.add('active');
+            modeListenFirst.classList.remove('active');
+            modeDesc.innerHTML = '<i class="fas fa-info-circle"></i> 直接对话模式：直接与AI客户进行口语对话练习';
+            demoAudioArea.style.display = 'none';
+            hideAudioSupportTip();
+            stopAudio();
+        });
+        
+        // ========== 示范音频控制 ==========
+        const playDemoBtn = document.getElementById('play-demo-btn');
+        const replayDemoBtn = document.getElementById('replay-demo-btn');
+        const slowDemoBtn = document.getElementById('slow-demo-btn');
+        const copyDemoBtn = document.getElementById('copy-demo-btn');
+        
+        playDemoBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                stopAudio();
+            } else {
+                playDemoAudio(1.0);
+            }
+        });
+        
+        replayDemoBtn.addEventListener('click', () => {
+            stopAudio();
+            setTimeout(() => playDemoAudio(1.0), 300);
+        });
+        
+        slowDemoBtn.addEventListener('click', () => {
+            stopAudio();
+            setTimeout(() => playDemoAudio(0.65), 300);
+        });
+
+        if (copyDemoBtn) {
+            copyDemoBtn.addEventListener('click', copyDemoText);
+        }
+    }
+        
+        // ========== 示范音频播放功能（基于预生成 MP3） ==========
+
+        function showAudioSupportTip(message) {
+            const tip = document.getElementById('audio-support-tip');
+            if (!tip) return;
+            tip.textContent = message;
+            tip.style.display = 'block';
+        }
+
+        function hideAudioSupportTip() {
+            const tip = document.getElementById('audio-support-tip');
+            if (!tip) return;
+            tip.style.display = 'none';
+        }
+
+        async function copyDemoText() {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            const demoText = lesson && lesson.hint && lesson.hint.answer ? lesson.hint.answer : '';
+            if (!demoText) {
+                showToast('当前课程暂无可复制的示范英文');
+                return;
+            }
+
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(demoText);
+                } else {
+                    const temp = document.createElement('textarea');
+                    temp.value = demoText;
+                    document.body.appendChild(temp);
+                    temp.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(temp);
+                }
+                showToast('英文示范已复制');
+            } catch (error) {
+                console.warn('复制英文失败:', error);
+                showToast('复制失败，请手动选择英文原文');
+            }
+        }
+
+        function resetDemoAudioUI() {
+            if (pendingAudioTimer) {
+                clearTimeout(pendingAudioTimer);
+                pendingAudioTimer = null;
+            }
+
+            const playingStatus = document.getElementById('playing-status');
+            const playBtn = document.getElementById('play-demo-btn');
+
+            if (playingStatus) playingStatus.style.display = 'none';
+            if (playBtn) {
+                playBtn.disabled = false;
+                playBtn.innerHTML = '<i class="fas fa-play"></i> 播放示范';
+            }
+        }
+
+        function cleanupDemoAudio(audio = currentDemoAudio) {
+            if (!audio) return;
+            audio.onplay = null;
+            audio.onended = null;
+            audio.onerror = null;
+            audio.onloadeddata = null;
+            audio.oncanplaythrough = null;
+            audio.pause();
+            audio.currentTime = 0;
+        }
+
+        function playDemoAudio(rate = 1.0) {
+            stopAudio();
+            hideAudioSupportTip();
+
+            const lesson = getLessonByDay(currentDay);
+            if (!lesson) return;
+
+            const demoText = lesson && lesson.hint && lesson.hint.answer ? lesson.hint.answer : '';
+            if (!demoText) {
+                showToast('暂无示范内容');
+                return;
+            }
+
+            const audioSource = getLessonAudioSource(lesson, currentAccent);
+            if (!audioSource) {
+                showAudioSupportTip('当前课程还没有配置示范音频，请先复制英文原文继续练习。');
+                showToast('当前课程音频未配置');
+                return;
+            }
+
+            const playBtn = document.getElementById('play-demo-btn');
+            const requestId = Date.now();
+            currentAudioRequestId = requestId;
+
+            playBtn.disabled = true;
+            playBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 音频加载中...';
+
+            const audio = new Audio(audioSource);
+            audio.preload = 'auto';
+            audio.playbackRate = rate;
+            currentDemoAudio = audio;
+
+            pendingAudioTimer = setTimeout(() => {
+                if (!isPlaying && currentAudioRequestId === requestId) {
+                    stopAudio();
+                    showAudioSupportTip('音频加载超时，请再试一次；也可以先点“复制英文原文”继续练习。');
+                    showToast('示范音频加载超时，请稍后重试');
+                }
+            }, 8000);
+
+            audio.onplay = () => {
+                if (currentAudioRequestId !== requestId) return;
+                if (pendingAudioTimer) {
+                    clearTimeout(pendingAudioTimer);
+                    pendingAudioTimer = null;
+                }
+                hideAudioSupportTip();
+                isPlaying = true;
+                document.getElementById('playing-status').style.display = 'block';
+                playBtn.disabled = false;
+                playBtn.innerHTML = '<i class="fas fa-stop"></i> 停止播放';
+            };
+
+            audio.onended = () => {
+                if (currentAudioRequestId !== requestId) return;
+                cleanupDemoAudio(audio);
+                currentDemoAudio = null;
+                currentAudioRequestId = 0;
+                isPlaying = false;
+                resetDemoAudioUI();
+            };
+
+            audio.onerror = () => {
+                if (currentAudioRequestId !== requestId) return;
+                console.warn('示范音频加载失败:', audioSource);
+                stopAudio();
+                showAudioSupportTip('示范音频加载失败，请稍后重试；也可以先复制英文原文继续练习。');
+                showToast('示范音频加载失败');
+            };
+
+            audio.onloadeddata = () => {
+                if (currentAudioRequestId !== requestId || isPlaying) return;
+                playBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 即将播放...';
+            };
+
+            const playPromise = audio.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+                playPromise.catch((error) => {
+                    if (currentAudioRequestId !== requestId) return;
+                    console.warn('示范音频启动失败:', error);
+                    stopAudio();
+                    showAudioSupportTip('当前环境拦截了音频播放，请再点一次；也可以先复制英文原文继续练习。');
+                    showToast('示范音频启动失败，请再试一次');
+                });
+            }
+        }
+        
+        function stopAudio() {
+            currentAudioRequestId = 0;
+            if (currentDemoAudio) {
+                cleanupDemoAudio(currentDemoAudio);
+                currentDemoAudio = null;
+            }
+            isPlaying = false;
+            resetDemoAudioUI();
+        }
+
+
+        // ========== 口音切换反馈提示 ==========
+        function showAccentFeedback(msg) {
+            const accentInfo = document.querySelector('.accent-selector div:last-child');
+            if (accentInfo) {
+                const orig = accentInfo.innerHTML;
+                accentInfo.innerHTML = `<i class="fas fa-check-circle" style="color:#4caf50"></i> ${msg}`;
+                setTimeout(() => { accentInfo.innerHTML = orig; }, 2000);
+            }
+        }
+
+        // ========== 通用提示 Toast ==========
+        function showToast(msg, duration = 2500) {
+            let toast = document.getElementById('toast-tip');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'toast-tip';
+                toast.style.cssText = 'position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.75);color:#fff;padding:10px 22px;border-radius:24px;font-size:14px;z-index:9999;pointer-events:none;transition:opacity 0.3s;';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = msg;
+            toast.style.opacity = '1';
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => { toast.style.opacity = '0'; }, duration);
+        }
+        
+        function updateDemoAudioArea() {
+            const demoAudioArea = document.getElementById('demo-audio-area');
+            const demoText = document.getElementById('demo-text');
+            const demoTranslation = document.getElementById('demo-translation');
+            hideAudioSupportTip();
+            
+            if (currentMode === 'listen-first') {
+                demoAudioArea.style.display = 'block';
+                
+                const lesson = getLessonByDay(currentDay);
+                if (lesson && lesson.hint) {
+                    let text = '';
+                    let translation = '';
+                    
+                    if (typeof lesson.hint === 'object' && lesson.hint !== null) {
+                        text = lesson.hint.answer || '';
+                        translation = lesson.hint.translation || '暂无翻译';
+                    } else if (typeof lesson.hint === 'string') {
+                        text = lesson.hint;
+                        translation = '暂无翻译';
+                    }
+                    
+                    demoText.textContent = text;
+                    demoTranslation.textContent = translation;
+                    preloadLessonAudio(lesson, currentAccent);
+                }
+            } else {
+                demoAudioArea.style.display = 'none';
+            }
+        }
+
+        
+        // ========== 更新翻译面板 ==========
+        function updateTranslationPanel() {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            const translationText = document.getElementById('translation-text');
+            const translationEnglish = document.getElementById('translation-english');
+            
+            if (!lesson || !lesson.hint) {
+                translationText.textContent = '暂无翻译';
+                translationEnglish.textContent = '';
+                return;
+            }
+            
+            let translation = '';
+            let english = '';
+            
+            if (typeof lesson.hint === 'object' && lesson.hint !== null) {
+                translation = lesson.hint.translation || '暂无翻译';
+                english = lesson.hint.answer || '';
+            } else {
+                translation = '暂无翻译';
+                english = lesson.hint || '';
+            }
+            
+            translationText.textContent = translation;
+            translationEnglish.innerHTML = '<span style="font-size:11px;color:#4caf50;font-weight:600;margin-right:6px;">📝 英文原文</span>' + english;
+        }
+
+        // ========== 对话功能 ==========
+        function addMessage(role, content, speaker = '') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message message-${role}`;
+            
+            messageDiv.innerHTML = `
+                ${speaker ? `<div class="message-role">${speaker}</div>` : ''}
+                <div class="message-content">${content}</div>
+            `;
+            
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            
+            // 记录历史
+            chatHistory.push({ role, content, speaker: speaker || (role === 'ai' ? 'AI 客户代表' : '您') });
+        }
+
+        function aiResponse(userInput) {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            if (!lesson) return;
+            
+            let response = '';
+            
+            // 根据当前课程和用户输入生成AI回复
+            switch(currentDay) {
+                case 1:
+                    if (userInput.toLowerCase().includes('product') || userInput.toLowerCase().includes('tell me about')) {
+                        response = "Thanks for the introduction. We specifically need plastic containers for small automotive parts. Do you have containers with dividers or compartments?";
+                    } else {
+                        response = "I'm not sure I understood. Could you tell me about your main products first?";
+                    }
+                    break;
+                case 2:
+                    if (userInput.toLowerCase().includes('h') || userInput.toLowerCase().includes('pp') || userInput.toLowerCase().includes('material')) {
+                        response = "That's helpful. Our factory has some chemical exposure in certain areas. Which of your pallets has the best chemical resistance?";
+                    } else {
+                        response = "Could you explain more about the materials you use? We need to know chemical resistance properties.";
+                    }
+                    break;
+                case 3:
+                    if (userInput.toLowerCase().includes('rack') || userInput.toLowerCase().includes('storage')) {
+                        response = "Our rack system has 2-meter high shelves. What's the maximum weight capacity for your rackable pallets?";
+                    } else {
+                        response = "We have standard European pallet racks. What type of plastic pallet works best with rack systems?";
+                    }
+                    break;
+                case 4:
+                    if (userInput.toLowerCase().includes('esd') || userInput.toLowerCase().includes('static') || userInput.toLowerCase().includes('electronic')) {
+                        response = "Good. Do your ESD-safe boxes come with certification? We need documentation for our quality system.";
+                    } else {
+                        response = "Our main concern is static electricity damaging components. Do you have anti-static options?";
+                    }
+                    break;
+                case 5:
+                    if (userInput.toLowerCase().includes('vda') || userInput.toLowerCase().includes('standard') || userInput.toLowerCase().includes('size')) {
+                        response = "We need containers for small engine parts. Do you have VDA containers with attached lids?";
+                    } else {
+                        response = "Our assembly line has specific conveyor dimensions. What standard sizes do you offer?";
+                    }
+                    break;
+                case 6:
+                    if (userInput.toLowerCase().includes('question') || userInput.toLowerCase().includes('ask') || userInput.length > 10) {
+                        response = "Let me see... We need about 500 containers, indoor use, temperature range 0-40°C. Budget is around €15,000. What can you offer?";
+                    } else {
+                        response = "Could you ask me some questions to understand our needs better?";
+                    }
+                    break;
+                case 7:
+                    if (userInput.toLowerCase().includes('budget') || userInput.toLowerCase().includes('price') || userInput.toLowerCase().includes('cost')) {
+                        response = "We're looking at about €8,000-€10,000 for the first order. Can we see some pricing?";
+                    } else {
+                        response = "Our budget is flexible depending on quality. Could you give me a price range?";
+                    }
+                    break;
+                default:
+                    response = "That's interesting. Could you tell me more?";
+            }
+            
+            setTimeout(() => {
+                addMessage('ai', response, 'AI 客户代表 · Emily');
+            }, 800);
+        }
+
+        // ========== 提示功能 ==========
+        function showHint() {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            if (!lesson) return;
+            
+            // 处理hint字段（可能是对象或字符串）
+            let answerText = '';
+            let translationText = '';
+            let keyPointsList = '';
+            let vocabularyList = '';
+            
+            if (typeof lesson.hint === 'object' && lesson.hint !== null) {
+                answerText = lesson.hint.answer || '';
+                translationText = lesson.hint.translation || '暂无翻译';
+                if (lesson.hint.keyPoints && Array.isArray(lesson.hint.keyPoints)) {
+                    keyPointsList = lesson.hint.keyPoints.map(point => `<li>${point}</li>`).join('');
+                }
+                if (lesson.hint.vocabulary && Array.isArray(lesson.hint.vocabulary)) {
+                    vocabularyList = lesson.hint.vocabulary.map(word => `<span style="display: inline-block; background: #e3f2fd; color: #1565c0; padding: 4px 10px; border-radius: 12px; margin: 3px; font-size: 13px;">${word}</span>`).join('');
+                }
+            } else {
+                answerText = lesson.hint || '';
+                translationText = '暂无翻译';
+            }
+            
+            hintContent.innerHTML = `
+                <div style="background: #f0f9eb; border-left: 4px solid #07c160; padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #1b5e20; margin-bottom: 10px;">
+                        <i class="fas fa-star"></i> 参考答案（英文）
+                    </h4>
+                    <p style="color: #2e7d32; line-height: 1.7;">${answerText}</p>
+                </div>
+                
+                <div style="background: #fff8e1; border-left: 4px solid #ff9800; padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #e65100; margin-bottom: 10px;">
+                        <i class="fas fa-globe-asia"></i> 中文翻译
+                    </h4>
+                    <p style="color: #5d4037; line-height: 1.7;">${translationText}</p>
+                </div>
+                
+                ${keyPointsList ? `
+                <div style="background: #e3f2fd; border-left: 4px solid #1976d2; padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #0d47a1; margin-bottom: 10px;">
+                        <i class="fas fa-lightbulb"></i> 学习要点
+                    </h4>
+                    <ul style="color: #1565c0; line-height: 1.7; padding-left: 20px;">
+                        ${keyPointsList}
+                    </ul>
+                </div>
+                ` : ''}
+                
+                ${vocabularyList ? `
+                <div style="background: #f3e5f5; border-left: 4px solid #7b1fa2; padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #4a148c; margin-bottom: 10px;">
+                        <i class="fas fa-book"></i> 核心词汇
+                    </h4>
+                    <div style="line-height: 1.8;">
+                        ${vocabularyList}
+                    </div>
+                </div>
+                ` : ''}
+                
+                <div style="background: #fff3e0; border-left: 4px solid #ff9800; padding: 15px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #e65100; margin-bottom: 10px;">
+                        <i class="fas fa-graduation-cap"></i> 练习建议
+                    </h4>
+                    <ol style="color: #ef6c00; line-height: 1.7; padding-left: 20px;">
+                        <li>先听示范音频，注意语调和发音</li>
+                        <li>对照中文翻译，理解句子含义</li>
+                        <li>跟读练习，模仿语音语调</li>
+                        <li>理解关键表达和专业词汇</li>
+                        <li>尝试用自己的话组织回答</li>
+                        <li>每天练习15分钟，持续积累外贸口语表达</li>
+                    </ol>
+                </div>
+            `;
+            
+            hintModal.style.display = 'flex';
+        }
+
+        function resetConversation() {
+            const lesson = lessonsData.find(l => l.day === currentDay);
+            if (!lesson) return;
+            
+            chatContainer.innerHTML = '';
+            addMessage('ai', lesson.initialAI, 'AI 客户代表 · Emily');
+            chatHistory = [
+                { role: 'ai', content: lesson.initialAI, speaker: 'AI 客户代表 · Emily' }
+            ];
+        }
+
+        // ========== 导出功能（飞书环境） ==========
+        function exportToFeishu() {
+            // 模拟飞书环境导出
+            const data = {
+                appName: "塑料物流包装外贸口语训练营",
+                version: "1.0",
+                currentDay: currentDay,
+                totalProgress: Math.round((currentDay / lessonsData.length) * 100),
+                lastPractice: new Date().toISOString()
+            };
+            
+            console.log("飞书应用数据:", data);
+            alert("已准备就绪，可作为飞书微应用部署！");
+        }
+
+        // ========== 启动应用 ==========
+        window.addEventListener('DOMContentLoaded', init);
+
+        // 导出到全局，供飞书环境调用
+        window.OralTrainingApp = {
+            exportToFeishu,
+            resetConversation,
+            getProgress: () => ({ currentDay, total: lessonsData.length, percent: Math.round((currentDay / lessonsData.length) * 100) })
+        };
+    </script>
+</body>
+</html>
