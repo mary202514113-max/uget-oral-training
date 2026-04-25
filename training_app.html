@@ -2090,11 +2090,13 @@
             ]
         },
         ?"
-        ]
+        ",
+            ],
         },
+    ],
+},
 
-        {
-        day: 59,
+day: 59,
         title: "危险品包装出口认证与UN标准",
         description: "学习锂电池及化工产品出口所需的危险品包装UN认证、UN38.3测试报告及危包证办理流程",
         difficulty: 4,
@@ -3155,7 +3157,9 @@
         // ========== 启动应用 ==========
         window.addEventListener('DOMContentLoaded', init);
 
-        // 导出到全局，供飞书环境调用
+        ];
+
+// 导出到全局，供飞书环境调用
         window.OralTrainingApp = {
             exportToFeishu,
             resetConversation,
