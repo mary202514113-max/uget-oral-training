@@ -3164,5 +3164,22 @@
         };
     
     </script>
+<script>
+(function() {
+    var banner = document.createElement('div');
+    banner.id = 'debug-banner';
+    banner.style = 'background:#f39c12;color:white;padding:8px 16px;font-size:14px;font-family:monospace;position:fixed;top:0;left:0;right:0;z-index:99999;text-align:center;';
+    banner.innerHTML = 'DEBUG: lessonsData 未定义（脚本未加载）';
+    document.body.insertBefore(banner, document.body.firstChild);
+    window.addEventListener('DOMContentLoaded', function() {
+        var total = typeof lessonsData !== 'undefined' ? lessonsData.length : 'undefined';
+        var first = typeof lessonsData !== 'undefined' && lessonsData[0] ? lessonsData[0].title : 'undefined';
+        banner.innerHTML = '<b>DEBUG:</b> lessonsData.length = <b>' + total + '</b> | 第1课: ' + first;
+        banner.style.background = total == 67 ? '#27ae60' : '#e74c3c';
+        console.log('DEBUG lessonsData.length =', total, '| 第1课 =', first);
+    });
+})();
+</script>
+
 </body>
 </html>
