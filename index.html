@@ -714,7 +714,8 @@
     <script>
         // ========== 全局变量 ==========
         let currentDay = 1;
-                let isRecording = false;
+        let lessonsData = [];
+        let isRecording = false;
         let recognition = null;
         let chatHistory = [];
         let currentMode = 'listen-first'; // 'listen-first' 或 'direct'
@@ -2370,7 +2371,46 @@
                 "mutual growth"
             ]
         }
-    ];
+    },
+    {
+        day: 68,
+        title: "处理客户投诉与质量问题",
+        description: "学习如何在接到客户投诉时保持专业、冷静，准确判断问题根源，通过有效沟通化解不满，并转化为长期信任的机会",
+        difficulty: 3,
+        duration: "15分钟",
+        tags: ["客户投诉", "质量争议", "问题解决", "专业沟通", "信任修复"],
+        prompt: "一批刚交付的法兰克福客户投诉包装破损，导致产品受损并引发投诉。请用专业英文处理这起投诉：先主动致歉并表达高度重视，再询问具体破损情况以判断责任归属（运输/包装/操作），最后提出切实可行的补偿方案，将潜在危机转化为展现服务态度的机会",
+        hint: {
+            answer: "Good morning, Ms. Schneider. This is from [Your Name] at [Company Name]. I'm calling personally about your shipment arrived today. First, I want to sincerely apologize — I can hear the frustration in your voice, and I completely understand how upsetting this situation must be, especially when you're dealing with damaged goods on your end. No customer should have to face this kind of disruption, and on behalf of our entire team, I take full responsibility for this outcome. Before we go any further, I want to make sure we fully understand what happened. Could you walk me through the specifics — starting with: approximately how many units in your shipment are affected, and are the damages visible on the outer packaging or only when the boxes are opened? This is important because it helps us determine whether this was a packaging issue on our end, a handling issue during transit, or something else entirely. I also want to check — did the shipment arrive with the original freight seal intact? We've had a small number of incidents where improper handling at the transit warehouse caused compression damage that wasn't visible until unpacking. I also want to let you know that we've already contacted our freight forwarder to file a preliminary damage report, and we're keeping all documentation ready in case we need to file a formal insurance claim. Now, while we investigate the root cause, I want to address your immediate needs right now. For the affected units, here is what I'm authorized to offer: first, we will arrange an immediate replacement shipment at our cost, express shipping, estimated to arrive within 3 to 4 business days. Second, we will issue a full credit for the damaged units on your next invoice. Third, we will conduct an internal review of our packaging specifications for your product category and upgrade the protection standard — at no additional cost to you — starting from your next order. I also want to personally ensure this doesn't happen again. I'm going to be your direct point of contact on this, and you can reach me directly via WhatsApp or email at any time. Can you send me the photos of the damaged packages and units at your earliest convenience so we can add them to our investigation file? And please know — while we're sorting out the logistics, if you need anything urgent from our side, just message me directly.",
+            translation: "早上好，施奈德女士。我是[公司名]的[你的名字]。我今天亲自打电话给您是因为收到了您关于今日到货的反馈。首先，我想真诚道歉——我能听出您声音里的沮丧，我完全理解这种情况一定让您非常烦恼，尤其是当您在处理受损货物的时候。没有任何客户应该遭受这种困扰，我代表我们整个团队为此承担全部责任。在我们继续之前，我想确保我们完全了解发生了什么。您能带我了解具体情况吗——首先：这批货大约有多少件受损，损坏是在外包装上可见还是只在打开箱子后才能发现？这很重要，因为它帮助我们判断这是我们这边的包装问题、运输过程中的搬运问题，还是完全其他原因。另外我想确认一下——货物到达时原始货运封条是否完好？我们有过少数案例，是在中转仓库处理不当造成挤压损坏，这种损坏在拆包前是不可见的。我还想告诉您，我们已经联系了货运代理并提交了初步损坏报告，所有文件都已准备好以备需要提交正式保险索赔。现在，在我们调查根本原因的同时，我想先解决您的当务之急。对于受损的产品，我可以代表公司提供以下方案：第一，我们将立即安排免费空运补货，预计3到4个工作日内到达。第二，我们将在您下一张发票上全额抵扣受损产品的款项。第三，我们将对您产品类别的包装规格进行内部审查，并从您的下一笔订单开始免费升级保护标准。我还想亲自确保这类事情不再发生。我将成为您在这件事上的直接联系人，您可以通过WhatsApp或邮件随时直接联系我。您能尽快把受损包装和产品的照片发给我吗？这样我们可以将其添加到调查档案中。请放心——在我们处理物流问题的同时，如果您需要我们这边提供任何紧急帮助，直接给我发消息就行。",
+            keyPoints: [
+                "先主动道歉+承担全责，不推卸、不辩解——态度是第一位",
+                "用提问了解细节（受损数量、包装状况、封条是否完整），收集证据链",
+                "主动告知已联系货运代理提交报告，展示主动处理态度",
+                "提供三层补偿：紧急补货+发票抵扣+包装升级",
+                "指定专属联系人，给客户吃"有人管"的定心丸",
+                "以"请发照片+随时联系我"结尾，推进后续处理",
+                "将投诉危机转化为展示服务专业度的机会"
+            ],
+            vocabulary: [
+                "sincere apology",
+                "fully responsible",
+                "outer packaging",
+                "compression damage",
+                "freight seal",
+                "freight forwarder",
+                "preliminary damage report",
+                "insurance claim",
+                "express shipping",
+                "full credit",
+                "internal review",
+                "upgrade protection standard",
+                "direct point of contact",
+                "investigation file"
+            ]
+        }
+    ]
+];
 
         // ========== DOM元素 ==========
         const chatContainer = document.getElementById('chat-container');
