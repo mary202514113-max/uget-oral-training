@@ -462,6 +462,12 @@
     <link rel="icon" href="data:,">
 </head>
 <body>
+<style>
+#debug-banner-fixed{position:fixed;top:0;left:0;right:0;z-index:99999;padding:8px 16px;font-size:13px;font-family:monospace;background:#27ae60;color:#fff;text-align:center;
+}
+</style>
+<div id="debug-banner-fixed"><b>DEBUG:</b> lessonsData.length = <b id="dbg-len">loading...</b> | <span id="dbg-first">loading...</span></div>
+
     <div class="container">
         <!-- 头部 -->
         <header class="header">
@@ -2100,6 +2106,21 @@
             }
         },
 ];
+</script>
+
+<script>
+(function(){
+var banner=document.getElementById('debug-banner-fixed');
+window.addEventListener('DOMContentLoaded',function(){
+var total=typeof lessonsData!=='undefined'?lessonsData.length:'undefined';
+var first=typeof lessonsData!=='undefined'&&lessonsData[0]?lessonsData[0].title:'undefined';
+banner.innerHTML='<b>DEBUG:</b> lessonsData.length = <b>'+total+'</b> | \u7b2c1\u8bfe: '+first;
+banner.style.background=total==57?'#27ae60':'#e74c3c';
+document.getElementById('dbg-len').textContent=total;
+document.getElementById('dbg-first').textContent=first;
+console.log('DEBUG lessonsData.length =',total,'| \u7b2c1\u8bfe =',first);
+});
+})();
 </script>
 </body>
 </html>
