@@ -1,0 +1,27 @@
+# 依赖和系统文件
+node_modules/
+
+# WorkBuddy / CodeBuddy 内部文件
+.codebuddy/
+.workbuddy/
+.temp_*.bak
+.temp_audio_backup/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 临时脚本（非核心功能）
+add_day*.py
+check_day*.py
+extract_day*.py
+generate_day*.py
+github_push.py
+git_push_via_python.py
+push_with_token.py
+test_*.html
+start_test_server.bat
+
+# Windows
+Thumbs.db
+Desktop.ini
