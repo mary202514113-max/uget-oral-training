@@ -752,7 +752,7 @@
         }
 
 
-        // ========== 30天课程数据 ==========
+        // ========== 69天课程数据 ==========
         lessonsData = [
             // ============ 第一周：产品基础知识 ============
             {
@@ -3601,27 +3601,11 @@
             ];
         }
 
-        // ========== 导出功能（飞书环境） ==========
-        function exportToFeishu() {
-            // 模拟飞书环境导出
-            const data = {
-                appName: "塑料物流包装外贸口语训练营",
-                version: "1.0",
-                currentDay: currentDay,
-                totalProgress: Math.round((currentDay / lessonsData.length) * 100),
-                lastPractice: new Date().toISOString()
-            };
-            
-            console.log("飞书应用数据:", data);
-            alert("已准备就绪，可作为飞书微应用部署！");
-        }
-
         // ========== 启动应用 ==========
         window.addEventListener('DOMContentLoaded', init);
 
-        // 导出到全局，供飞书环境调用
+        // 导出到全局
         window.OralTrainingApp = {
-            exportToFeishu,
             resetConversation,
             getProgress: () => ({ currentDay, total: lessonsData.length, percent: Math.round((currentDay / lessonsData.length) * 100) })
         };
